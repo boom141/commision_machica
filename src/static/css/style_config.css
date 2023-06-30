@@ -1,0 +1,28 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800&family=Righteous&family=Rubik:wght@700&display=swap');
+
+*{
+    font-family: 'Poppins', sans-serif;
+}
+
+:root{
+    --th-pal-1: #042C84;
+    --th-pal-2: #0086DF;
+    --th-pal-3: #10A9E2;
+    --th-pal-4: #32DEE0;
+    --th-pal-5: #80FCFC;
+    --th-pal-dark: #001A28;
+}
+
+.th-color-1{ color: var(--th-pal-1); }
+.th-color-2{ color: var(--th-pal-2); }
+.th-color-3{ color: var(--th-pal-3); }
+.th-color-4{ color: var(--th-pal-4); }
+.th-color-5{ color: var(--th-pal-5); }
+.th-color-dark{ color: var(--th-pal-dark); }
+
+.th-bg-1{ background-color: var(--th-pal-1); background-color: var(--th-pal-1);}
+.th-bg-2{ background-color: var(--th-pal-2); background-color: var(--th-pal-2);}
+.th-bg-3{ background-color: var(--th-pal-3); background-color: var(--th-pal-3);}
+.th-bg-4{ background-color: var(--th-pal-4); background-color: var(--th-pal-4);}
+.th-bg-5{ background-color: var(--th-pal-5); background-color: var(--th-pal-5);}
+.th-bg-dark{ background-color: var(--th-pal-dark); background-color: var(--th-pal-dark);}

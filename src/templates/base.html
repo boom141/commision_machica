@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{%block page_title%}{% endblock %}</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="{{url_for('static', filename='css/style_config.css')}}">
+    <link rel="stylesheet" href="{{url_for('static', filename='css/base.css')}}">
+    {% block page_style %}{% endblock %}
+
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg">
+        <div class="container-fluid m-0">
+          <a class="navbar-brand ms-4 " href="#">
+            <img width="100" height="90" src="{{url_for('static', filename='images/nav_logo.png')}}" alt="">
+          </a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ms-5">
+              <li class="nav-item">
+                <a class="fw-normal text-white nav-link" aria-current="page" href="#">Home</a>
+              </li>
+              <li class="nav-item">
+                <a class="fw-normal text-white nav-link" href="#">About us</a>
+              </li>
+              <li class="nav-item">
+                <a class="fw-normal text-white nav-link" href="#">Services</a>
+              </li>
+              <li class="nav-item">
+                <a class="fw-normal text-white nav-link">Contact us</a>
+              </li>
+            </ul>
+          </div>
+          <div class="auth-link nav-item d-flex flex-row bg-white rounded-3 me-5">
+            <a href="#" class="fw-normal th-color-1 nav-link">Log In</a>
+            <a href="#" class="fw-normal text-white nav-link">Sign In</a>
+          </div>
+        </div>
+      </nav>
+
+    {% block content %}{% endblock %}
+
+    <!-- <div class="chatbot container-fluid fixed-top border border-black border-3 d-flex flex-column row-gap-3 justify-content-end align-items-end p-3">
+        <div id="chatbot-panel" class="chatbot-panel card w-25">
+            <div class="card-header text-white">
+                <b>Machica</b> 
+            </div>
+            <div id="chat-body" class="card-body position-relative d-flex flex-column">
+                <p class="text-muted text-center card-note">
+                    Pre defined question will be answered automatically by the system.
+                    However custom questions will take some time to be answered.
+                </p>
+                <p class="rounded-3 faq-text p-1">
+                    What are your services?
+                </p>
+                <p class="rounded-3 faq-text p-1">
+                    What is your store hours?
+                </p>
+                <p class="rounded-3 faq-text p-1 d-block">
+                    What is the location of your clinic?
+                </p>
+            </div>
+        </div>
+
+        <button id="chatbot-btn" class="btn btn-success rounded-5 p-1 m-0">
+            <img width="48" height="48" id="message-icon" src="https://img.icons8.com/material-sharp/48/FFFFFF/speech-bubble-with-dots.png" alt="speech-bubble-with-dots"/>
+            <img width="48" height="48" id="close-icon"   src="https://img.icons8.com/ios-filled/50/FFFFFF/circled-chevron-down.png" alt="circled-chevron-down"/>
+        </button>
+    </div> -->
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.0/jquery.min.js" integrity="sha512-3gJwYpMe3QewGELv8k/BX9vcqhryRdzRMxVfq6ngyWXwo03GFEzjsUm8Q7RZcHPHksttq7/GFoxjCVUjkjvPdw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="{{url_for('static',filename='js/base.js')}}"></script>
+    {% block page_javascript %} {% endblock %}
+</body>
+</html>

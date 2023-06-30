@@ -1,0 +1,71 @@
+
+/* navbar */
+nav{
+    background: linear-gradient(to top,  #ffffff00, var(--th-pal-dark));
+}
+
+.auth-link a{
+    padding: .5rem;
+}
+
+.auth-link a:nth-child(even){
+    background-color: var(--th-pal-1);
+    border-radius: 6px;
+
+}
+
+
+
+/* mahica chatbot */
+
+.chatbot{
+    height: 100vh;
+    pointer-events: none;
+}
+
+.chatbot-panel{
+    height: 70vh;
+    margin-right: 3rem;
+    box-shadow: 3px 3px 10px rgba(0,0,0,035);
+    pointer-events: all;
+}
+
+.chatbot button{
+    width: auto!important;
+    pointer-events: all;
+}
+
+.card-header{
+    background-color: #198754;
+}
+.card-note{
+    font-size: small;
+}
+.card-body{
+    overflow-y: auto;
+}
+.faq-text{
+    box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.368);
+    font-size: medium;
+    float: right;
+    cursor: pointer;
+    margin-left: auto;
+}
+.system-chat-res{
+    box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.368);
+    font-size: medium;
+    float: left;
+    cursor: pointer;
+    margin-left: auto;
+}
+.user-query{
+    box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.368);
+    background-color: #198754;
+    font-size: medium;
+    float: right;
+    margin-left: auto;
+    color:white
+}
+
+
+
