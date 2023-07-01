@@ -5,10 +5,10 @@
 {% block content%}
     <div class="hero-section container-fluid">
         <div class="container">
-            <div class="slogan d-flex flex-column row-gap-2">
-                <h1 class="text-white fw-bold">Your <span class="th-color-4">smile</span> is our <span class="th-color-4">priority.</span></h1>
-                <h4 class="text-white fw-light w-50">Oral health is as important  as the rest of your body. Get check it now.</h4>
-                <button class="btn text-white th-bg-1 rounded-3 p-3 d-flex column-gap-2">
+            <div class="slogan d-flex flex-column row-gap-2 ">
+                <h1 class="fade-left text-white fw-bold">Your <span class="th-color-4">smile</span> is our <span class="th-color-4">priority.</span></h1>
+                <h4 class="fade-left text-white fw-light w-50">Oral health is as important  as the rest of your body. Get check it now.</h4>
+                <button class="fade-bottom btn text-white th-bg-1 rounded-3 p-3 d-flex column-gap-2">
                     Book Appointment <i class="bi bi-arrow-right"></i>
                 </button>
             </div>
@@ -20,19 +20,19 @@
         <div class="about-bg"></div>
         <div class="container">
             <div class="row">
-                <div class="expertise col-3 th-bg-4 rounded-3 d-flex flex-column justify-content-start row-gap-4">
+                <div class="on-left expertise col-3 th-bg-4 rounded-3 d-flex flex-column justify-content-start row-gap-4">
                     <div class="p-1 border border-2 border-white">
                         <img class="bg-white p-2" width="70" height="70" src="https://img.icons8.com/ios-filled/100/32DEE0/medical-doctor.png" alt="medical-doctor"/>
                     </div>    
                     <h3 class="text-white fw-normal w-25 ms-2">Certified Professionals.</h3>
                 </div>
-                <div class="expertise col-3 th-bg-3 rounded-3 d-flex flex-column justify-content-start row-gap-4">
+                <div class="on-left expertise col-3 th-bg-3 rounded-3 d-flex flex-column justify-content-start row-gap-4">
                     <div class="p-1 border border-2 border-white">
                         <img class="bg-white p-2" width="70" height="70" src="https://img.icons8.com/ios-filled/50/10A9E2/circuit.png" alt="medical-doctor"/>
                     </div>    
                     <h3 class="text-white fw-normal w-25 ms-2">Mordern Technology.</h3>
                 </div>
-                <div class="col-6 p-2 d-flex flex-column justify-content-end">
+                <div class="on-right col-6 p-2 d-flex flex-column justify-content-end">
                     <h1 class="th-color-2 ms-3 w-75 ">Here’s What We </h1>
                     <div class="d-flex column-gap-3">
                         <h1 class="th-color-2 ms-3 ">bring.</h1>
@@ -43,13 +43,13 @@
                 </div>
             </div>
             <div class="row">
-                <div class="expertise col-3 th-bg-2 rounded-3 d-flex flex-column justify-content-start row-gap-4">
+                <div class="on-left expertise col-3 th-bg-2 rounded-3 d-flex flex-column justify-content-start row-gap-4">
                     <div class="p-1 border border-2 border-white">
                         <img class="bg-white p-2" width="70" height="70" src="https://img.icons8.com/ios-filled/50/0086DF/task.png" alt="medical-doctor"/>
                     </div>    
                     <h3 class="text-white fw-normal w-75 ms-2">Variety of Services.</h3>
                 </div>
-                <div class="about-img position-relative col-9 rounded-3 d-flex flex-column justify-content-end">
+                <div class="on-bottom about-img position-relative col-9 rounded-3 d-flex flex-column justify-content-end">
                     <h1 class="text-white w-75 px-3 fw-bold">Quality Services is What We Provide.</h1>
                     <p class="text-white w-100 px-3 fw-light fs-3 d-flex flex-row ">
                         Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod 
@@ -60,6 +60,36 @@
             </div>
         </div>
     </div>
+
+    <div class="agenda-section container-fluid d-flex flex-row justify-content-around p-5">
+        <div class="vision d-flex flex-row column-gap-3 ">
+            <img width="50" height="50" src="https://img.icons8.com/material-sharp/96/FFFFFF/vision.png" alt="vision"/>
+            <span class="bg-white"></span>
+            <div class="a-content">
+                <h1 class="text-white fw-bold">Organization's Vision.</h1>
+                <p class="text-white fw-lighter fs-4">
+                    Lorem, ipsum dolor sit amet consectetur adipisicing elit.
+                    Odit itaque animi magni eius enim eos a incidunt dignissimos
+                    obcaecati ipsam sed, hic ipsa dolorem nobis! Sunt, ut esse
+                    error nobis voluptates alias?
+                </p>
+            </div>
+        </div>
+
+        <div class="vision d-flex flex-row column-gap-3 ">
+            <img width="50" height="50" src="https://img.icons8.com/ios-filled/100/FFFFFF/goal--v1.png" alt="vision"/>
+            <span class="bg-white"></span>
+            <div class="a-content">
+                <h1 class="text-white fw-bold">Organization's Mission.</h1>
+                <p class="text-white fw-lighter fs-4">
+                    Lorem, ipsum dolor sit amet consectetur adipisicing elit.
+                    Odit itaque animi magni eius enim eos a incidunt dignissimos
+                    obcaecati ipsam sed, hic ipsa dolorem nobis! Sunt, ut esse
+                    error nobis voluptates alias?
+                </p>
+            </div>
+        </div>
+    </div>
 {% endblock %}
 
-{% block page_javascript %}{% endblock %}
+{% block page_javascript %} <script src="{{url_for('static',filename='js/landing.js')}}"></script> {% endblock %}

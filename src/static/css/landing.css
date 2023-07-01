@@ -23,11 +23,11 @@
     height: 14rem!important;
     width: 15rem!important;
     padding: 1rem 1rem;
-    transition: var(--th-transition)
+    transition: var(--th-transition)!important;
 }
 
 .expertise:hover{
-    transform: scale(1.02);
+    transform: scale(1.02)!important;
 }
 
 .expertise div{
@@ -41,7 +41,7 @@
 
 .about-section{
     position: relative;
-    margin-top: 7rem;
+    margin-top: 10rem;
 }
 
 .about-bg{
@@ -85,4 +85,32 @@
 .about-img .expandable {
     margin-bottom: 3%;
     margin-left: 25.5%;
+}
+
+.agenda-section{
+    background-image: linear-gradient(-45deg,#042d84ce, rgba(4, 45, 132, 0.75)), url(https://images.pexels.com/photos/7787977/pexels-photo-7787977.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2);
+    background-size: cover;
+    background-position: center;
+    height: 70vh;
+    margin-top: 10rem;
+}
+
+.agenda-section p{
+    width: 22rem;
+}
+
+.agenda-section span{
+    width: 20px;
+    height: 50px;
+    position: relative;
+}
+
+
+.agenda-section span::after{
+    background-color: rgb(255, 255, 255);
+    content: " ";
+    position: absolute;
+    transform: translateX(15px);
+    width: 5px;
+    height: 23rem;
 }

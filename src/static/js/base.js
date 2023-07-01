@@ -15,6 +15,3 @@ $("#chatbot-btn").click(()=>{
     }
 })
 
-document.getElementById("chatbot").onmouseenter = (e) =>{
-    console.log(e)
-}
