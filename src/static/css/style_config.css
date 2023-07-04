@@ -11,7 +11,7 @@
     --th-pal-4: #32DEE0;
     --th-pal-5: #80FCFC;
     --th-pal-dark: #001A28;
-    --th-transition: .4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    --th-transition: .4s cubic-bezier(0.175, 0.885, 0.32, 1.275)!important;
 }
 
 .th-color-1{ color: var(--th-pal-1); }
@@ -30,15 +30,13 @@
 
 .b-shadow { box-shadow: 0px .5rem 2px rgba(0, 0, 0, 0.395); }
 
-.btn{ transition: var(--th-transition)!important; }
+.btn{ transition: var(--th-transition); background-color: var(--th-pal-1)!important; border: none;}
 
 .btn:hover{
     background-color: var(--th-pal-1);
     transform: scale(0.98)!important; 
 }
 
-
-/* on scroll fade animation */
 
 .fade-bottom{ 
     animation: fade-bottom 1.2s both;

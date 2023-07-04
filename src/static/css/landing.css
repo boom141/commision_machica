@@ -92,7 +92,7 @@
     background-image: linear-gradient(-45deg,#042d84ce, rgba(4, 45, 132, 0.75)), url(https://images.pexels.com/photos/7787977/pexels-photo-7787977.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2);
     background-size: cover;
     background-position: center;
-    height: 70vh;
+    height: 80vh;
     margin-top: 10rem;
 }
 
@@ -118,7 +118,7 @@
 
 
 .service-section{
-    margin-top: 15rem;
+    margin-top: 20rem;
 }
 
 .model{
