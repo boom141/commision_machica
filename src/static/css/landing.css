@@ -3,8 +3,8 @@
     background-image: linear-gradient(rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0.75)), url(https://images.unsplash.com/photo-1598256989800-fe5f95da9787?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=870&q=80);
     background-size: cover;
     background-position: center;
-    height: 90vh;
     margin-top: -7.5rem;
+    padding-bottom: 10rem!important;
 }
 
 .slogan{
@@ -43,6 +43,7 @@
 .about-section{
     position: relative;
     margin-top: 10rem;
+    /* max-height: 70vh; */
 }
 
 .about-bg{
@@ -70,7 +71,9 @@
     background-image: linear-gradient(to bottom ,rgba(255, 255, 255, 0), #042d8499), url(https://images.pexels.com/photos/5355918/pexels-photo-5355918.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2);
     background-size: cover;
     background-position: center;
-    height: 50vh;
+    padding: 1rem 1rem;
+    max-width:70%!important;
+    overflow: hidden;
 }
 
 .expandable{
@@ -80,12 +83,12 @@
 }
 
 .about-img:hover .expandable{
-    width: 35rem;
+    width: 40rem;
 }
 
 .about-img .expandable {
     margin-bottom: 3%;
-    margin-left: 25.5%;
+    margin-left: 30%;
 }
 
 .agenda-section{
