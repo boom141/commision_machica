@@ -1,19 +1,28 @@
 
 /* navbar */
 nav{
-    background: linear-gradient(to top,  #ffffff00, var(--th-pal-dark));
+    background-color: var(--th-pal-dark);
+}
+
+.navbar-nav{
+    margin-left: 14.3rem;
+}
+
+.nav-item{
+    margin-left: 3rem;
 }
 
 .auth-link a{
     padding: .5rem;
 }
 
+
+
 .auth-link a:nth-child(even){
     background-color: var(--th-pal-1);
     border-radius: 6px;
 
 }
-
 
 
 /* mahica chatbot */

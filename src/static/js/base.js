@@ -1,3 +1,15 @@
+
+const navbar = document.querySelector('nav')
+
+window.onscroll = function() {
+    if (window.pageYOffset > 0) {
+      navbar.classList.add("moving")
+    } else {
+      navbar.classList.remove("moving");
+    }
+}
+
+
 let chatbot_switch = false
 $("#chatbot-panel").hide()
 $("#close-icon").hide()
