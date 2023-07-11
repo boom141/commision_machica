@@ -4,16 +4,16 @@
     background-size: cover;
     background-position: center;
     margin-top: -7.5rem;
-    padding-bottom: 10rem!important;
+    padding-bottom: 11.5rem!important;
 }
 
 .slogan{
-    padding-top: 14rem;
+    padding-top: 15rem;
     padding-left: 3rem;
 }
 
 .slogan h1{
-    font-size: 3rem!important;
+    font-size: 3.5rem!important;
 }
 
 .slogan button{
@@ -50,7 +50,7 @@
     background: linear-gradient(to bottom, rgba(20, 154, 203, 0.57), #E2FAFB)!important;
     position: absolute;
     width: 100%;
-    height: 65vh;
+    height: 399px;
     z-index: -1;
     left: 0rem;
     top: 10%;
@@ -95,9 +95,10 @@
     background-image: linear-gradient(-45deg,#042d84ce, rgba(4, 45, 132, 0.75)), url(https://images.pexels.com/photos/7787977/pexels-photo-7787977.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2);
     background-size: cover;
     background-position: center;
-    height: 80vh;
+    height: 500px;
     margin-top: 10rem;
 }
+
 
 .agenda-section p{
     width: 22rem;
@@ -116,12 +117,12 @@
     position: absolute;
     transform: translateX(15px);
     width: 5px;
-    height: 23rem;
+    height: 25rem;
 }
 
 
 .service-section{
-    margin-top: 20rem;
+    margin-top: 15rem;
 }
 
 .model{
