@@ -4,6 +4,10 @@ nav{
     background-color: var(--th-pal-dark);
 }
 
+.navbar .container-fluid{
+    max-width: 1400px;
+}
+
 .navbar-nav{
     margin-left: 14.3rem;
 }
@@ -77,4 +81,23 @@ nav{
 }
 
 
+.footer-section{
+    margin-top: 10rem;
+}
 
+.footer-section h3{
+    border-bottom: 2px solid white;
+    width: fit-content;
+    margin-top: 5rem;
+}
+
+.modal-content{
+    width: 200%;
+    margin-top: 7rem;
+    margin-left: -15.5rem;
+}
+
+.img-fluid2{
+    height:46.35rem;
+    margin-top: 4rem;
+}

@@ -1,0 +1,48 @@
+
+.service-container{
+    padding: 3rem 3rem;
+}
+
+.service-container h1{
+    font-size: 6rem;
+    color: var(--th-pal-1);
+    border-bottom: 3px solid var(--th-pal-1)
+}
+
+
+
+.swiper {
+    width: 1000px;
+    height: 500px;
+}
+
+.swiper-button-prev,
+.swiper-button-next{
+background-color: rgba(201, 201, 201, 0.556);
+padding: 2rem 2rem;
+border-radius: 505%;
+}
+
+.card-title, 
+.card-text{
+text-align: center;
+}
+
+.card-body{
+display: flex;
+flex-direction: column;
+justify-content: center;
+}
+
+.card-body button{
+justify-content: center;
+}
+
+.multistep-form{
+    width: 60%;
+    border: 2px solid black;
+}
+
+.transaction-form{
+    display: flex;
+}

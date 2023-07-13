@@ -37,6 +37,9 @@
     transform: scale(0.98)!important; 
 }
 
+.fas{
+    color: var(--th-pal-2);
+}
 
 .fade-bottom{ 
     animation: fade-bottom 1.2s both;
