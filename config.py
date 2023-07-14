@@ -10,4 +10,6 @@ class Config:
     FLASK_DEBUG = os.getenv('FLASK_DEBUG')
     SECRET_KEY = os.getenv('SECRET_KEY')
     SERVER = os.getenv('SERVER')
-    SQLALCHEMY_DATABASE_URI = os.getenv('SQLALCHEMY_DATABASE_URI')
+    OTP_PASSKEY = os.getenv('OTP_PASSKEY')
+    MONGODB_URI = os.getenv('MONGODB_URI')
+

@@ -13,39 +13,50 @@
   
                   <p class="text-center h1 fw-bold mb-5 mt-4 th-color-1">Create An Account</p>
   
-                  <form class="mx-1 mx-md-4">
+                  <form class="mx-1 mx-md-4" >
   
                     <div class="d-flex flex-row align-items-center mb-4">
                       <i class="fas fa-user fa-lg me-3 fa-fw"></i>
                       <div class="form-outline flex-fill mb-0">
-                        <input type="text" id="form3Example1c"  name="fullname" placeholder="Enter Full Name" class="form-control" />
+                        <input type="text"  name="fullname" placeholder="Enter Full Name" class="user-information form-control" />
                       </div>
                     </div>
   
                     <div class="d-flex flex-row align-items-center mb-4">
                       <i class="fas fa-envelope fa-lg me-3 fa-fw"></i>
                       <div class="form-outline flex-fill mb-0">
-                        <input type="email" id="form3Example3c"  name="email" placeholder="Enter Email" class="form-control" />
+                        <input type="email"   name="email" placeholder="Enter Email" class="user-information form-control" />
                       </div>
                     </div>
   
                     <div class="d-flex flex-row align-items-center mb-4">
                       <i class="fas fa-lock fa-lg me-3 fa-fw"></i>
                       <div class="form-outline flex-fill mb-0">
-                        <input type="password" id="form3Example4c"  name="password" placeholder="Enter Password" class="form-control" />
+                        <input type="password"  name="password" placeholder="Enter Password" class="user-information form-control" />
                       </div>
                     </div>
   
                     <div class="d-flex flex-row align-items-center mb-4">
                       <i class="fas fa-key fa-lg me-3 fa-fw"></i>
                       <div class="form-outline flex-fill mb-0">
-                        <input type="password" id="form3Example4cd" name="repeat-pass" placeholder="Confirm Password" class="form-control" />
+                        <input type="password"  name="repeat-pass" placeholder="Confirm Password" class="user-information form-control" />
                       </div>
                     </div>
-  
-                    <div class="d-flex justify-content-start mx-4 mb-3 mb-lg-4">
-                      <button type="button" class="btn btn-primary btn-lg w-100">Register</button>
-                    </div>
+                    
+                    {% with messages = get_flashed_messages(with_categories=true) %}
+                      {% if messages %}
+                        {% for category, message in messages %}
+                         <div class="alert alert-{{category}}" role="alert">
+                            {{message}}
+                          </div>
+                        {% endfor %}
+                      {% endif %}
+                    {% endwith %}
+
+                    <button id="generate-otp" class="btn btn-primary btn-lg w-100 d-flex justify-content-around align-items-center">
+                      Register
+                      <div id="register-spinner" class="spinner-border " role="status"></div> 
+                    </button>
   
                   </form>
   
@@ -63,4 +74,28 @@
       </div>
     </div>
   </section>
+
+  <div class="modal fade" id="otpModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content otp-content">
+        <div class="modal-header">
+          <img width="110" height="50" src="{{url_for('static', filename='images/nav_logo.png')}}" alt="">
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body d-flex justify-content-center">
+          <div class="otp-card">
+            <h5 class="m-0">Email Verification</h5><span class="mobile-text text-center">Enter the code we just send on your email address <b class="th-color-1">+91 86684833</b></span>
+            <div class="d-flex flex-row mt-5">
+              <input type="text" name="otp" class="pin form-control" autofocus="">
+            </div>
+            <!-- <div class="text-center mt-3"><span class="d-block mobile-text">Don't receive the code?</span><span class="font-weight-bold th-color-2 cursor">Resend</span></div> -->
+        </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-primary">Verify</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
 {% endblock %}

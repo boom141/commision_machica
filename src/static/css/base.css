@@ -101,3 +101,41 @@ nav{
     height:46.35rem;
     margin-top: 4rem;
 }
+
+.otp-card {
+    width: 350px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+  }
+  
+  
+  .mobile-text {
+    color: #989696b8;
+    font-size: 15px;
+  }
+  
+  .pin {
+    margin-right: 12px;
+    text-align: center;
+    border: 2px solid lightgray;
+  }
+  
+  .pin:focus {
+    color: #495057;
+    background-color: #fff;
+    border: 2px solid var(--th-pal-1);
+    outline: 0;
+    box-shadow: none;
+  }
+  
+  .cursor {
+    cursor: pointer;
+
+  }.otp-content{
+    width: 100%;
+    margin-top: 7rem;
+    margin-left: 0;
+}
