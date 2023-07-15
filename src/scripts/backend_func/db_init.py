@@ -1,4 +1,4 @@
-import pymongo
+import pymongo, secrets
 from pymongo import MongoClient
 from config import Config
 from  werkzeug.security import generate_password_hash
@@ -28,4 +28,25 @@ class mongoDb:
             return True
         except Exception as e: 
             return e
+        
+    @classmethod
+    def AddBooking(cls,fullname,phone,email,date,time,POA,PRP,message):
+        new_booking = {
 
+            'fullname':fullname,
+            'phone':phone,
+            'email':email,
+            'date':date,
+            'time':time,
+            'POA':POA,
+            'PRP':PRP,
+            'message':message,
+            'reference_code':secrets.token_hex(8)
+
+        }
+
+        try:
+            cls.machica_bookings.insert_one(new_booking)
+            return True
+        except Exception as e: 
+            return e

@@ -17,7 +17,7 @@
 <body>
     <nav class="navbar navbar-expand-lg p-3 sticky-top b-shadow d-flex justify-content-center">
         <div class="container-fluid m-0">
-          <a class="navbar-brand ms-4 " href="#">
+          <a class="navbar-brand ms-4 " href="{{url_for('views.landing')}}">
             <img width="110" height="50" src="{{url_for('static', filename='images/nav_logo.png')}}" alt="">
           </a>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -26,99 +26,41 @@
           <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav">
               <li class="nav-item">
-                <a class="fw-normal text-white nav-link" aria-current="page" href="#">Home</a>
+                <a class="fw-normal text-white nav-link" aria-current="page" href="{{url_for('views.landing')}}">Home</a>
               </li>
               <li class="nav-item">
                 <a class="fw-normal text-white nav-link" href="#">About us</a>
               </li>
               <li class="nav-item">
-                <a class="fw-normal text-white nav-link" href="#">Services</a>
+                <a class="fw-normal text-white nav-link" href="{{url_for('views.services')}}">Services</a>
               </li>
             </ul>
           </div>
-          <div class="auth-link nav-item d-flex flex-row bg-white rounded-3 me-5">
+          <div class="auth-link nav-item flex-row bg-white rounded-3 me-5">
 
               <div id="online-mode" class="online-mode dropdown">
-                  <button id="logout-btn" class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                  <button id="profile-btn" class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
                     dropdown
                   </button>
                   <ul class="dropdown-menu">
-                    <li id="logout">
-                      <a class="dropdown-item"  href="{{url_for('views.landing')}}"> 
+                    <li>
+                      <h6 id="logout-btn" class="dropdown-item"> 
                         <i class="bi bi-box-arrow-left"></i> 
                         Logout
-                      </a>
+                      </h6>
                     </li>
                   </ul>
               </div>     
               
-              <div id="guest-mode" class="guest-mode d-flex flex-row">
-                <button type="button" class="fw-normal th-color-1 nav-link" data-bs-toggle="modal" data-bs-target="#exampleModal">
-                  Log In
-                </button>
-                <a href="#" class="fw-normal text-white nav-link">Sign In</a>
+              <div id="guest-mode" class="guest-mode flex-row">
+                <a href="{{url_for('auth.login')}}" class="fw-normal th-color-1 nav-link">Log In</a>
+                <a href="{{url_for('auth.register')}}" class="fw-normal text-white nav-link">Sign In</a>
               </div>
           </div>
         </div>
       </nav>
 
-      <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog">
-          <div class="modal-content">
-            <div class="modal-header">
-              <img width="110" height="50" src="{{url_for('static', filename='images/nav_logo.png')}}" alt="">
-              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div class="modal-body p-5">
-                <div class="container-fluid h-custom">
-                    <div class="row d-flex justify-content-center align-items-center h-100">
-                      <div class="col-md-9 col-lg-6 col-xl-5">
-                        <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-login-form/draw2.webp"
-                          class="img-fluid" alt="Sample image">
-                      </div>
-                      <div class="col-md-8 col-lg-6 col-xl-4 offset-xl-1">
-                        <form method="post">
-                            <!-- Email input -->
-                            <h3 class="fw-bold fs-4  mb-4 th-color-1 text-start">Welcome Back</h3>
-                            <div class="d-flex flex-row align-items-center mb-4">
-                                <i class="fas fa-envelope fa-lg me-3 fa-fw"></i>
-                                <div class="form-outline flex-fill mb-0">
-                                  <input type="email" id="form3Example3c"  name="email" placeholder="Enter Email" class="form-control" />
-                                </div>
-                            </div>
-            
-                            <div class="d-flex flex-row align-items-center mb-4">
-                                <i class="fas fa-lock fa-lg me-3 fa-fw"></i>
-                                <div class="form-outline flex-fill mb-0">
-                                  <input type="password" id="form3Example4c"  name="password" placeholder="Enter Password" class="form-control" />
-                                </div>
-                            </div>
-
-                              {% with messages = get_flashed_messages(with_categories=true) %}
-                                {% if messages %}
-                                  {% for category, message in messages %}
-                                  <div class="alert alert-{{category}}" role="alert">
-                                      {{message}}
-                                    </div>
-                                  {% endfor %}
-                                {% endif %}
-                              {% endwith %}
-
-                            <div class="text-center text-lg-start mt-4 pt-2">
-                                <button type="submit" class="btn btn-primary btn-lg"
-                                style="padding-left: 2.5rem; padding-right: 2.5rem;">Login</button>
-                                <p class="small fw-bold mt-2 pt-1 mb-0">Don't have an account? <a href="#!"
-                                    class="th-color-2">Register</a></p>
-                            </div>
-                        </form>
-                      </div>
-                    </div>
-                </div>
-            </div>
-          </div>
-        </div>
-      </div>
-
+      
     {% block content %}{% endblock %}
 
     <!-- <div class="chatbot container-fluid fixed-top border border-black border-3 d-flex flex-column row-gap-3 justify-content-end align-items-end p-3">
@@ -174,16 +116,13 @@
           <div class="col-3 d-flex flex-column">
               <h3 class="text-white fw-medium text-center"><span class="th-color-1">Quick</span> Links</h3>
               <h5>
-                  <a href="#" class="text-white fw-light text-decoration-none"><i class="bi bi-house"></i> Home</a>
+                  <a href="{{url_for('views.landing')}}" class="text-white fw-light text-decoration-none"><i class="bi bi-house"></i> Home</a>
               </h5>
               <h5>
                   <a href="#" class="text-white fw-light text-decoration-none"><i class="bi bi-building"></i> About us</a>
               </h5>
               <h5>
-                  <a href="#" class="text-white fw-light text-decoration-none"><i class="bi bi-list-task"></i> Service</a>
-              </h5>
-              <h5>
-                  <a href="#" class="text-white fw-light text-decoration-none"><i class="bi bi-info-circle"></i> Contact us</a>
+                  <a href="{{url_for('views.services')}}" class="text-white fw-light text-decoration-none"><i class="bi bi-list-task"></i> Service</a>
               </h5>
           </div>
           <div class="col-3 d-flex flex-column">

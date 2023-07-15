@@ -1,5 +1,7 @@
 {%extends "base.html"%}
 {%block title%}Machica Dental Clinic{%endblock%}
+{%block page_style%}<link rel="stylesheet" href="{{url_for('static', filename='css/auth.css')}}">{%endblock%}
+
 
 {% block content%}
     <div class="container h-100 ">
@@ -97,3 +99,5 @@
   </div>
 
 {% endblock %}
+
+{% block page_javascript %} <script src="{{url_for('static',filename='js/auth.js')}}"></script> {% endblock %}

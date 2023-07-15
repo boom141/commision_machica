@@ -38,11 +38,6 @@ justify-content: center;
 justify-content: center;
 }
 
-.multistep-form{
-    width: 60%;
-    border: 2px solid black;
-}
-
 .transaction-form{
     display: flex;
 }

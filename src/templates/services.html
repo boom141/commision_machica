@@ -114,23 +114,21 @@
                             </div>
                             <form method="post" action="">
                                 <div class="row g-3">
+                                    <div class="col-md-12">
+                                        <input type="text" class="inputs form-control" name="fullname" placeholder="First Name" required>
+                                    </div>
+
                                     <div class="col-md-6">
-                                        <input type="text" class="form-control" name="first-name" placeholder="First Name" required>
+                                        <input type="tel" class="inputs form-control" name="phone" placeholder="Phone Number#" required>
                                     </div>
                                     <div class="col-md-6">
-                                        <input type="text" class="form-control" name="last-name" placeholder="Last Name" required>
+                                        <input type="email" class="inputs form-control" name="email" placeholder="Email" required>
                                     </div>
                                     <div class="col-md-6">
-                                        <input type="tel" class="form-control" name="phone-number" placeholder="Phone Number#" required>
+                                        <input type="date" class="inputs form-control" name="date" placeholder="Enter date" required>
                                     </div>
                                     <div class="col-md-6">
-                                        <input type="email" class="form-control" name="email" placeholder="Email" required>
-                                    </div>
-                                    <div class="col-md-6">
-                                        <input type="date" class="form-control" name="date" placeholder="Enter date" required>
-                                    </div>
-                                    <div class="col-md-6">
-                                        <select class="form-select" name = "time" required>
+                                        <select class="inputs form-select" name = "time" required>
                                             <option selected>Select time</option>
                                             <option value="time 1">time 1</option>
                                             <option value="time 2">time 2</option>
@@ -138,7 +136,7 @@
                                         </select>
                                     </div>
                                     <div class="col-12">
-                                        <select class="form-select" name = "POA" required>
+                                        <select class="inputs form-select" name = "POA" required>
                                             <option selected>Purpose Of Appointment</option>
                                             <option value="Service 1">Service 1</option>
                                             <option value="Service 2">Service 2</option>
@@ -149,7 +147,7 @@
                                         </select>
                                     </div>
                                     <div class="col-12">
-                                        <select class="form-select" name = "PRP" required>
+                                        <select class="inputs form-select" name = "PRP" required>
                                             <option selected>Addtional Product</option>
                                             <option value="item 1">Item 1</option>
                                             <option value="item 2">Item 2</option>
@@ -157,7 +155,7 @@
                                         </select>
                                     </div>
                                     <div class="col-12">
-                                        <textarea class="form-control" name="message" placeholder="Message"></textarea>
+                                        <textarea class="inputs form-control" name="message" placeholder="Message"></textarea>
                                     </div>
                                 </div>
                             </form>
@@ -167,7 +165,7 @@
             </div>
             <div class="modal-footer">
               <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-              <button type="button" class="btn btn-primary">Chekout</button>
+              <button type="button" id="create-checkout" class="btn btn-primary">Chekout</button>
             </div>
           </div>
         </div>
