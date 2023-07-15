@@ -139,3 +139,7 @@ nav{
     margin-top: 7rem;
     margin-left: 0;
 }
+
+.online-mode{
+    display: none;
+}

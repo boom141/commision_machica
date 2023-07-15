@@ -2,18 +2,17 @@
 {%block title%}Machica Dental Clinic{%endblock%}
 
 {% block content%}
-<section class="vh-100" style="background-color: #eee;">
-    <div class="container h-100">
+    <div class="container h-100 ">
       <div class="row d-flex justify-content-center align-items- h-100">
         <div class="col-lg-12 col-xl-11">
-          <div class="card text-black mt-5" style="border-radius: 25px;">
+          <div class="card text-black mt-5 b-shadow" style="border-radius: 25px; ">
             <div class="card-body p-md-5">
               <div class="row justify-content-center">
                 <div class="col-md-10 col-lg-6 col-xl-5 order-2 order-lg-1">
   
                   <p class="text-center h1 fw-bold mb-5 mt-4 th-color-1">Create An Account</p>
   
-                  <form class="mx-1 mx-md-4" >
+                  <form class="mx-1 mx-md-4">
   
                     <div class="d-flex flex-row align-items-center mb-4">
                       <i class="fas fa-user fa-lg me-3 fa-fw"></i>
@@ -39,7 +38,7 @@
                     <div class="d-flex flex-row align-items-center mb-4">
                       <i class="fas fa-key fa-lg me-3 fa-fw"></i>
                       <div class="form-outline flex-fill mb-0">
-                        <input type="password"  name="repeat-pass" placeholder="Confirm Password" class="user-information form-control" />
+                        <input type="password"  name="r-password" placeholder="Confirm Password" class="user-information form-control" />
                       </div>
                     </div>
                     
@@ -53,9 +52,9 @@
                       {% endif %}
                     {% endwith %}
 
-                    <button id="generate-otp" class="btn btn-primary btn-lg w-100 d-flex justify-content-around align-items-center">
+                    <button type="button" id="generate-otp" class="btn btn-primary btn-lg w-100 d-flex justify-content-around align-items-center">
                       Register
-                      <div id="register-spinner" class="spinner-border " role="status"></div> 
+                      <!-- <div id="register-spinner" class="spinner-border " role="status"></div>  -->
                     </button>
   
                   </form>
@@ -73,7 +72,6 @@
         </div>
       </div>
     </div>
-  </section>
 
   <div class="modal fade" id="otpModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog">
@@ -84,15 +82,15 @@
         </div>
         <div class="modal-body d-flex justify-content-center">
           <div class="otp-card">
-            <h5 class="m-0">Email Verification</h5><span class="mobile-text text-center">Enter the code we just send on your email address <b class="th-color-1">+91 86684833</b></span>
+            <h5 class="m-0">Email Verification</h5><span class="mobile-text text-center">Enter the code we just send on your email address <b id="target-email" class="th-color-1">+91 86684833</b></span>
             <div class="d-flex flex-row mt-5">
-              <input type="text" name="otp" class="pin form-control" autofocus="">
+              <input type="text" id="otp" name="otp" class="pin form-control" autofocus="">
             </div>
-            <!-- <div class="text-center mt-3"><span class="d-block mobile-text">Don't receive the code?</span><span class="font-weight-bold th-color-2 cursor">Resend</span></div> -->
+            <div class="text-center mt-3"><span class="d-block mobile-text">Don't receive the code?</span><span id="resend-otp" class="font-weight-bold th-color-2 cursor">Resend</span></div>
         </div>
         </div>
         <div class="modal-footer">
-          <button type="button" class="btn btn-primary">Verify</button>
+          <button type="button" id="verify-otp" class="btn btn-primary">Verify</button>
         </div>
       </div>
     </div>
