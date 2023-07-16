@@ -12,8 +12,13 @@ nav{
     margin-left: 14.3rem;
 }
 
-.nav-item{
+.nav-item,.auth-link{
     margin-left: 3rem;
+}
+
+.nav-item a{
+    transition: var(--th-transition);
+    border-bottom: 2px solid var(--th-pal-dark)
 }
 
 .auth-link a{
@@ -21,12 +26,21 @@ nav{
 }
 
 
-
 .auth-link a:nth-child(even){
     background-color: var(--th-pal-1);
     border-radius: 6px;
 
 }
+
+.nav-item a:hover{
+    border-bottom: 2px solid white !important;
+}
+
+.link-active {
+    border: 2px solid white!important;
+    border-radius: 10px;
+}
+
 
 
 /* mahica chatbot */

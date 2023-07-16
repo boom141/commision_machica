@@ -10,6 +10,10 @@ def landing():
     return render_template('landing.html')
 
 
+@views.route('/about')
+def about():
+    return render_template('about.html')
+
 @views.route('/services', methods=['POST','GET'])
 def services():
     if request.method == 'POST':

@@ -34,6 +34,8 @@ class requestPayment:
             "authorization": "Basic cGstWjBPU3pMdkljT0kyVUl2RGhkVEdWVmZSU1NlaUdTdG5jZXF3VUU3bjBBaDo="
         }
 
-        response = requests.post(url, json=payload, headers=headers)
-
-        return response.json()
+        try:
+            response = requests.post(url, json=payload, headers=headers)
+            return response.json()
+        except Exception as e:
+            return e

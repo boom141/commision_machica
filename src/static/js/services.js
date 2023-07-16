@@ -20,44 +20,60 @@ const EndpointRequest = async (url,payload) =>{
 const create_checkout = document.getElementById('create-checkout');
 
 create_checkout.onclick = () =>{
-  
-  create_checkout.innerText = 'Creating Checkout...';
+  if (user != null){
+    create_checkout.innerText = 'Creating Checkout...';
 
-  let booking_inputs = 
-  {
-        fullname: inputs[0].value,
-        phone:inputs[1].value,
-        email:inputs[2].value,
-        date:inputs[3].value,
-        time:inputs[4].value,
-        POA:inputs[5].value,
-        PRP:inputs[6].value,
-        message:inputs[7].value
-  } 
-
-  let payload = 
-  {
-    method: "POST",
-    headers:
+    let booking_inputs = 
     {
-        "Content-Type": "application/json"
-    },
-    body: JSON.stringify(booking_inputs)
-  };
+          fullname: inputs[0].value,
+          phone:inputs[1].value,
+          email:inputs[2].value,
+          date:inputs[3].value,
+          time:inputs[4].value,
+          POA:inputs[5].value,
+          PRP:inputs[6].value,
+          message:inputs[7].value
+    } 
+
+    let payload = 
+    {
+      method: "POST",
+      headers:
+      {
+          "Content-Type": "application/json"
+      },
+      body: JSON.stringify(booking_inputs)
+    };
 
 
-  EndpointRequest(window.location.href,payload)
-  .then(json => {
-      if (json.status != 401){
+    EndpointRequest(window.location.href,payload)
+    .then(json => {
+        if (json.status != 401){
+            create_checkout.innerText = 'Checkout';
+            alert(JSON.stringify('Redirecting To Checkout'));
+            window.location = json.data.redirectUrl
+        }{
           create_checkout.innerText = 'Checkout';
-          alert(JSON.stringify('Redirecting To Checkout'));
-          window.location = json.data.redirectUrl
+          alert('Something went wrong');
+          window.location.reload();
+        }
       }
-    }
-  )
-  .catch(error => console.log(error));
-
+    )
+    .catch(error => console.log(error));
+  }else{
+    window.location = window.origin = '/login';
+  }
 }
+
+const booking_button = document.querySelectorAll('.service-btn');
+booking_button.forEach(elem =>{
+  elem.onclick = (e) =>{
+    inputs[5].value = e.target.offsetParent.childNodes[3].childNodes[1].innerText
+  }
+})
+
+
+
 
 
 const swiper = new Swiper('.swiper', {
@@ -83,5 +99,4 @@ const swiper = new Swiper('.swiper', {
   },
   
 });
-
 

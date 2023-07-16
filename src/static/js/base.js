@@ -16,6 +16,21 @@ document.getElementById('logout-btn').onclick = () =>{
 
 
 const navbar = document.querySelector('nav')
+const navlinks = document.querySelectorAll('.nav-item')
+
+
+switch(window.location.href){
+  case window.origin + '/':
+    navlinks[0].children[0].classList.add('link-active');
+    break;
+  case window.origin + '/about':
+    navlinks[1].children[0].classList.add('link-active');
+    break;
+  case window.origin + '/services':
+    navlinks[2].children[0].classList.add('link-active');
+    break;
+}
+
 
 window.onscroll = function() {
     if (window.pageYOffset > 0) {
@@ -24,6 +39,36 @@ window.onscroll = function() {
       navbar.classList.remove("moving");
     }
 }
+
+
+
+const observer = new IntersectionObserver((entries, observer) =>{
+  entries.forEach(entry =>{
+      if(entry.isIntersecting){
+          if(entry.target.classList.contains('left'))
+          {
+              entry.target.classList.add('fade-left')
+          }
+          if(entry.target.classList.contains('right'))
+          {
+              entry.target.classList.add('fade-right')
+          }
+          if(entry.target.classList.contains('bottom'))
+          {
+              entry.target.classList.add('fade-bottom')
+          }
+
+      }else{
+          entry.target.classList.remove('fade-left')
+          entry.target.classList.remove('fade-right')
+          entry.target.classList.remove('fade-bottom')
+      }
+  })
+})
+
+const on_scroll_animation = document.querySelectorAll('.animated')
+on_scroll_animation.forEach(element => observer.observe(element))
+
 
 
 let chatbot_switch = false

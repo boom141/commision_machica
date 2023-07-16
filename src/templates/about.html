@@ -1,0 +1,38 @@
+{%extends "base.html"%}
+{%block title%}Machica Dental Clinic{%endblock%}
+{%block page_style%}<link rel="stylesheet" href="{{url_for('static', filename='css/about.css')}}">{%endblock%}
+
+{% block content%}
+    
+    <div class="container about">
+        <div class="row">
+            <div class="col-md-6 animated left">
+                <img width="500" height="500" src="{{url_for('static', filename='images/about_logo.png')}}" alt="">
+            </div>
+            <div class="col-md-6 animated right">
+                <h6 class="fw-normal th-color-2">About us</h6>
+                <h1 class="fw-bold th-color-1 w-100">WE ARE DENTAL PROFESSIONALS WITH HIGH QUALITY DENTAL SERVICES.</h1>
+                <p class="fw-light">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quae rerum sapiente natus 
+                    consequuntur rem et repudiandae tenetur distinctio recusandae? Est?
+                </p>
+                <div class="vision d-flex flex-row column-gap-2">
+                    <img class="th-bg-2 p-1 rounded-3" width="50" height="50" src="https://img.icons8.com/material-sharp/96/FFFFFF/vision.png" alt="vision"/>
+                    <div class="d-flex flex-column">
+                        <h4 class="fw-bold th-color-1">Organization's Vision</h4>
+                        <p class="fw-light">Lorem ipsum dolor sit amet consectetur adipisicing elit. Laudantium, nam!</p>
+                    </div>
+                </div>
+                <div class="vision d-flex flex-row column-gap-2">
+                    <img class="th-bg-2 p-1 rounded-3" width="50" height="50" src="https://img.icons8.com/ios-filled/100/FFFFFF/goal--v1.png" alt="vision"/>
+                    <div class="d-flex flex-column">
+                        <h4 class="fw-bold th-color-1">Organization's Mission</h4>
+                        <p class="fw-light">Lorem ipsum dolor sit amet consectetur adipisicing elit. Laudantium, nam!</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}
+
+{% block page_javascript %} <script src=""></script> {% endblock %}
