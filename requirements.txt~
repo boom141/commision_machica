@@ -1,0 +1,11 @@
+dnspython==1.16.0
+Flask==2.2.2
+Flask-Cors==3.0.10
+itsdangerous==2.1.2
+Jinja2==3.1.2
+pip==23.0.1
+pymongo==3.12.0
+python-dotenv==0.21.0
+requests==2.29.0
+Werkzeug==2.2.2
+
