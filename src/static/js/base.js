@@ -1,4 +1,7 @@
 user = JSON.parse(sessionStorage.getItem('user'));
+chatbot_data = []
+
+sessionStorage.setItem('chatbot_Data',JSON.stringify(chatbot_data));
 
 window.onload = () =>{
   if (user != null){
@@ -89,13 +92,31 @@ $("#chatbot-btn").click(()=>{
 })
 
 
+
+
+
 const send_btn = document.getElementById('send-btn');
 const message_body = document.getElementById('message-body');
 const input_query = document.getElementById('input-query');
 
 const week = ['Sun','Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
 
+
+const createMessageItem = (data) =>{
+  return `<div class="user-message d-flex flex-row">
+            <img width="50" height="50" class="rounded-5" src="https://img.icons8.com/bubbles/50/user.png" alt="user"/>
+            <p class="th-bg-dark rounded-3">
+              <span class="fw-lighter text-white">${data.day}, ${data.time}</span><br>
+              <span class="fw-normal text-white">
+                ${data.message}
+              </span>
+            </p>
+          </div>`
+}
+
+
 send_btn.onclick = () =>{
+
     if(input_query.value){
       let date = new Date()
       let time = date.toLocaleString('en-US',{
@@ -104,17 +125,15 @@ send_btn.onclick = () =>{
         hour12: true
       })
 
-      let day = week[date.getDay()]
+      let inquiry_data = 
+      {
+        time: time,
+        day: week[date.getDay()],
+        message: input_query.value
+      }
 
-      message_body.innerHTML += `<div class="user-message d-flex flex-row">
-                                    <img width="50" height="50" class="rounded-5" src="https://img.icons8.com/bubbles/50/user.png" alt="user"/>
-                                    <p class="th-bg-dark rounded-3">
-                                      <span class="fw-lighter text-white">${day}, ${time}</span><br>
-                                      <span class="fw-normal text-white">
-                                        ${input_query.value}
-                                      </span>
-                                    </p>
-                                  </div>`
+      message_body.innerHTML += createMessageItem(inquiry_data)
+
     }
 
 }
