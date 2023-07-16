@@ -63,33 +63,41 @@
       
     {% block content %}{% endblock %}
 
-    <!-- <div class="chatbot container-fluid fixed-top border border-black border-3 d-flex flex-column row-gap-3 justify-content-end align-items-end p-3">
+    <div class="chatbot container-fluid fixed-top border border-black border-3 d-flex flex-column row-gap-3 justify-content-end align-items-end p-3">
         <div id="chatbot-panel" class="chatbot-panel card w-25">
-            <div class="card-header text-white">
-                <b>Machica</b> 
+            <div class="card-header text-white d-flex justify-content-center">
+              <div class="admins d-flex flex-column row-gap-1 align-items-center justify-content-center">
+                <div class="d-flex flex-row">
+                  <img class="rounded-5 p-1 th-bg-dark" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Machica" width="50" height="50" 
+                  src="https://images.pexels.com/photos/4687163/pexels-photo-4687163.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"/>
+                  
+                  <img class="rounded-5 p-1 th-bg-dark admin-img" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Machica" width="50" height="50" 
+                  src="https://images.pexels.com/photos/4269490/pexels-photo-4269490.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"/>
+                </div>
+                <p class="fw-normal"> Got Questions? Chat with the Admins.</p>
+                <div class="admin-status d-flex flex-row column-gap-1">
+                  <span></span>
+                  <p class="fw-light"> Typically replies under a minute</p>
+                </div>
+              </div>
             </div>
-            <div id="chat-body" class="card-body position-relative d-flex flex-column">
-                <p class="text-muted text-center card-note">
-                    Pre defined question will be answered automatically by the system.
-                    However custom questions will take some time to be answered.
-                </p>
-                <p class="rounded-3 faq-text p-1">
-                    What are your services?
-                </p>
-                <p class="rounded-3 faq-text p-1">
-                    What is your store hours?
-                </p>
-                <p class="rounded-3 faq-text p-1 d-block">
-                    What is the location of your clinic?
-                </p>
+
+            <div id="message-body" class="card-body  d-flex flex-column justify-content-end">
+              
             </div>
+           
+            <div class="card-footer d-flex flex-row column-gap-1">
+                <input type="text" id="input-query" class="form-control" name="question" placeholder="Ask a Question..">
+                <img id="send-btn" class="send-btn" width="40" height="40" src="https://img.icons8.com/material-rounded/48/001A28/sent.png" alt="sent"/>
+            </div>
+
         </div>
 
-        <button id="chatbot-btn" class="btn btn-success rounded-5 p-1 m-0">
+        <button id="chatbot-btn" class="btn  rounded-5 p-1 m-0">
             <img width="48" height="48" id="message-icon" src="https://img.icons8.com/material-sharp/48/FFFFFF/speech-bubble-with-dots.png" alt="speech-bubble-with-dots"/>
             <img width="48" height="48" id="close-icon"   src="https://img.icons8.com/ios-filled/50/FFFFFF/circled-chevron-down.png" alt="circled-chevron-down"/>
         </button>
-    </div> -->
+    </div>
 
 
     <div class="footer-section container-fluid th-bg-dark p-4">

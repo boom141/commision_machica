@@ -89,3 +89,32 @@ $("#chatbot-btn").click(()=>{
 })
 
 
+const send_btn = document.getElementById('send-btn');
+const message_body = document.getElementById('message-body');
+const input_query = document.getElementById('input-query');
+
+const week = ['Sun','Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
+
+send_btn.onclick = () =>{
+    if(input_query.value){
+      let date = new Date()
+      let time = date.toLocaleString('en-US',{
+        hour: 'numeric',
+        minute: 'numeric',
+        hour12: true
+      })
+
+      let day = week[date.getDay()]
+
+      message_body.innerHTML += `<div class="user-message d-flex flex-row">
+                                    <img width="50" height="50" class="rounded-5" src="https://img.icons8.com/bubbles/50/user.png" alt="user"/>
+                                    <p class="th-bg-dark rounded-3">
+                                      <span class="fw-lighter text-white">${day}, ${time}</span><br>
+                                      <span class="fw-normal text-white">
+                                        ${input_query.value}
+                                      </span>
+                                    </p>
+                                  </div>`
+    }
+
+}
