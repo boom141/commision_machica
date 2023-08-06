@@ -15,37 +15,47 @@ const EndpointRequest = async (url,payload) =>{
 };
 
 
-login_btn.onclick = () =>{
-    login_btn.innerText = 'Logging In...'
+try{
+    login_btn.onclick = () =>{
+      login_btn.innerText = 'Logging In...'
 
-    let user_inputs =
-    {
-        email: login_form[0].value,
-        password: login_form[1].value
-    }
-
-    let payload = 
-    {
-      method: "POST",
-      headers:
+      let user_inputs =
       {
-          "Content-Type": "application/json"
-      },
-      body: JSON.stringify(user_inputs)
-    };
-
-    EndpointRequest(window.location.href, payload)
-    .then(data => {
-        if (data.status != 401){
-            sessionStorage.setItem('user',JSON.stringify(data))
-            login_btn.innerText = 'Login Complete!'
-            window.location = window.origin
-        }else{
-          window.location.reload()
-        };
+          email: login_form[0].value,
+          password: login_form[1].value
       }
-    )
+
+      let payload = 
+      {
+        method: "POST",
+        headers:
+        {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify(user_inputs)
+      };
+
+      EndpointRequest(window.location.href, payload)
+      .then(data => {
+          if (data.status != 401){
+            if (data.url){
+              window.location = data.url;
+            }else{
+              sessionStorage.setItem('user',JSON.stringify(data))
+              login_btn.innerText = 'Login Complete!'
+              window.location = window.origin
+            }
+          }else{
+            window.location.reload()
+          };
+        }
+      )
+  }
+}catch(e){
+  console.log(e)
 }
+
+
 
 
 
@@ -57,6 +67,7 @@ generate_otp.onclick = () =>{
     
 
     generate_otp.innerText = 'Generating OTP...';
+    
   
     let payload = 
     {

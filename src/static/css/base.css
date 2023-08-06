@@ -8,13 +8,15 @@ nav{
     max-width: 1400px;
 }
 
-.navbar-nav{
+/* .navbar-nav{
     margin-left: 14.3rem;
 }
 
 .nav-item,.auth-link{
     margin-left: 3rem;
-}
+} */
+
+
 
 .nav-item a{
     transition: var(--th-transition);
