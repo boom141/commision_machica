@@ -14,7 +14,7 @@ def login():
 
         if session_user:
             if session_user['email'] == 'admin01@sampleEmail.com':
-                return {'status': 200, 'url': 'https://machica-main-3loeo7lhr-boom141.vercel.app/admin/login'}
+                return {'status': 200, 'url': 'https://machica-main-khjddutzz-boom141.vercel.app/admin/login'}
 
             elif check_password_hash(session_user['password'], data['password']):
                 return {'status': 200, 'data': {'fullname': session_user['fullname'], 'email': session_user['email']}}
