@@ -61,10 +61,6 @@ const observer = new IntersectionObserver((entries, observer) =>{
               entry.target.classList.add('fade-bottom')
           }
 
-      }else{
-          entry.target.classList.remove('fade-left')
-          entry.target.classList.remove('fade-right')
-          entry.target.classList.remove('fade-bottom')
       }
   })
 })
