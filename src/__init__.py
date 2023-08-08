@@ -17,8 +17,10 @@ def create_app():
     with app.app_context():
         from src.scripts.flask.views import views
         from src.scripts.flask.auth import auth
+        from src.scripts.flask.core_func import core
 
         app.register_blueprint(views, url_prefix='/')
         app.register_blueprint(auth, url_prefix='/')
+        app.register_blueprint(core, url_prefix='/')
 
         return app

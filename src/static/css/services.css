@@ -1,43 +1,84 @@
 
-.service-container{
-    padding: 3rem 3rem;
+
+.service-calendar{
+    width: 70%;
+    overflow: hidden;
 }
 
-.service-container h1{
-    font-size: 6rem;
-    color: var(--th-pal-1);
-    border-bottom: 3px solid var(--th-pal-1)
-}
+  .calendar {
+    height: max-content;
+    width: max-content;
+    overflow: hidden;
+  }
 
+  .main-calendar{
+    width: max-content;
+  }
 
+  .event-container{
+    background: linear-gradient(130deg,#32DEE0,#10A9E2);
+    height: 30rem;
+  }
 
-.swiper {
-    width: 1000px;
-    height: 500px;
-}
+  .current-day span{
+    font-size: 8rem;
+  }
 
-.swiper-button-prev,
-.swiper-button-next{
-background-color: rgba(201, 201, 201, 0.556);
-padding: 2rem 2rem;
-border-radius: 505%;
-}
+  .current-day span:nth-child(2){
+    margin-top: -1rem;
+    font-size: 2rem;
+  }
 
-.card-title, 
-.card-text{
-text-align: center;
-}
+  .calendar-week-days {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    font-weight: 600;
+    color:rgb(104, 104, 104);
+  }
+  .calendar-week-days div {
+    display: grid;
+    place-items: center;
+    color: var(--bg-second);
+    height: 50px;
+  }
+  .calendar-days {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 2px;
+    color: var(--color-txt);
+  }
 
-.card-body{
-display: flex;
-flex-direction: column;
-justify-content: center;
-}
-
-.card-body button{
-justify-content: center;
-}
-
-.transaction-form{
+  .calendar-days div {
+    width: 4rem;
+    height: 4rem;
     display: flex;
-}
+    align-items: center;
+    justify-content: center;
+    font-size: 2rem;
+    cursor: pointer;
+    transition: var(--th-transition);
+  }
+ 
+  .calendar-days div:hover {
+    background-color: rgba(213, 213, 213, 0.537);
+  }
+ 
+
+  .current-day{
+    background-color: var(--th-pal-3)!important;
+    color: white!important;
+    border-radius: 5px;
+  }
+
+  .selected-day{
+    background-color: var(--th-pal-2)!important;
+    color: white!important;
+    border-radius: 5px;
+  }
+
+  .full-slot{
+    background-color: var(--th-pal-1)!important;
+    color: white!important;
+    border-radius: 5px;
+    pointer-events: none!important;
+  }

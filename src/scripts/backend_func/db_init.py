@@ -30,23 +30,24 @@ class mongoDb:
             return e
         
     @classmethod
-    def AddBooking(cls,fullname,phone,email,date,time,POA,PRP,message):
+    def AddBooking(cls,data):
         new_booking = {
 
-            'fullname':fullname,
-            'phone':phone,
-            'email':email,
-            'date':date,
-            'time':time,
-            'POA':POA,
-            'PRP':PRP,
-            'message':message,
-            'reference_code':secrets.token_hex(8)
-
+            'fullname': data['fullname'],
+            'email': data['email'],
+            'phone': data['phone'],
+            'date': data['date'],
+            'time': data['time'],
+            'item_name': data['item_name'],
+            'description': data['description'],
+            'amount': data['amount'],
+            'message': data['message'],
+            'reference_code': secrets.token_hex(8)
         }
 
         try:
             cls.machica_bookings.insert_one(new_booking)
             return True
         except Exception as e: 
-            return e
+            return False
+

@@ -1,0 +1,23 @@
+{%extends "base.html"%}
+{%block title%}Confirm | Machica Dental Clinic{%endblock%}
+{%block page_style%}<link rel="stylesheet" href="{{url_for('static', filename='css/confirm.css')}}">{%endblock%}
+
+
+{% block content %}
+    z<div class="success-banner container-fluid th-bg-1 p-5 d-flex flex-column align-items-center justify-content-evenly">
+        <div class='d-flex flex-row align-items-center'>
+            <img width="70" height="70" src="https://img.icons8.com/ios-filled/100/FFFFFF/checked-checkbox.png"/>
+            <h2 class='fw-medium text-white'>Payment Successful!!!</h2>
+        </div>
+        <img width={250} height={150}  src={banner_img} alt="" />
+        <p class='w-100 text-white text-center fs-5 fw-medium mt-5'>Your Payment Will Be Credited To Your Account Shortly.</p>
+        <p class='w-75 text-white text-center fs-5 fw-medium '>Check Your Email, <span class='th-color-1'>{{email}}</span>  for the confirmation with order form details.</p>
+        <a href="{{url_for('views.services')}}" class='text-decoration-none'>
+            <button class='btn fs-6 px-4 text-white fw-medium mt-2 d-flex align-items-center column-gap-2'>
+                Go Back
+            </button>
+        </a>
+    </div>
+{% endblock %}
+
+{% block page_javascript %} <script src=""></script> {% endblock %}

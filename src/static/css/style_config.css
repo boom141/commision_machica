@@ -2,6 +2,9 @@
 
 *{
     font-family: 'Poppins', sans-serif;
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
 }
 
 :root{
@@ -12,6 +15,7 @@
     --th-pal-5: #80FCFC;
     --th-pal-dark: #001A28;
     --th-transition: .4s cubic-bezier(0.175, 0.885, 0.32, 1.275)!important;
+    --shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
 }
 
 .th-color-1{ color: var(--th-pal-1); }

@@ -1,175 +1,84 @@
 {%extends "base.html"%}
-{%block title%}Machica Dental Clinic{%endblock%}
+{%block title%}Services | Machica Dental Clinic{% endblock %}
 {%block page_style%}<link rel="stylesheet" href="{{url_for('static', filename='css/services.css')}}">{%endblock%}
 
 {% block content%}
-    <div class="service-container container d-flex flex-column justify-content-center align-items-center row-gap-4">
-        <h1 class="mb-5 animated left">Services We Offer</h1>
-        <div class="swiper animated bottom">
- 
-            <div class="swiper-wrapper">
-  
-                <div class="swiper-slide card b-shadow" style="width: 18rem;">
-                    <img src="https://images.pexels.com/photos/6627536/pexels-photo-6627536.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" class="card-img-top" alt="...">
-                    <div class="card-body">
-                    <h5 class="card-title">Service 1</h5>
-                    <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugiat, ducimus..</p>
+    <div class="service-calendar rounded-3 py-3 container d-flex flex-row justify-content-center column-gap-5 mt-5 b-shadow">
+                <div class="col-7 calendar p-3 rounded-3 m-0">
+                    <div class="calendar-header d-flex flex-row justify-content-between">
+                        <span class="month-picker fs-3" id="month-picker"> May </span>
+                        <div class="year-picker d-flex flex-row justify-content-between w-50" id="year-picker">
+                            <span class="year-change" id="pre-year">
+                            <pre class="year-clicker fs-3" role="button"><</pre>
+                            </span>
+                            <span class="fs-3" id="year">2020 </span>
+                            <span class="year-change" id="next-year">
+                            <pre class="year-clicker fs-3" role="button">></pre>
+                            </span>
+                        </div>
                     </div>
-                    <div class="card-body">
-                        <button type="button" class="service-btn btn text-white th-bg-1 rounded-3 p-3 d-flex column-gap-2" data-bs-toggle="modal" data-bs-target="#appointment-form">
-                            Book Appointment <i class="bi bi-arrow-right"></i>
-                        </button>
-                    </div>
-                </div>
-
-                <div class="swiper-slide card b-shadow" style="width: 18rem;">
-                    <img src="https://images.pexels.com/photos/4270368/pexels-photo-4270368.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" class="card-img-top" alt="...">
-                    <div class="card-body">
-                    <h5 class="card-title">Service 2</h5>
-                    <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugiat, ducimus..</p>
-                    </div>
-                    <div class="card-body">
-                        <button type="button" class="service-btn btn text-white th-bg-1 rounded-3 p-3 d-flex column-gap-2" data-bs-toggle="modal" data-bs-target="#appointment-form">
-                            Book Appointment <i class="bi bi-arrow-right"></i>
-                        </button>
-                    </div>
-                </div>
-
-                <div class="swiper-slide card b-shadow" style="width: 18rem;">
-                    <img src="https://images.pexels.com/photos/5998448/pexels-photo-5998448.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" class="card-img-top" alt="...">
-                    <div class="card-body">
-                    <h5 class="card-title">Service 3</h5>
-                    <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugiat, ducimus..</p>
-                    </div>
-                    <div class="card-body">
-                        <button type="button" class="service-btn btn text-white th-bg-1 rounded-3 p-3 d-flex column-gap-2" data-bs-toggle="modal" data-bs-target="#appointment-form">
-                            Book Appointment <i class="bi bi-arrow-right"></i>
-                        </button>
-                    </div>
-                </div>
-
-                <div class="swiper-slide card b-shadow" style="width: 18rem;">
-                    <img src="https://images.pexels.com/photos/3779713/pexels-photo-3779713.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" class="card-img-top" alt="...">
-                    <div class="card-body">
-                    <h5 class="card-title">Service 4</h5>
-                    <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugiat, ducimus..</p>
-                    </div>
-                    <div class="card-body">
-                        <button type="button" class="service-btn btn text-white th-bg-1 rounded-3 p-3 d-flex column-gap-2" data-bs-toggle="modal" data-bs-target="#appointment-form">
-                            Book Appointment <i class="bi bi-arrow-right"></i>
-                        </button>
-                    </div>
-                </div>
-
-                <div class="swiper-slide card b-shadow" style="width: 18rem;">
-                    <img src="https://images.pexels.com/photos/3845653/pexels-photo-3845653.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" class="card-img-top" alt="...">
-                    <div class="card-body">
-                    <h5 class="card-title">Service 5</h5>
-                    <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugiat, ducimus..</p>
-                    </div>
-                    <div class="card-body">
-                        <button type="button" class="service-btn btn text-white th-bg-1 rounded-3 p-3 d-flex column-gap-2" data-bs-toggle="modal" data-bs-target="#appointment-form">
-                            Book Appointment <i class="bi bi-arrow-right"></i>
-                        </button>
-                    </div>
-                </div>
-
-                <div class="swiper-slide card b-shadow" style="width: 18rem;">
-                    <img src="https://images.pexels.com/photos/6529110/pexels-photo-6529110.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" class="card-img-top" alt="...">
-                    <div class="card-body">
-                    <h5 class="card-title">Service 6</h5>
-                    <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugiat, ducimus..</p>
-                    </div>
-                    <div class="card-body">
-                        <button type="button" class="service-btn btn text-white th-bg-1 rounded-3 p-3 d-flex column-gap-2" data-bs-toggle="modal" data-bs-target="#appointment-form">
-                            Book Appointment <i class="bi bi-arrow-right"></i>
-                        </button>
-                    </div>
-                </div>
-
-            </div>
-
-            <div class="swiper-pagination"></div>
-          
-
-            <div class="swiper-button-prev"></div>
-            <div class="swiper-button-next"></div>
-          
-          </div>
-    </div>
-
-    <div class="modal fade" id="appointment-form" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog">
-          <div class="modal-content">
-            <div class="modal-header">
-              <img width="110" height="50" src="{{url_for('static', filename='images/nav_logo.png')}}" alt="">
-              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div class="modal-body">
-                <div class="container transaction-form ">
-                    <div class="row">
-                        <div class="col-md-12  bg-white">
-                            <div class="col-12">
-                                <h3 class="fw-normal text-secondary fs-4  mb-4 text-black text-center">Appointment form</h3>
-                            </div>
-                            <form method="post" action="">
-                                <div class="row g-3">
-                                    <div class="col-md-12">
-                                        <input type="text" class="inputs form-control" name="fullname" placeholder="First Name" required>
-                                    </div>
-
-                                    <div class="col-md-6">
-                                        <input type="tel" class="inputs form-control" name="phone" placeholder="Phone Number#" required>
-                                    </div>
-                                    <div class="col-md-6">
-                                        <input type="email" class="inputs form-control" name="email" placeholder="Email" required>
-                                    </div>
-                                    <div class="col-md-6">
-                                        <input type="date" class="inputs form-control" name="date" placeholder="Enter date" required>
-                                    </div>
-                                    <div class="col-md-6">
-                                        <select class="inputs form-select" name = "time" required>
-                                            <option selected>Select time</option>
-                                            <option value="time 1">time 1</option>
-                                            <option value="time 2">time 2</option>
-                                            <option value="time 3">time 3</option>
-                                        </select>
-                                    </div>
-                                    <div class="col-12">
-                                        <select class="inputs form-select" name = "POA" required>
-                                            <option selected>Purpose Of Appointment</option>
-                                            <option value="Service 1">Service 1</option>
-                                            <option value="Service 2">Service 2</option>
-                                            <option value="Service 3">Service 3</option>
-                                            <option value="Service 4">Service 4</option>
-                                            <option value="Service 5">Service 5</option>
-                                            <option value="Service 6">Service 6</option>
-                                        </select>
-                                    </div>
-                                    <div class="col-12">
-                                        <select class="inputs form-select" name = "PRP" required>
-                                            <option selected>Addtional Product</option>
-                                            <option value="item 1">Item 1</option>
-                                            <option value="item 2">Item 2</option>
-                                            <option value="item 3">SItem 3</option>
-                                        </select>
-                                    </div>
-                                    <div class="col-12">
-                                        <textarea class="inputs form-control" name="message" placeholder="Message"></textarea>
-                                    </div>
-                                </div>
-                            </form>
+                    
+                    <div class="calendar-body">
+                        <div class="calendar-week-days">
+                            <div class="fs-3">Sun</div>
+                            <div class="fs-3">Mon</div>
+                            <div class="fs-3">Tue</div>
+                            <div class="fs-3">Wed</div>
+                            <div class="fs-3">Thu</div>
+                            <div class="fs-3">Fri</div>
+                            <div class="fs-3">Sat</div>
+                        </div>
+                        <div class="calendar-days">
                         </div>
                     </div>
                 </div>
+                
+                <div class="col-5  bg-white">
+
+                    <h3 class="fw-normal text-secondary fs-4  mb-4 text-black text-center">Appointment form</h3>
+
+                    <form method="post" action="" class="d-flex flex-column row-gap-3">
+                
+                            <input type="text" class="inputs form-control" name="fullname" placeholder="First Name" required>
+                            
+                            
+                            <input type="tel" class="inputs form-control" name="phone" placeholder="Phone Number #" required>
+                            
+                            
+                            <input type="email" class="inputs form-control" name="email" placeholder="Email" required>
+                            
+                            
+                            <input type="text" class="inputs form-control" name="date" placeholder="Date" readonly required>
+    
+                            
+                            <select class="inputs form-select" name = "time" required>
+                                <option selected>Select time</option>
+                                <option class="time-booking text-dark" value="time 1">time 1</option>
+                                <option class="time-booking text-dark" value="time 2">time 2</option>
+                                <option class="time-booking text-dark" value="time 3">time 3</option>
+                                <option class="time-booking text-dark" value="time 4">time 4</option>
+                                <option class="time-booking text-dark" value="time 5">time 5</option>
+                            </select>
+        
+        
+                            <select class="inputs form-select" name = "POA" required>
+                                <option selected>Purpose Of Appointment</option>
+                                <option value="Service 1 - Braces">Service 1 - Braces</option>
+                                <option value="Service 2 - Wisdom tooth removal">Service 2 - Wisdom tooth removal</option>
+                                <option value="Service 3 - Fillings">Service 3 - Fillings</option>
+                                <option value="Service 4 - Chekup">Service 4 - Chekup</option>
+                                <option value="Service 5 - Root Canal">Service 5 - Root Canal</option>
+                                <option value="Service 6 - Dental implants">Service 6 - Dental implants</option>
+                            </select>
+                            
+                            <input type="text" class="inputs form-control" name="fee" value="Reservation Fee: 1500" placeholder="Reservation Fee" readonly required>
+
+                            <textarea class="inputs form-control" name="message" placeholder="Message"></textarea>
+                            <button type="button" id="create-checkout" class="btn btn-primary">Chekout</button>
+           
+                    </form>
+                </div>
             </div>
-            <div class="modal-footer">
-              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-              <button type="button" id="create-checkout" class="btn btn-primary">Chekout</button>
-            </div>
-          </div>
-        </div>
-    </div>
 
 {% endblock %}
 
