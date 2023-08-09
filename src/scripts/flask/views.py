@@ -28,3 +28,11 @@ def confirm():
         else:
             return redirect(url_for('.services'))
     
+
+@views.route('/admin/dashboard')
+def dashboard():
+    return render_template('dashboard.html')
+
+@views.route('/admin/appointments')
+def appointments():
+    return render_template('appointment.html')

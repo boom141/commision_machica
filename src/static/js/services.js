@@ -1,6 +1,42 @@
 const inputs = document.getElementsByClassName('inputs');
 const timesets = document.querySelectorAll('.time-booking');
 
+window.onload = () =>{
+  if (user != null){
+      inputs[0].value = user.data.fullname;
+      inputs[1].value = user.data.phone;
+      inputs[2].value  = user.data.email;
+      document.getElementById('guest-mode').style.display = 'none';
+      document.getElementById('online-mode').style.display = 'block';
+      document.getElementById('profile-btn').innerText = user.data.fullname.split(' ')[0];
+  }
+}
+
+
+const appointment_btns = document.querySelectorAll('.appointment-btn');
+const service_calendar = document.querySelector('.service-calendar');
+const service_box = document.querySelector('.service-box'); 
+const cancel_form = document.getElementById('cancel-form');
+const services = document.querySelectorAll('.services');
+
+appointment_btns.forEach(btn =>{
+    btn.onclick = (e) =>{
+      inputs[5].value = services[Number(e.target.id)].innerText
+      service_box.classList.add('hide-container');
+      service_calendar.classList.add('fade-bottom');
+      service_calendar.classList.remove('hide-container');
+    }
+});
+
+
+cancel_form.onclick = () =>{
+  service_calendar.classList.add('hide-container');
+  service_box.classList.add('fade-bottom');
+  service_box.classList.remove('hide-container');
+}
+
+
+
 const EndpointRequest = async (url,payload) =>{
   let response = await fetch(url, payload)
 

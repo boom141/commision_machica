@@ -1,0 +1,30 @@
+{%extends "admin.html"%}
+{%block title%}Dashboard | Machica Dental Clinic{%endblock%}
+{%block page_style%}<link rel="stylesheet" href="{{url_for('static', filename='css/appointment.css')}}">{%endblock%}
+
+{% block content%}
+    <div class="container">
+        <h1 class="fw-bold th-color-admin2">Appointments</h1>
+        <hr>
+        <div class="row d-flex flex-row justify-content-between">
+            <div class="chart chart2 border rounded-3">
+                <canvas id="Overall-Bar"></canvas>
+            </div>
+            <div class="chart chart1 border rounded-3">
+                <canvas id="Monthly-Bar"></canvas>
+            </div>
+        </div>
+        <div class="row mt-5">
+            <h4 class="fw-medium th-color-admin2">Appointment List</h4>
+            <hr>
+            <div id="appointment-list" class="appointment-list d-flex flex-column row-gap-2 p-3">
+                <div id="appointment-list" class="appointment-list d-flex flex-column row-gap-2 p-3">
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}
+
+{% block page_javascript %} <script src="{{url_for('static',filename='js/appointment.js')}}"></script> {% endblock %}

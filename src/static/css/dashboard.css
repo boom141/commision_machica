@@ -1,0 +1,19 @@
+.admin-banner{
+    background: linear-gradient(-45deg, var(--th-pal-admin2), var(--th-pal-admin1));
+    height: 15rem;
+    overflow: hidden;
+}
+
+.today-date{
+    background-color: rgba(161, 161, 161, 0.618);
+    width: max-content;
+}
+
+.admin-banner img{
+    margin-top: 0rem;
+}
+
+.sched-today{
+    overflow-y: auto!important;
+    max-height: 250px;
+}

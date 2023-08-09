@@ -3,7 +3,80 @@
 {%block page_style%}<link rel="stylesheet" href="{{url_for('static', filename='css/services.css')}}">{%endblock%}
 
 {% block content%}
-    <div class="service-calendar rounded-3 py-3 container d-flex flex-row justify-content-center column-gap-5 mt-5 b-shadow">
+    <div class="service-banner container-fluid p-5 d-flex flex-column justify-content-center align-items-center">
+       <h1 class="fw-medium text-white">High quality and wide range of services is what we offer.</h1>
+       <h4 class="fw-light text-white w-50 text-center">In Mchica Dental Clinic our Customers and Patients is our Top priority That's why we make sure to give you the best and affordable services we offer. </h4>
+    </div>
+
+
+    <div class="service-box fade-bottom container w-75 mt-5">
+        <div class="row d-flex flex-row justify-content-evenly">
+            <div class="card p-0 w-25">
+                <img height="180" src="https://images.pexels.com/photos/3845810/pexels-photo-3845810.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" class="card-img-top" alt="...">
+                <div class="card-body">
+                    <h5 class="card-title fw-bold">Service 1</h5>
+                    <p class="card-text"><span class="fw-medium">Check Up</span> - Lorem ipsum dolor sit amet.</p>
+                    <p><i class="bi bi-stopwatch-fill"></i> | 30-60 mins</p>
+                    <p><i class="bi bi-wallet-fill"></i> | ₱3000</p>
+                    <button id="0" class="appointment-btn btn btn-primary">Book Appointment <i class="bi bi-arrow-right"></i></button>
+                </div>
+            </div>
+            <div class="card p-0 w-25">
+                <img height="180" src="https://images.pexels.com/photos/12148417/pexels-photo-12148417.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" class="card-img-top" alt="...">
+                <div class="card-body">
+                    <h5 class="card-title fw-bold">Service 2</h5>
+                    <p class="card-text"><span class="fw-medium">Tooth Removal</span> - Lorem ipsum dolor sit amet.</p>
+                    <p><i class="bi bi-stopwatch-fill"></i> | 30-60 mins</p>
+                    <p><i class="bi bi-wallet-fill"></i> | ₱3000</p>
+                    <button id="1" class="appointment-btn btn btn-primary">Book Appointment <i class="bi bi-arrow-right"></i></button>
+                </div>
+            </div>
+            <div class="card p-0 w-25">
+                <img height="180" src="https://images.pexels.com/photos/3946836/pexels-photo-3946836.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" class="card-img-top" alt="...">
+                <div class="card-body">
+                    <h5 class="card-title fw-bold">Service 3</h5>
+                    <p class="card-text"><span class="fw-medium">Fillings</span> - Lorem ipsum dolor sit amet.</p>
+                    <p><i class="bi bi-stopwatch-fill"></i> | 30-60 mins</p>
+                    <p><i class="bi bi-wallet-fill"></i> | ₱3000</p>
+                    <button id="2" class="appointment-btn btn btn-primary">Book Appointment <i class="bi bi-arrow-right"></i></button>
+                </div>
+            </div>
+        </div>
+        <div class="row d-flex flex-row justify-content-evenly mt-5">
+            <div class="card p-0 w-25">
+                <img height="180" src="https://images.pexels.com/photos/3779713/pexels-photo-3779713.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" class="card-img-top" alt="...">
+                <div class="card-body">
+                    <h5 class="card-title fw-bold">Service 4</h5>
+                    <p class="card-text"><span class="fw-medium">Root Canal</span> - Lorem ipsum dolor sit amet.</p>
+                    <p><i class="bi bi-stopwatch-fill"></i> | 30-60 mins</p>
+                    <p><i class="bi bi-wallet-fill"></i> | ₱3000</p>
+                    <button id="3" class="appointment-btn btn btn-primary">Book Appointment <i class="bi bi-arrow-right"></i></button>
+                </div>
+            </div>
+            <div class="card p-0 w-25">
+                <img height="180" src="https://images.pexels.com/photos/7787980/pexels-photo-7787980.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" class="card-img-top" alt="...">
+                <div class="card-body">
+                    <h5 class="card-title fw-bold">Service 5</h5>
+                    <p class="card-text"><span class="fw-medium">Braces</span> - Lorem ipsum dolor sit amet.</p>
+                    <p><i class="bi bi-stopwatch-fill"></i> | 30-60 mins</p>
+                    <p><i class="bi bi-wallet-fill"></i> | ₱10000 ~ ₱50000</p>
+                    <button id="4" class="appointment-btn btn btn-primary">Book Appointment <i class="bi bi-arrow-right"></i></button>
+                </div>
+            </div>
+            <div class="card p-0 w-25">
+                <img height="180" src="https://images.pexels.com/photos/6627286/pexels-photo-6627286.jpeg?auto=compress&cs=tinysrgb&w=600" class="card-img-top" alt="...">
+                <div class="card-body">
+                    <h5 class="card-title fw-bold">Service 6</h5>
+                    <p class="card-text"><span class="fw-medium">Dental Implants</span> - Lorem ipsum dolor sit amet.</p>
+                    <p><i class="bi bi-stopwatch-fill"></i> | 30-60 mins</p>
+                    <p><i class="bi bi-wallet-fill"></i> | ₱3000</p>
+                    <button id="5" class="appointment-btn btn btn-primary">Book Appointment <i class="bi bi-arrow-right"></i></button>
+                </div>
+            </div>
+        </div>
+        
+    </div>
+    <div class="service-calendar hide-container rounded-3 py-3 container d-flex flex-row justify-content-center column-gap-5 mt-5 border">
                 <div class="col-7 calendar p-3 rounded-3 m-0">
                     <div class="calendar-header d-flex flex-row justify-content-between">
                         <span class="month-picker fs-3" id="month-picker"> May </span>
@@ -13,11 +86,18 @@
                             </span>
                             <span class="fs-3" id="year">2020 </span>
                             <span class="year-change" id="next-year">
-                            <pre class="year-clicker fs-3" role="button">></pre>
+                                <pre class="year-clicker fs-3" role="button">></pre>
                             </span>
                         </div>
                     </div>
                     
+                    <div class="d-flex flex-row w-100 column-gap-2 mt-2">
+
+                        <p class="rounded-3 p-2 fw-light text-white th-bg-3">CURRENT</p>
+                        <p class="rounded-3 p-2 fw-light text-white th-bg-2">SELECTED </p>
+                        <p class="rounded-3 p-2 fw-light text-white th-bg-1">FULLSLOT </p>
+                    </div>
+
                     <div class="calendar-body">
                         <div class="calendar-week-days">
                             <div class="fs-3">Sun</div>
@@ -31,6 +111,7 @@
                         <div class="calendar-days">
                         </div>
                     </div>
+
                 </div>
                 
                 <div class="col-5  bg-white">
@@ -63,18 +144,21 @@
         
                             <select class="inputs form-select" name = "POA" required>
                                 <option selected>Purpose Of Appointment</option>
-                                <option value="Service 1 - Braces">Service 1 - Braces</option>
-                                <option value="Service 2 - Wisdom tooth removal">Service 2 - Wisdom tooth removal</option>
-                                <option value="Service 3 - Fillings">Service 3 - Fillings</option>
-                                <option value="Service 4 - Chekup">Service 4 - Chekup</option>
-                                <option value="Service 5 - Root Canal">Service 5 - Root Canal</option>
-                                <option value="Service 6 - Dental implants">Service 6 - Dental implants</option>
+                                <option class="services" value="Service 1 - Check Up">Service 1 - Check Up</option>
+                                <option class="services" value="Service 2 - Tooth removal">Service 2 - Tooth removal</option>
+                                <option class="services" value="Service 3 - Fillings">Service 3 - Fillings</option>
+                                <option class="services" value="Service 4 - Braces">Service 4 - Braces</option>
+                                <option class="services" value="Service 5 - Root Canal">Service 5 - Root Canal</option>
+                                <option class="services" value="Service 6 - Dental implants">Service 6 - Dental implants</option>
                             </select>
                             
                             <input type="text" class="inputs form-control" name="fee" value="Reservation Fee: 1500" placeholder="Reservation Fee" readonly required>
 
                             <textarea class="inputs form-control" name="message" placeholder="Message"></textarea>
-                            <button type="button" id="create-checkout" class="btn btn-primary">Chekout</button>
+                            <div class="d-flex flex-row w-100 column-gap-2">
+                                <button type="button" id="cancel-form" class="btn cancel-form btn-danger w-100">Cancel</button>
+                                <button type="button" id="create-checkout" class="btn btn-primary w-100">Chekout</button>
+                            </div>
            
                     </form>
                 </div>

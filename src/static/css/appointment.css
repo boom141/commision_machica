@@ -1,0 +1,13 @@
+.chart{
+    max-height: 400px;
+    width: max-content;
+}
+
+.chart1{
+    width: 500px;
+}
+
+.appointment-list{
+    overflow-y: auto!important;
+    max-height: 200px;
+}

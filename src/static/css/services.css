@@ -1,9 +1,21 @@
-
+.service-banner{
+  background-image: linear-gradient(-45deg,#042d84ce, rgba(4, 45, 132, 0.75)), url(https://images.pexels.com/photos/4269492/pexels-photo-4269492.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1);
+  background-size: cover;
+  background-position: center;
+}
 
 .service-calendar{
     width: 70%;
     overflow: hidden;
 }
+
+  .hide-container{
+    display: none!important;
+  }
+
+  .cancel-form{
+    background-color: rgb(255, 79, 79)!important;
+  }
 
   .calendar {
     height: max-content;

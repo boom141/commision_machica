@@ -1,0 +1,31 @@
+{%extends "admin.html"%}
+{%block title%}Dashboard | Machica Dental Clinic{%endblock%}
+{%block page_style%}<link rel="stylesheet" href="{{url_for('static', filename='css/dashboard.css')}}">{%endblock%}
+
+{% block content%}
+    <div class="container">
+        <h1 class="fw-bold th-color-admin2">DASHBOARD</h1>
+        <hr>
+        <div class="row">
+            <div class="admin-banner d-flex flex-row rounded-3  justify-content-between ">
+                <div class="d-flex flex-column justify-content-center mt-3">
+                    <h4 class="text-white">Good day, Doctor Alison Granda!</h4>
+                    <h5 class="text-white fw-light">Have a nice Week!</h5>
+                    <h5 class="today-date p-2 mt-3 rounded-3 text-white fw-light"><i class="bi bi-calendar-week-fill"></i> <span id="today-date">Sample Date</span></h5>
+                </div>
+                <img height="300" src="{{url_for('static', filename='images/banner-logo.png')}}" alt="">
+            </div>
+            
+        </div>
+        <div class="row mt-5">
+            <h4 class="fw-medium th-color-admin2">Todays' Appointments</h4>
+            <hr>
+            <div id="sched-today" class="sched-today d-flex flex-column row-gap-2 p-3">
+            </div>
+
+        </div>
+    </div>
+
+{% endblock %}
+
+{% block page_javascript %} <script src="{{url_for('static',filename='js/dashboard.js')}}"></script> {% endblock %}
