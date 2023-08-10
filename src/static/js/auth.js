@@ -39,9 +39,10 @@ try{
       .then(data => {
           if (data.status != 401){
             if (data.url){
-              window.location = data.url;
+              sessionStorage.setItem('user',JSON.stringify(data.value))
+              window.location = window.origin + data.url;
             }else{
-              sessionStorage.setItem('user',JSON.stringify(data))
+              sessionStorage.setItem('user',JSON.stringify(data.value))
               login_btn.innerText = 'Login Complete!'
               window.location = window.origin
             }
@@ -68,7 +69,7 @@ generate_otp.onclick = () =>{
     user_information.fullname = registration_form[0].value;
     user_information.birthday = registration_form[1].value;
     user_information.age = registration_form[2].value.split(' ')[0];
-    user_information.addrress = registration_form[3].value;
+    user_information.address = registration_form[3].value;
     user_information.gender = registration_form[4].value;
     user_information.phone = registration_form[5].value;
     user_information.email = registration_form[6].value;

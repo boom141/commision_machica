@@ -7,7 +7,7 @@ window.onload = () =>{
   if (user != null){
     document.getElementById('guest-mode').style.display = 'none';
     document.getElementById('online-mode').style.display = 'block';
-    document.getElementById('profile-btn').innerText = user.data.fullname.split(' ')[0];
+    document.getElementById('profile-btn').innerText = user.fullname.split(' ')[0];
   }
 }
 
@@ -30,6 +30,9 @@ switch(window.location.href){
     navlinks[1].children[0].classList.add('link-active');
     break;
   case window.origin + '/services':
+    navlinks[2].children[0].classList.add('link-active');
+    break;
+  case window.origin + '/products':
     navlinks[2].children[0].classList.add('link-active');
     break;
 }

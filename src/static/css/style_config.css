@@ -14,8 +14,8 @@
     --th-pal-4: #32DEE0;
     --th-pal-5: #80FCFC;
     --th-pal-dark: #001A28;
-    --th-pal-admin1: #337c73;
-    --th-pal-admin2: #09332e;
+    --th-pal-admin1: rgb(51, 124, 115);
+    --th-pal-admin2: rgb(9, 51, 46);
     --th-transition: .4s cubic-bezier(0.175, 0.885, 0.32, 1.275)!important;
     --shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
 }
@@ -43,6 +43,7 @@
 .th-transition {transition: var(--th-transition);}
 
 .btn{ transition: var(--th-transition); background-color: var(--th-pal-1)!important; border: none;}
+.btn-admin{ transition: var(--th-pal-admin2); background-color: var(--th-pal-admin2)!important; border: none;}
 
 .btn:hover{
     background-color: var(--th-pal-1);

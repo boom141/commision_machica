@@ -20,7 +20,7 @@ class mongoDb:
             'fullname': data['fullname'],
             'birthday': data['birthday'],
             'age': data['age'],
-            'addrress': data['addrress'],
+            'address': data['address'],
             'gender': data['gender'],    
             'phone': data['phone'],
             'email': data['email'],

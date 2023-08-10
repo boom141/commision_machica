@@ -3,12 +3,12 @@ const timesets = document.querySelectorAll('.time-booking');
 
 window.onload = () =>{
   if (user != null){
-      inputs[0].value = user.data.fullname;
-      inputs[1].value = user.data.phone;
-      inputs[2].value  = user.data.email;
+      inputs[0].value = user.fullname;
+      inputs[1].value = user.phone;
+      inputs[2].value  = user.email;
       document.getElementById('guest-mode').style.display = 'none';
       document.getElementById('online-mode').style.display = 'block';
-      document.getElementById('profile-btn').innerText = user.data.fullname.split(' ')[0];
+      document.getElementById('profile-btn').innerText = user.fullname.split(' ')[0];
   }
 }
 

@@ -13,11 +13,11 @@ def login():
         session_user =  mongoDb.machica_users.find_one({'email': data['email']},{'_id':0})
 
         if session_user:
-            if session_user['email'] == 'admin01@sampleEmail.com':
-                return {'status': 200, 'url': 'https://machica-main-5oqvl3p3s-boom141.vercel.app/admin/login'}
+            if session_user['email'] == 'adminAccount@email.com'and session_user['password'] == '13d53e33d9622f5885e562351affbf6c7c186bca9c15b852310d2a027b81be50':
+                return {'status': 200, 'url': '/admin/dashboard', 'value': {'fullname': session_user['fullname']}}
 
             elif check_password_hash(session_user['password'], data['password']):
-                return {'status': 200, 'data': {'fullname': session_user['fullname'], 'email': session_user['email'], 'phone': session_user['phone']}}
+                return {'status': 200, 'value': {'fullname': session_user['fullname'], 'email': session_user['email'], 'phone': session_user['phone']}}
             else:
                 flash('Password Incorrrect!', 'danger')
                 return {'status': 401}

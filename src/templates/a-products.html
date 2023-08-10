@@ -1,0 +1,22 @@
+{%extends "admin.html"%}
+{%block title%}Dashboard | Machica Dental Clinic{%endblock%}
+{%block page_style%}<link rel="stylesheet" href="{{url_for('static', filename='css/dashboard.css')}}">{%endblock%}
+
+{% block content%}
+    <div class="container">
+        <h1 class="fw-bold th-color-admin2">Products</h1>
+        <hr>
+        <div class="row">
+         
+            
+        </div>
+        <div class="row mt-5">
+            <h4 class="fw-medium th-color-admin2">Product List</h4>
+            <hr>
+
+        </div>
+    </div>
+
+{% endblock %}
+
+{% block page_javascript %} <script src="{{url_for('static',filename='js/dashboard.js')}}"></script> {% endblock %}

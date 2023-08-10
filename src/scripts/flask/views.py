@@ -9,13 +9,20 @@ views = Blueprint('views', __name__)
 def landing():
     return render_template('landing.html')
 
+
 @views.route('/about')
 def about():
     return render_template('about.html')
 
+
 @views.route('/services', methods=['POST','GET'])
 def services():
     return render_template('services.html')
+
+
+@views.route('/products', methods=['POST','GET'])
+def products():
+    return render_template('products.html')
 
 
 @views.route('/confirm')
@@ -36,3 +43,7 @@ def dashboard():
 @views.route('/admin/appointments')
 def appointments():
     return render_template('appointment.html')
+
+@views.route('/admin/products')
+def adminProducts():
+    return render_template('a-products.html')

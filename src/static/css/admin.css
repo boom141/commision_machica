@@ -20,6 +20,11 @@
     background-color: var(--th-pal-admin1);
 }
 
+.admin-content{
+    overflow-y: auto;
+    max-height: 710px;
+}
+
 .admin-account{
     width: 100%;
     background-image:linear-gradient(to bottom, rgb(152 157 154 / 0%),rgb(21, 46, 42)), url(https://images.unsplash.com/photo-1499750310107-5fef28a66643?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80);
@@ -38,6 +43,12 @@
     color: white;
 }
 
+
+.history-tab{
+    overflow-y: auto;
+    height: 200;
+    max-height: 200px;
+}
 
 .menu-links{
     width: -webkit-fill-available;
@@ -78,6 +89,12 @@
 .navigation-container:hover::before{
     transform: scaleX(1);
     transform-origin: right;
+}
+
+.admin-btn-active, .admin-btn-active h5, .admin-btn-active svg{
+    background-color: white!important;
+    color: var(--th-pal-admin1)!important;
+    fill: var(--th-pal-admin1)!important;
 }
 
 .navigation-container:hover > .side-texts{
@@ -124,55 +141,14 @@ svg{
     box-shadow: 0 2px 3px rgba(0, 0, 0, 0.312);
 }
 
-.user-container{
-    width: 100%;
-    height: 80%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    row-gap: .5rem;
-    overflow-y: auto; 
-}
-
-.user-block-container{
-    width: 100%;
-    height: 100%;
-    display: none;
-    flex-direction: column;
-    align-items: center;
-    row-gap: .5rem;
+.user-list-container{
     overflow-y: auto;
+    height: 530px;
+    max-height: 530px!important;
 }
 
-.user-block{
-    height: 10%;
-    width: 100%;
-    display: flex;
-    flex-direction: row;
-    justify-content: flex-start;
-    align-items: center;
-    padding: 2rem 1rem;
-    border-radius: 6px;
-    box-shadow: 0 2px 3px rgba(0, 0, 0, 0.312);
-    position: relative;
-    align-items: center;
-    cursor: pointer;
-    background-color: white;
+.history-container{
+    overflow-y: auto;
+    height: 100px;
+    max-height: 100px!important;
 }
-
-.user-block::before{
-    background: var(--th-pal-admin1);
-    content: "";
-    inset: 0;
-    position: absolute;
-    width: 5px;
-    height: 100%;
-    transform-origin: bottom;
-    z-index: 1;
-}
-
-.user-text{
-    width: 100%;
-    pointer-events: none;
-}
-
