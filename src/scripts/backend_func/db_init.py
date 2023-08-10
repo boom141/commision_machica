@@ -15,12 +15,16 @@ class mongoDb:
     machica_admins = db['machica_admin']
 
     @classmethod
-    def register(cls,fullname,email,password):
+    def register(cls,data):
         new_user = {
-            
-            'fullname':fullname,
-            'email': email,
-            'password': generate_password_hash(password, method="sha256")
+            'fullname': data['fullname'],
+            'birthday': data['birthday'],
+            'age': data['age'],
+            'addrress': data['addrress'],
+            'gender': data['gender'],    
+            'phone': data['phone'],
+            'email': data['email'],
+            'password': generate_password_hash(data['password'], method="sha256")
         }
 
         try:

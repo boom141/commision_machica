@@ -6,7 +6,7 @@
 
 .today-date{
     background-color: rgba(161, 161, 161, 0.618);
-    width: max-content;
+    max-width: 250px;
 }
 
 .admin-banner img{
@@ -17,3 +17,5 @@
     overflow-y: auto!important;
     max-height: 250px;
 }
+
+

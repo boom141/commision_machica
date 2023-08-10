@@ -1,4 +1,7 @@
-document.getElementById('today-date').innerText = new Date().toLocaleString();
+setInterval(() => {
+  document.getElementById('today-date').innerText = new Date().toLocaleString();
+}, 100);
+
 
 const sortArrayOfObjects = (arr, propertyName, order = 'ascending') => {
     const sortedArr = arr.sort((a, b) => {

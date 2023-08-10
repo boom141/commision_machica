@@ -56,14 +56,24 @@ try{
 }
 
 
+document.getElementById('birthday').onchange = (e) =>{
+  let date = new Date()
+  let birth_year = e.target.value.split('-')[0]
 
+  registration_form[2].value = `${date.getFullYear() - Number(birth_year)} yrs old`
+}
 
 
 generate_otp.onclick = () =>{
     user_information.fullname = registration_form[0].value;
-    user_information.email = registration_form[1].value;
-    user_information.password = registration_form[2].value;
-    user_information.r_password = registration_form[3].value;
+    user_information.birthday = registration_form[1].value;
+    user_information.age = registration_form[2].value.split(' ')[0];
+    user_information.addrress = registration_form[3].value;
+    user_information.gender = registration_form[4].value;
+    user_information.phone = registration_form[5].value;
+    user_information.email = registration_form[6].value;
+    user_information.password = registration_form[7].value;
+    user_information.r_password = registration_form[8].value;
     
 
     generate_otp.innerText = 'Generating OTP...';

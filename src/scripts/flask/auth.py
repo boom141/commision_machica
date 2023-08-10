@@ -17,7 +17,7 @@ def login():
                 return {'status': 200, 'url': 'https://machica-main-5oqvl3p3s-boom141.vercel.app/admin/login'}
 
             elif check_password_hash(session_user['password'], data['password']):
-                return {'status': 200, 'data': {'fullname': session_user['fullname'], 'email': session_user['email']}}
+                return {'status': 200, 'data': {'fullname': session_user['fullname'], 'email': session_user['email'], 'phone': session_user['phone']}}
             else:
                 flash('Password Incorrrect!', 'danger')
                 return {'status': 401}
@@ -54,7 +54,7 @@ def register():
         data = request.get_json()
 
         if session.get('gen_otp') == data['otp']:
-            if mongoDb.register(data['fullname'],data['email'],data['password']):
+            if mongoDb.register(data):
                 return {'status': 200}
             else:
                 flash('Account not registered', 'danger')

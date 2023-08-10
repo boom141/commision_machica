@@ -34,6 +34,7 @@
 .th-bg-3{ background-color: var(--th-pal-3); background-color: var(--th-pal-3);}
 .th-bg-4{ background-color: var(--th-pal-4); background-color: var(--th-pal-4);}
 .th-bg-5{ background-color: var(--th-pal-5); background-color: var(--th-pal-5);}
+.th-bg-dark{ background-color: var(--th-pal-dark); background-color: var(--th-pal-dark);}
 .th-bg-admin1{ background-color: var(--th-pal-admin1); background-color: var(--th-pal-admin1);}
 .th-bg-admin2{ background-color: var(--th-pal-admin2); background-color: var(--th-pal-admin2);}
 
