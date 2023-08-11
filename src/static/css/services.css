@@ -4,6 +4,7 @@
   background-position: center;
 }
 
+
 .service-calendar{
     width: 70%;
     overflow: hidden;
@@ -94,3 +95,8 @@
     border-radius: 5px;
     pointer-events: none!important;
   }
+
+  .month-picker{
+    width: max-content;
+  }
+

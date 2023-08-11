@@ -3,7 +3,7 @@
 {%block page_style%}<link rel="stylesheet" href="{{url_for('static', filename='css/services.css')}}">{%endblock%}
 
 {% block content%}
-    <div class="service-banner container-fluid p-5 d-flex flex-column justify-content-center align-items-center">
+    <!-- <div class="service-banner container-fluid p-5 d-flex flex-column justify-content-center align-items-center">
        <h1 class="fw-medium text-white">High quality and wide range of services is what we offer.</h1>
        <h4 class="fw-light text-white w-50 text-center">In Mchica Dental Clinic our Customers and Patients is our Top priority That's why we make sure to give you the best and affordable services we offer. </h4>
     </div>
@@ -94,18 +94,31 @@
             </div>
         </div>
         
-    </div>
-    <div class="service-calendar hide-container rounded-3 py-3 container d-flex flex-row justify-content-center column-gap-5 mt-5 border">
+    </div> -->
+    <div class="service-calendar  rounded-3 py-3 container d-flex flex-row justify-content-center column-gap-5 mt-5 border">
                 <div class="col-7 calendar p-3 rounded-3 m-0">
                     <div class="calendar-header d-flex flex-row justify-content-between">
-                        <span class="month-picker fs-3" id="month-picker"> May </span>
-                        <div class="year-picker d-flex flex-row justify-content-between w-50" id="year-picker">
-                            <span class="year-change" id="pre-year">
-                            <pre class="year-clicker fs-3" role="button"><</pre>
+                        <select class="month-picker fs-3 form-select" id="month-picker">
+                             <option value="January">January</option> 
+                             <option value="February">February</option> 
+                             <option value="March">March</option> 
+                             <option value="April">April</option> 
+                             <option value="May">May</option> 
+                             <option value="June">June</option> 
+                             <option value="July">July</option> 
+                             <option value="August">August</option> 
+                             <option value="September">September</option> 
+                             <option value="October">October</option> 
+                             <option value="November">November</option> 
+                             <option value="December">December</option> 
+                        </select>
+                        <div class="year-picker d-flex flex-row justify-content-between align-items-center w-25" id="year-picker">
+                            <span class="year-change fs-3" role="button" id="pre-year">
+                                <
                             </span>
                             <span class="fs-3" id="year">2020 </span>
-                            <span class="year-change" id="next-year">
-                                <pre class="year-clicker fs-3" role="button">></pre>
+                            <span class="year-change fs-3" role="button" id="next-year">
+                                >
                             </span>
                         </div>
                     </div>

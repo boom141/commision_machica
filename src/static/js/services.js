@@ -52,10 +52,14 @@ const setAvailableTimeSlots = (data_list) =>{
     }
   }
 
-  timesets.forEach(element =>{
+  timesets.forEach((element,index) =>{
     element.disabled = false;
+    element.innerText = `Time ${index+1}`
+    element.classList.remove('text-muted');
     if (reserved_time_slot.length !== 0){
         if(reserved_time_slot.indexOf(element.value) !== -1){
+          element.innerText = element.innerText + '- Unavailable';
+          element.classList.add('text-muted');
           element.disabled = true;
       }
     }
@@ -122,11 +126,11 @@ const month_names = [
   'December',
 ];
 
+let month_picker = document.querySelector('#month-picker');
+let calendar_year = document.querySelector('#year');
+let calendar_days = document.querySelector('.calendar-days');
 const generateCalendar = (month, year, day=null) => {
   inputs[3].value = `${year}-${month+1}-${day}`
-  let month_picker = document.querySelector('#month-picker');
-  let calendar_year = document.querySelector('#year');
-  let calendar_days = document.querySelector('.calendar-days');
   calendar_days.innerHTML = '';
   let days_of_month = [
     31,
@@ -146,7 +150,7 @@ const generateCalendar = (month, year, day=null) => {
   
 let currentDate = new Date();
 
-month_picker.innerHTML = month_names[month]; //cuurent month
+month_picker.value = month_names[month]; //cuurent month
 calendar_year.innerHTML = year; //current year
 
 let first_day = new Date(year, month);
@@ -191,6 +195,10 @@ for (let i = 0; i <= days_of_month[month] + first_day.getDay() - 1; i++) {
   });
 
 };
+
+month_picker.onchange = (e) =>{
+  generateCalendar(month_names.indexOf(e.target.value), currentYear.value, currentDate.getDate());
+}
 
 
 document.querySelector('#pre-year').onclick = () => {
