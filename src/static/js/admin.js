@@ -15,7 +15,6 @@ const EndpointRequest = async (url,payload) =>{
     return response.json();
 };
 
-
 const admin_btns = document.querySelectorAll('.navigation-container');
 
 switch(window.location.href){

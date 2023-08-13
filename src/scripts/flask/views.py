@@ -2,6 +2,7 @@ from flask import Blueprint, redirect, render_template, url_for, request, flash,
 from src.scripts.backend_func.db_init import mongoDb
 from src.scripts.backend_func.payment import requestPayment
 from src.scripts.backend_func.smtp import emailService
+import secrets
 
 views = Blueprint('views', __name__)
 
@@ -28,7 +29,8 @@ def products():
 @views.route('/confirm')
 def confirm():
     if 'value' in session:
-        print("\n",session['value'])
+        session['value']['reference_code'] = secrets.token_hex(8)
+        emailService.send_confirmation(session['value'])
 
         if mongoDb.AddBooking(session['value']):
             return render_template('confirm.html', email=session['value']['email']) 

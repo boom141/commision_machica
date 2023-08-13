@@ -1,4 +1,4 @@
-import pymongo, secrets
+import pymongo
 from pymongo import MongoClient
 from config import Config
 from  werkzeug.security import generate_password_hash
@@ -46,7 +46,7 @@ class mongoDb:
             'description': data['description'],
             'amount': data['amount'],
             'message': data['message'],
-            'reference_code': secrets.token_hex(8)
+            'reference_code': data['reference_code']
         }
 
         try:
