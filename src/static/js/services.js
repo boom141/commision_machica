@@ -18,64 +18,16 @@ const service_calendar = document.querySelector('.service-calendar');
 const service_box = document.querySelector('.service-box'); 
 const cancel_form = document.getElementById('cancel-form');
 const services = document.querySelectorAll('.services');
-
-appointment_btns.forEach(btn =>{
-    btn.onclick = (e) =>{
-      inputs[5].value = services[Number(e.target.id)].innerText
-      service_box.classList.add('hide-container');
-      service_calendar.classList.add('fade-bottom');
-      service_calendar.classList.remove('hide-container');
-    }
-});
-
-
-cancel_form.onclick = () =>{
-  service_calendar.classList.add('hide-container');
-  service_box.classList.add('fade-bottom');
-  service_box.classList.remove('hide-container');
-}
+const booking_warning = document.getElementById('booking-warning');
 
 
 
 const EndpointRequest = async (url,payload) =>{
   let response = await fetch(url, payload)
-
   return response.json();
 };
 
-const setAvailableTimeSlots = (data_list) =>{
-  let reserved_time_slot = []
-
-  if(data_list !== null){
-    for(data of data_list){
-      reserved_time_slot.push(data.time)
-    }
-  }
-
-  timesets.forEach((element,index) =>{
-    element.disabled = false;
-    element.innerText = `Time ${index+1}`
-    element.classList.remove('text-muted');
-    if (reserved_time_slot.length !== 0){
-        if(reserved_time_slot.indexOf(element.value) !== -1){
-          element.innerText = element.innerText + '- Unavailable';
-          element.classList.add('text-muted');
-          element.disabled = true;
-      }
-    }
-  })
-};
-
-const checkFullSlot = (data_list,element) =>{
-  if (data_list !== null){
-      if(data_list.length === 5){
-      element.classList.add('full-slot');
-    }
-  }
-
-}
-
-const requestAppointmentData = (date, element=null) =>{
+const requestAppointmentData = async (date) =>{
     let payload = 
     {
       method: "POST",
@@ -85,19 +37,72 @@ const requestAppointmentData = (date, element=null) =>{
       },
       body: JSON.stringify({value: date})
     };
-
     
-    EndpointRequest(`${window.origin}/dayInformation`, payload)
+
+      return fetch(`${window.origin}/dayInformation`, payload)
+      .then(data => data.json())
       .then(data => {
-          if (element == null){
-            setAvailableTimeSlots(data.value)
-          }else{
-            checkFullSlot(data.value,element);
-          }
-          
-      })
-      .catch(e => console.log(e))
+        return data.value;
+      }).catch(err => console.log(err));
+
 }
+
+const setAvailableTimeSlots = (date) =>{
+  requestAppointmentData(date)
+  .then(data_list =>{
+    let reserved_time_slot = []
+
+    if(data_list !== null){
+      for(data of data_list){
+        reserved_time_slot.push(data.time)
+      }
+    }
+
+    timesets.forEach((element,index) =>{
+      element.disabled = false;
+      element.innerText = `Time ${index+1}`
+      element.classList.remove('text-muted');
+      if (reserved_time_slot.length !== 0){
+          if(reserved_time_slot.indexOf(element.value) !== -1){
+            element.innerText = element.innerText + '- Unavailable';
+            element.classList.add('text-muted');
+            element.disabled = true;
+        }
+      }
+    })
+  })
+
+
+};
+
+const checkFullSlot = async (date) =>{
+
+   return requestAppointmentData(date)
+   .then(data_list =>{
+      if (data_list !== null){
+        if(data_list.length === 5){
+          return true;
+      }else{
+        return false;
+      }
+    }
+  });
+}
+
+const isPastDay = (date) =>{
+  let selected_date = new Date(date);
+  let current_date = new Date();
+
+  if( selected_date.getFullYear() === current_date.getFullYear() &&
+      selected_date.getMonth() === current_date.getMonth() &&
+      selected_date.getDate() < current_date.getDate()) {
+        return true;
+    }else{
+      return false;
+    }
+
+}
+
 
 const isLeapYear = (year) => {
   return (
@@ -126,11 +131,11 @@ const month_names = [
   'December',
 ];
 
-let month_picker = document.querySelector('#month-picker');
-let calendar_year = document.querySelector('#year');
-let calendar_days = document.querySelector('.calendar-days');
-const generateCalendar = (month, year, day=null) => {
-  inputs[3].value = `${year}-${month+1}-${day}`
+const month_picker = document.querySelector('#month-picker');
+const calendar_year = document.querySelector('#year');
+const calendar_days = document.querySelector('.calendar-days');
+
+const generateCalendar = (month, year) => {
   calendar_days.innerHTML = '';
   let days_of_month = [
     31,
@@ -148,72 +153,109 @@ const generateCalendar = (month, year, day=null) => {
   ];
   
   
-let currentDate = new Date();
-
 month_picker.value = month_names[month]; //cuurent month
 calendar_year.innerHTML = year; //current year
 
 let first_day = new Date(year, month);
 
-requestAppointmentData(inputs[3].value);
+// requestAppointmentData(inputs[3].value);
 
+calendar_days.innerHTML = "";
 for (let i = 0; i <= days_of_month[month] + first_day.getDay() - 1; i++) {
-    let week_day = document.createElement('div');
-    week_day.classList.add('day');
     if (i >= first_day.getDay()) {
-      week_day.innerHTML = i - first_day.getDay() + 1;
-      if (i - first_day.getDay() + 1 === currentDate.getDate() &&
-        year === currentDate.getFullYear() &&
-        month === currentDate.getMonth()
-      ) {
-        week_day.classList.add('current-day');
-      }
-      requestAppointmentData(`${year}-${month+1}-${week_day.innerText}`,week_day);
-    }
-    calendar_days.appendChild(week_day);
-  }
-
-  const appointment_days =  document.querySelectorAll('.day');
-
-  const selectedDay = (index_day) =>{
-    appointment_days.forEach((elem,index) =>{
-      if(index_day === index){
-        elem.classList.add('selected-day');
-      }else{
-        elem.classList.remove('selected-day');
-      }
-    });
+      let numerical_day = i - first_day.getDay() + 1;
+      let date = new Date(`${year}-${month+1}-${numerical_day}`)
+      
+      if (date.getDay() === 0) {
+        if(!isPastDay(`${year}-${month+1}-${numerical_day}`)){
+          checkFullSlot(`${year}-${month+1}-${numerical_day}`)
+          .then(data =>{
+              calendar_days.innerHTML += 
+                `<div role="button" class="${data ?
+                  "pe-none" : "pe-auto"} day d-flex flex-row rounded-3 border">
+                    <div class="pe-none rounded-start py-0 ${data ?
+                    "full-slot" : "selected-day"} day-date text-center d-flex flex-column w-25 ">
+                        <span class="fw-bold">${numerical_day}</span>
+                        <span class="fs-3 fw-bold">SUNDAY</span>
+                    </div>
+                    <div class="pe-none day-info d-flex flex-column px-3">
+                        <span class="fw-bold th-color-6">${inputs[5].value.split('-')[1]}</span>
+                        <span class="fs-4 fw-normal th-color-6">${inputs[5].value.split('-')[0]}</span>
+                    </div>
+                </div>`
+                
+                  const appointment_days =  document.querySelectorAll('.day');
+                  const selectedDay = (index_day) =>{
+                    appointment_days.forEach((elem,index) =>{
+                      if(index_day === index){
+                        elem.classList.add('b-shadow');
+                      }else{
+                        elem.classList.remove('b-shadow');
+                      }
+                    });
+                  
+                  }
+                  
+                  appointment_days.forEach((elem,index) =>{
+                    elem.onclick = (e) =>{
+                      element_day = e.target.children[0].children[0].innerText
+                      selectedDay(index);
+                        inputs[3].value = `${year}-${month+1}-${element_day}`;
+                        setAvailableTimeSlots(inputs[3].value)
+                    };
+                  });
   
-  }
-  
-  appointment_days.forEach((elem,index) =>{
-    elem.onclick = (e) =>{
-      selectedDay(index);
-        inputs[3].value = `${year}-${month+1}-${e.target.innerText}`
-        requestAppointmentData(inputs[3].value);
-    };
-  });
+              })  
+            }
+          }
+        }
+        
+      }
 
 };
+
+
+const currentDate = new Date();
+const currentMonth = { value: currentDate.getMonth() };
+const currentYear = { value: currentDate.getFullYear() };
 
 month_picker.onchange = (e) =>{
   generateCalendar(month_names.indexOf(e.target.value), currentYear.value, currentDate.getDate());
 }
 
-
 document.querySelector('#pre-year').onclick = () => {
   --currentYear.value;
-  generateCalendar(currentMonth.value, currentYear.value, currentDate.getDate());
+  generateCalendar(currentMonth.value, currentYear.value);
 };
 document.querySelector('#next-year').onclick = () => {
   ++currentYear.value;
-  generateCalendar(currentMonth.value, currentYear.value, currentDate.getDate());
+  generateCalendar(currentMonth.value, currentYear.value);
 };
 
-let currentDate = new Date();
-let currentMonth = { value: currentDate.getMonth() };
-let currentYear = { value: currentDate.getFullYear() };
-generateCalendar(currentMonth.value, currentYear.value, currentDate.getDate());
+
+appointment_btns.forEach(btn =>{
+  btn.onclick = (e) =>{
+    inputs[5].value = services[Number(e.target.id)].innerText
+    service_box.classList.add('hide-container');
+    service_calendar.classList.add('fade-bottom');
+    service_calendar.classList.remove('hide-container');
+    booking_warning.classList.add('fade-bottom');
+    booking_warning.classList.remove('hide-container');
+
+    generateCalendar(currentMonth.value, currentYear.value);
+
+  }
+});
+
+
+cancel_form.onclick = () =>{
+service_calendar.classList.add('hide-container');
+booking_warning.classList.add('hide-container');
+service_box.classList.add('fade-bottom');
+service_box.classList.remove('hide-container');
+}
+
+
 
 
 const create_checkout = document.getElementById('create-checkout')
@@ -237,32 +279,38 @@ create_checkout.onclick = () =>{
   }
 
 
+  if(booking_inputs.time !== "" && booking_inputs.date !== ""){
+      let payload = 
+      {
+        method: "POST",
+        headers:
+        {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify(booking_inputs)
+      };
+    
+    
+      fetch(`${window.origin}/processBooking`,payload)
+      .then(data => data.json())
+      .then(data => {
+          if (data.status != 401){
+              create_checkout.innerText = 'Checkout';
+              alert('Redirecting To Checkout');
+              window.location = data.value.redirectUrl
+          }else{
+            create_checkout.innerText = 'Checkout';
+            alert('Something went wrong');
+            window.location.reload();
+          }
+        }
+      )
+      .catch(error => console.log(error));
+  }else{
+    alert('Desired Date and Time Should Be filled.');
+    create_checkout.innerText = 'Checkout';
+  }
 
 
-  let payload = 
-  {
-    method: "POST",
-    headers:
-    {
-        "Content-Type": "application/json"
-    },
-    body: JSON.stringify(booking_inputs)
-  };
-
-
-  EndpointRequest(`${window.origin}/processBooking`,payload)
-  .then(json => {
-      if (json.status != 401){
-          create_checkout.innerText = 'Checkout';
-          alert(JSON.stringify('Redirecting To Checkout'));
-          window.location = json.value.redirectUrl
-      }else{
-        create_checkout.innerText = 'Checkout';
-        alert('Something went wrong');
-        window.location.reload();
-      }
-    }
-  )
-  .catch(error => console.log(error));
 }
 

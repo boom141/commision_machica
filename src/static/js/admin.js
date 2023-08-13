@@ -1,14 +1,12 @@
-window.onload = () =>{
-  user = JSON.parse(sessionStorage.getItem('user'));
-  console.log(user);
-    if(user !== null){
-      if (user.fullname !== 'admin'){
-        window.location = window.origin 
-      }
-    }else{
+user = JSON.parse(sessionStorage.getItem('user'));
+console.log(user);
+  if(user !== null){
+    if (user.fullname !== 'admin'){
       window.location = window.origin 
     }
-}
+  }else{
+    window.location = window.origin 
+  }
 
 
 const EndpointRequest = async (url,payload) =>{
@@ -33,6 +31,7 @@ const displayUserList = (data_list) =>{
   user_list_container.innerHTML = " ";
   for(let data of data_list.value){
     if(data.fullname !== 'admin'){
+    console.log(data.history_data)
     user_list_container.innerHTML += `
           <div class="accordion-item">
           <h2 class="accordion-header">
@@ -67,6 +66,7 @@ const displayUserList = (data_list) =>{
           </div>    
       </div>
   </div>`
+  
   if(data.history_data){
     for(let value of data.history_data) {
       document.getElementById(`${data.email}-history`).innerHTML +=
@@ -86,7 +86,6 @@ const displayUserList = (data_list) =>{
 
 
 const initUserList = (user_email=null) => {
-
   let payload = 
   {
     method: "POST",

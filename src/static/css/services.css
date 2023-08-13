@@ -6,8 +6,14 @@
 
 
 .service-calendar{
-    width: 70%;
+    width: 68%;
     overflow: hidden;
+}
+
+.calendar-days{
+  overflow-y: auto!important; 
+  height: 400px;
+  max-height: 400px!important;
 }
 
   .hide-container{
@@ -54,7 +60,7 @@
     color: var(--bg-second);
     height: 50px;
   }
-  .calendar-days {
+  /* .calendar-days {
     display: grid;
     grid-template-columns: repeat(7, 1fr);
     gap: 2px;
@@ -70,12 +76,27 @@
     font-size: 2rem;
     cursor: pointer;
     transition: var(--th-transition);
-  }
+  } */
  
-  .calendar-days div:hover {
+  /* .calendar-days div:hover {
     background-color: rgba(213, 213, 213, 0.537);
-  }
+  } */
  
+  .day{
+    transition: var(--th-transition);
+  }
+
+  .day:hover{
+    box-shadow: var(--shadow);
+  }
+
+  .day-date span, .day-info span {
+    margin-top: .5rem;
+    font-size: 2.5rem;
+  }
+  .day-date span:nth-child(2), .day-info span:nth-child(2){
+    margin-top: -1rem;
+  }
 
   .current-day{
     background-color: var(--th-pal-3)!important;
@@ -86,14 +107,12 @@
   .selected-day{
     background-color: var(--th-pal-2)!important;
     color: white!important;
-    border-radius: 5px;
+    /* border-radius: 5px; */
   }
 
   .full-slot{
     background-color: var(--th-pal-1)!important;
     color: white!important;
-    border-radius: 5px;
-    pointer-events: none!important;
   }
 
   .month-picker{

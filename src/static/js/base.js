@@ -7,7 +7,7 @@ window.onload = () =>{
   if (user != null){
     document.getElementById('guest-mode').style.display = 'none';
     document.getElementById('online-mode').style.display = 'block';
-    document.getElementById('profile-btn').innerText = user.fullname.split(' ')[0];
+    document.getElementById('profile-btn').innerText = user.fullname.split(' ')[0].toUpperCase();
   }
 }
 

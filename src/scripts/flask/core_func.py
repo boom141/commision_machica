@@ -8,7 +8,7 @@ core = Blueprint('core', __name__)
 def dayInformation():
     data = request.get_json()
     appointments = list(mongoDb.machica_bookings.find({'date': data['value']},{'_id': 0}))
-
+    
     if appointments:
         return {'status': 200 , 'value': appointments}
     else:
@@ -101,21 +101,18 @@ def usreList():
     data = request.get_json()
 
     user_data = list(mongoDb.machica_users.find({'email':data['email']} if data['email'] else {},{'_id': 0}))
-    booking_data = list(mongoDb.machica_bookings.find({},{'_id': 0}))
+    booking_data = list(mongoDb.machica_bookings.find({'email':data['email']} if data['email'] else {},{'_id': 0}))
 
     new_user_list = []
 
-    if not data['email']:
-        for user in user_data:
-            history_Data = []
-            for booking in booking_data:
-                if user['email'] == booking['email']:
-                    history_Data.append({'service': booking['item_name'], 'date': booking['date'], 'time': booking['time']})
+    for user in user_data:
+        history_Data = []
+        for booking in booking_data:
+            if user['email'] == booking['email']:
+                history_Data.append({'service': booking['item_name'], 'date': booking['date'], 'time': booking['time']})
 
-            user['history_data'] = history_Data
-            new_user_list.append(user)    
-    else:
-        new_user_list = user_data
+        user['history_data'] = history_Data
+        new_user_list.append(user)    
 
     if new_user_list:
         return {'status': 200, 'value': new_user_list}

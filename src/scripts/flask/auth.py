@@ -1,3 +1,4 @@
+import re
 from flask import Blueprint, redirect, render_template, url_for, request, flash, session
 from src.scripts.backend_func.db_init import mongoDb
 from src.scripts.backend_func.smtp import emailService
@@ -33,9 +34,19 @@ def form_validation():
     if request.method == 'POST':
         data = request.get_json()
 
+        password_pattern = re.compile(r"[a-zA-Z0-9_@]{8,}")
+
         #register validations
         if 'otp' not in data:
-            if data['password'] != data['r_password']:
+            if not password_pattern.search(data['password']):
+                flash("""
+                        Password Must be at least 8 Characters 
+                        long and contains upper case characters
+                        and special characters
+.                      """, 'warning')
+                return {'status': 401}
+
+            elif data['password'] != data['r_password']:
                 flash('Password not matched', 'warning')
                 return {'status': 401}
 

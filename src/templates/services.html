@@ -94,8 +94,14 @@
             </div>
         </div>
         
+    </div>      
+
+    <div id="booking-warning" class="container hide-container w-75 px-5 mt-5">
+        <div class="mx-1 w-50 alert alert-warning" role="alert">
+            <i class="bi bi-info-square-fill"></i> <strong>Note:</strong> Reservation is only available every sunday.
+        </div>
     </div>
-    <div class="service-calendar hide-container  rounded-3 py-3 container d-flex flex-row justify-content-center column-gap-5 mt-5 border">
+    <div class="service-calendar hide-container rounded-3 p-3 container d-flex flex-row justify-content-center column-gap-3 mt-3 border">
                 <div class="col-7 calendar p-3 rounded-3 m-0">
                     <div class="calendar-header d-flex flex-row justify-content-between">
                         <select class="month-picker fs-3 form-select" id="month-picker">
@@ -124,23 +130,13 @@
                     </div>
                     
                     <div class="d-flex flex-row w-100 column-gap-2 mt-2">
-
-                        <p class="rounded-3 p-2 fw-light text-white th-bg-3">CURRENT</p>
-                        <p class="rounded-3 p-2 fw-light text-white th-bg-2">SELECTED </p>
-                        <p class="rounded-3 p-2 fw-light text-white th-bg-1">FULLSLOT </p>
+                        <p class="rounded-3 p-2 fw-light text-white th-bg-2">AVAILABLE</p>
+                        <p class="rounded-3 p-2 fw-light text-white th-bg-1">FULLSLOT</p>
                     </div>
 
                     <div class="calendar-body">
-                        <div class="calendar-week-days">
-                            <div class="fs-3">Sun</div>
-                            <div class="fs-3">Mon</div>
-                            <div class="fs-3">Tue</div>
-                            <div class="fs-3">Wed</div>
-                            <div class="fs-3">Thu</div>
-                            <div class="fs-3">Fri</div>
-                            <div class="fs-3">Sat</div>
-                        </div>
-                        <div class="calendar-days">
+                        <div class="calendar-days d-flex flex-column row-gap-2 py-3">
+                            
                         </div>
                     </div>
 
@@ -152,20 +148,20 @@
 
                     <form method="post" action="" class="d-flex flex-column row-gap-3">
                 
-                            <input type="text" class="inputs form-control" name="fullname" placeholder="First Name" required>
+                            <input readonly type="text" class="inputs form-control" name="fullname" placeholder="First Name" required>
                             
                             
-                            <input type="tel" class="inputs form-control" name="phone" placeholder="Phone Number #" required>
+                            <input readonly type="tel" class="inputs form-control" name="phone" placeholder="Phone Number #" required>
                             
                             
-                            <input type="email" class="inputs form-control" name="email" placeholder="Email" required>
+                            <input readonly type="email" class="inputs form-control" name="email" placeholder="Email" required>
                             
                             
                             <input type="text" class="inputs form-control" name="date" placeholder="Date" readonly required>
     
                             
                             <select class="inputs form-select" name = "time" required>
-                                <option selected>Select time</option>
+                                <option value="">Select time</option>
                                 <option class="time-booking text-dark" value="time 1">time 1</option>
                                 <option class="time-booking text-dark" value="time 2">time 2</option>
                                 <option class="time-booking text-dark" value="time 3">time 3</option>
@@ -174,13 +170,13 @@
                             </select>
         
         
-                            <select class="inputs form-select" name = "POA" required>
+                            <select disabled class="inputs form-select" name = "POA" required>
                                 <option selected>Purpose Of Appointment</option>
                                 <option class="services" value="Service 1 - Check Up">Service 1 - Check Up</option>
                                 <option class="services" value="Service 2 - Tooth removal">Service 2 - Tooth removal</option>
                                 <option class="services" value="Service 3 - Fillings">Service 3 - Fillings</option>
-                                <option class="services" value="Service 4 - Braces">Service 4 - Braces</option>
-                                <option class="services" value="Service 5 - Root Canal">Service 5 - Root Canal</option>
+                                <option class="services" value="Service 4 - Root Canal">Service 4 - Root Canal</option>
+                                <option class="services" value="Service 5 - Braces">Service 5 - Braces</option>
                                 <option class="services" value="Service 6 - Dental implants">Service 6 - Dental implants</option>
                             </select>
                             
