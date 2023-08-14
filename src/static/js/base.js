@@ -15,6 +15,9 @@ document.getElementById('logout-btn').onclick = () =>{
     sessionStorage.clear();
     window.location = window.origin
 };
+document.getElementById('profile-options').onclick = () =>{
+    window.location = window.origin + '/profile/personal_details';
+};
 
 
 

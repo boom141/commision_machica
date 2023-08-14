@@ -34,6 +34,26 @@ class mongoDb:
             return e
         
     @classmethod
+    def updateUser(cls,data,user_email):
+        filter_key = {'email':user_email}
+        new_data = {'$set':{
+            'fullname': data['fullname'],
+            'birthday': data['birthday'],
+            'age': data['age'],
+            'address': data['address'],
+            'gender': data['gender'],    
+            'phone': data['phone'],
+            'email': data['email'],
+            'password': generate_password_hash(data['password'], method="sha256")
+        }}
+
+        try:
+            cls.machica_users.update_one(filter_key,new_data)
+            return True
+        except Exception as e: 
+            return e
+        
+    @classmethod
     def AddBooking(cls,data):
         new_booking = {
 

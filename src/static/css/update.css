@@ -1,0 +1,40 @@
+.update-banner{
+    background: var(--th-pal-2);
+    height: 400px!important;
+
+  }
+
+.profile-content{
+    margin-top: -15rem;
+}
+
+.user-icon{
+    border: 5px solid var(--th-pal-2);
+    border-radius: 10%;
+}
+
+.profile-btn{
+    transition: var(--th-transition);
+    color: black!important;
+    text-align: start!important;
+    width: 100%;
+    padding: .5rem .5rem!important;
+}
+
+.profile-active{
+    background-color: var(--th-pal-1)!important;
+    color: white!important;
+}
+
+
+
+.profile-btn:hover{
+    padding: .5rem .5rem!important;
+    background-color: var(--th-pal-1)!important;
+    color: white!important;
+}
+
+.hide-btn{
+    display: none!important;
+    pointer-events: none!important;
+}

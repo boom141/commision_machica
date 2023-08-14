@@ -25,6 +25,31 @@ def services():
 def products():
     return render_template('products.html')
 
+@views.route('/profile/personal_details', methods=['POST','GET'])
+def personal():
+    if request.method == 'POST':
+        
+        new_data = {
+            'fullname': request.form['fullname'],
+            'birthday': request.form['birthday'],
+            'age': request.form['age'],
+            'address': request.form['address'],
+            'gender': request.form['gender'],    
+            'phone': request.form['phone'],
+            'email': request.form['email'],
+            'password': request.form['password'],
+        }
+
+        print(new_data)
+
+        if request.form['password'] != request.form['r-password']:
+            flash('Password not matched', 'warning')
+        else:
+            if mongoDb.updateUser(new_data,new_data['email']):
+                return redirect(url_for('.landing'))
+            
+
+    return render_template('personal_details.html')
 
 @views.route('/confirm')
 def confirm():
