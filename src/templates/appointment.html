@@ -17,10 +17,25 @@
         <div class="row mt-5">
             <h4 class="fw-medium th-color-admin2">Appointment List</h4>
             <hr>
-            <div id="appointment-list" class="appointment-list d-flex flex-column row-gap-2 p-3">
-                <div id="appointment-list" class="appointment-list d-flex flex-column row-gap-2 p-3">
-                    
-                </div>
+            <div class="user-list-header d-flex flex-row column-gap-2">
+                <input id="search-dashboard-input" type="text" name="search-user" placeholder="Search User <Email> " class="search-user form-control">
+                <button id="user-search-dashboard" class="btn btn-admin text-white">Search</button>
+            </div>
+            <div class="appointment-list d-flex flex-column row-gap-2 p-3">
+                <table class="table table-hover ">
+                    <thead>
+                        <tr class="table-success text-white">
+                            <th>Fullname</th>
+                            <th>Email</th>
+                            <th>Date</th>
+                            <th>Time</th>
+                            <th>Service</th>
+                        </tr>
+                    </thead>
+                    <tbody id="appointment-list" class="appointment-table">
+                        
+                    </tbody>
+                </table>
             </div>
         </div>
     </div>

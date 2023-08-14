@@ -8,6 +8,10 @@
     margin-top: -15rem;
 }
 
+.profile-menu{
+    height: max-content;
+}
+
 .user-icon{
     border: 5px solid var(--th-pal-2);
     border-radius: 10%;
@@ -27,7 +31,6 @@
 }
 
 
-
 .profile-btn:hover{
     padding: .5rem .5rem!important;
     background-color: var(--th-pal-1)!important;
@@ -38,3 +41,9 @@
     display: none!important;
     pointer-events: none!important;
 }
+
+.user-appointment{
+    overflow-y: auto!important;
+    max-height: 500px;
+}
+

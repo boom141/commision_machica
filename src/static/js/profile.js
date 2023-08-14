@@ -1,3 +1,64 @@
+const profile_menu = document.querySelectorAll('.profile-btn');
+console.log(profile_menu);
+
+switch(window.location.href){
+  case window.origin + '/profile/personal_details':
+    profile_menu[0].classList.add('profile-active');
+    break;
+  case window.origin + '/profile/appointment_list':
+    profile_menu[1].classList.add('profile-active');
+    break;
+}
+
+
+
+let appointment_container = document.getElementById('user-appointment')
+const initAppointmentList = (data_list) =>{
+    appointment_container.innerHTML = ""
+  
+    for(let data of data_list){
+      appointment_container.innerHTML += 
+        `<tr>
+          <td>${data.fullname}</td>
+          <td>${data.email}</td>
+          <td>${data.date}</td>
+          <td>${data.time}</td>
+          <td>${data.item_name}-${data.description}</td>
+        </tr>
+        `
+      }
+    
+  }
+  
+
+try{
+    let payload = 
+    {
+      method: "POST",
+      headers:
+      {
+          "Content-Type": "application/json"
+      },
+      body: JSON.stringify({email: user.email})
+    };
+    
+    
+    fetch(`${window.origin}/appointmentList`,payload)
+    .then(data => data.json())
+    .then(data => {
+      if(data.status !== 401){
+          initAppointmentList(data.value);
+      }else{
+          alert('Fetching user data failed')
+      }
+        
+    })
+    .catch(e => console.log(e))
+
+}catch(e){
+  console.log(e);
+}
+
 const registration_form = document.querySelectorAll(".user-information");
 
 const populateUserInformation = (data_list) =>{
@@ -47,25 +108,37 @@ try{
     console.log(e);
   }
 
-  document.getElementById('birthday').onchange = (e) =>{
-    let date = new Date()
-    let birth_year = e.target.value.split('-')[0]
-  
-    registration_form[2].value = `${date.getFullYear() - Number(birth_year)} yrs old`
+  try{
+    document.getElementById('birthday').onchange = (e) =>{
+      let date = new Date()
+      let birth_year = e.target.value.split('-')[0]
+    
+      registration_form[2].value = `${date.getFullYear() - Number(birth_year)} yrs old`
+    }
+  }catch(e){
+    console.log(e);
   }
   
 
   const edit_profile = document.querySelector('.edit-profile');
-
   const update_profile = document.querySelector('.update-profile');
 
-    edit_profile.onclick = (e) =>{
-        edit_profile.classList.add('hide-btn');
-        update_profile.classList.remove('hide-btn');
-        registration_form.forEach(elem =>{
-            if(elem.name !== "email"){
-                elem.disabled = false;
-            }
-            
-        })
+  try{
+      edit_profile.onclick = (e) =>{
+          edit_profile.classList.add('hide-btn');
+          update_profile.classList.remove('hide-btn');
+          registration_form.forEach(elem =>{
+              if(elem.name !== "email"){
+                  elem.disabled = false;
+              }
+              
+          })
+    }
+
+  }catch(e){
+    console.log(e);
   }
+  
+
+
+

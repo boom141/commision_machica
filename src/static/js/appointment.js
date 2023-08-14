@@ -1,16 +1,38 @@
+try{
+    EndpointRequest(`${window.origin}/processAnalytics`)
+        .then(data => {
+          if(data.status !== 401){
+            initAppointmentsData(data)
+          }else{
+              alert('fetching data failed')
+          }
+            
+        })
+        .catch(e => console.log(e))
 
-window.onload = () =>{
-  EndpointRequest(`${window.origin}/processAnalytics`)
-      .then(data => {
-        if(data.status !== 401){
-          initAppointmentsData(data)
-        }else{
-            alert('fetching data failed')
-        }
-          
-      })
-      .catch(e => console.log(e))
+}catch(e){
+  console.log(e);
 }
+
+
+let appointment_container = document.getElementById('appointment-list')
+const initAppointmentList = (data_list) =>{
+  appointment_container.innerHTML = ""
+
+  for(let data of data_list){
+    appointment_container.innerHTML += 
+      `<tr>
+        <td>${data.fullname}</td>
+        <td>${data.email}</td>
+        <td>${data.date}</td>
+        <td>${data.time}</td>
+        <td>${data.item_name}-${data.description}</td>
+      </tr>
+      `
+    }
+  
+}
+
 
 const initAppointmentsData = (data) =>{
   const chart_1 = document.getElementById('Monthly-Bar');
@@ -82,45 +104,36 @@ const initAppointmentsData = (data) =>{
     }
   });
 
+  initAppointmentList(data.value);
 
-  let appointment_container = document.getElementById('appointment-list')
-  for(let booking of data.value){
-    appointment_container.innerHTML += `<div class="appointment th-transition px-4 th-bg-admin1 d-flex flex-row justify-content-between align-items-center p-2 rounded-3 border">
-                                    <span class="fw-normal fs-4 me-2 text-white">${booking.fullname} | ${booking.item_name} | ${booking.description} | ${booking.time} | ${booking.date}</span>
-                                    <img id="${booking.reference_code}" width="50" height="50" role="button" class="delete-booking bg-white rounded-3" src="https://img.icons8.com/external-tanah-basah-glyph-tanah-basah/96/09332e/external-trash-can-homeware-tanah-basah-glyph-tanah-basah.png" alt="checked-checkbox"/>
-                                    </div>`
-    }
-
-
-    const delete_bookings = document.querySelectorAll('.delete-booking')
-    delete_bookings.forEach(button => {
-      button.onclick = (e) =>{
-        e.preventDefault()
-
-        let payload = 
-        {
-          method: "POST",
-          headers:
-          {
-              "Content-Type": "application/json"
-          },
-          body: JSON.stringify({ref_code: e.target.id})
-        };
-
-      EndpointRequest(`${window.origin}/deleteBooking`,payload)
-      .then(data => {
-        if(data.status !== 401){
-            alert('Delete Successfully')
-        }else{
-            alert('Fetching data failed')
-        }
-          
-      })
-      .catch(e => console.log(e))
-      }
-    })
   
   }
 
 
 
+const user_search = document.getElementById('user-search-dashboard');
+user_search.onclick = () =>{
+  let dashboard_input = document.getElementById('search-dashboard-input');
+
+  let payload = 
+  {
+    method: "POST",
+    headers:
+    {
+        "Content-Type": "application/json"
+    },
+    body: JSON.stringify({email: dashboard_input.value})
+  };
+
+
+  EndpointRequest(`${window.origin}/appointmentList`,payload)
+  .then(data => {
+    if(data.status !== 401){
+        initAppointmentList(data.value);
+    }else{
+        alert('Fetching user data failed')
+    }
+      
+  })
+  .catch(e => console.log(e))
+}

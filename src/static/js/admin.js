@@ -1,5 +1,4 @@
 user = JSON.parse(sessionStorage.getItem('user'));
-console.log(user);
   if(user !== null){
     if (user.fullname !== 'admin'){
       window.location = window.origin 
@@ -30,7 +29,6 @@ const displayUserList = (data_list) =>{
   user_list_container.innerHTML = " ";
   for(let data of data_list.value){
     if(data.fullname !== 'admin'){
-    console.log(data.history_data)
     user_list_container.innerHTML += `
           <div class="accordion-item">
           <h2 class="accordion-header">

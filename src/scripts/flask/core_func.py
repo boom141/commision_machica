@@ -118,3 +118,15 @@ def usreList():
         return {'status': 200, 'value': new_user_list}
     else:
         return {'status': 401}
+    
+
+@core.route('/appointmentList',methods=['GET', 'POST'])
+def appointmentList():
+    data = request.get_json()
+
+    booking_data = list(mongoDb.machica_bookings.find({'email':data['email']} if data['email'] else {},{'_id': 0}))
+
+    if booking_data:
+        return {'status': 200, 'value': booking_data}
+    else:
+        return {'status': 401}
