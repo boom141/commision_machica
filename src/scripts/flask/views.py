@@ -28,7 +28,7 @@ def products():
 @views.route('/profile/personal_details', methods=['POST','GET'])
 def personal():
     if request.method == 'POST':
-        
+        print(request.form)
         new_data = {
             'fullname': request.form['fullname'],
             'birthday': request.form['birthday'],
@@ -40,13 +40,13 @@ def personal():
             'password': request.form['password'],
         }
 
-        print(new_data)
+        
 
         if request.form['password'] != request.form['r-password']:
             flash('Password not matched', 'warning')
         else:
             if mongoDb.updateUser(new_data,new_data['email']):
-                return redirect(url_for('.landing'))
+                return redirect(url_for('.personal'))
             
 
     return render_template('personal_details.html')

@@ -27,6 +27,8 @@ const initAppointmentList = (data_list) =>{
         <td>${data.date}</td>
         <td>${data.time}</td>
         <td>${data.item_name}-${data.description}</td>
+        <td>${data.reservation_fee}</td>
+
       </tr>
       `
     }

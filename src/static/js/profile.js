@@ -24,6 +24,7 @@ const initAppointmentList = (data_list) =>{
           <td>${data.date}</td>
           <td>${data.time}</td>
           <td>${data.item_name}-${data.description}</td>
+          <td>${data.reservation_fee}</td>
         </tr>
         `
       }
@@ -128,9 +129,8 @@ try{
           edit_profile.classList.add('hide-btn');
           update_profile.classList.remove('hide-btn');
           registration_form.forEach(elem =>{
-              if(elem.name !== "email"){
-                  elem.disabled = false;
-              }
+              elem.disabled = false;
+              
               
           })
     }
