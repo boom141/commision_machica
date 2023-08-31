@@ -1,26 +1,22 @@
 
 /* navbar */
 nav{
-    background-color: var(--th-pal-dark);
+    background: white!important;
+}
+
+body{
+    background-color: whitesmoke;
 }
 
 .navbar .container-fluid{
     max-width: 1400px;
 }
 
-/* .navbar-nav{
-    margin-left: 14.3rem;
-}
-
-.nav-item,.auth-link{
-    margin-left: 3rem;
-} */
-
-
 
 .nav-item a{
     transition: var(--th-transition);
-    border-bottom: 2px solid var(--th-pal-dark)
+    border-bottom: transparent;
+    color: var(--th-pal-1)!important;
 }
 
 .auth-link a{
@@ -39,8 +35,9 @@ nav{
 }
 
 .link-active {
-    border: 2px solid white!important;
+    border: 2px solid var(--th-pal-1)!important;
     border-radius: 10px;
+    
 }
 
 

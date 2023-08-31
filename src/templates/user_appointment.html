@@ -1,21 +1,47 @@
 {%extends "profile.html"%}
 
 {% block profile_content %}
-    <div class="container user-appointment border rounded-3 bg-white py-3 w-75">
-        <table class="table table-hover ">
-            <thead>
-                <tr class="table-primary text-white">
-                    <th>Fullname</th>
-                    <th>Email</th>
-                    <th>Date</th>
-                    <th>Time</th>
-                    <th>Service</th>
-                    <th>Reservation Fee</th>
-                </tr>
-            </thead>
-            <tbody id="user-appointment">
+    <div class="container service-calendar user-appointment border rounded-3 bg-white py-3 w-75">
+        <div class="calendar-header d-flex flex-row justify-content-between">
+            <select class="month-picker w-25 fs-3 form-select" id="month-picker">
+                 <option value="January">January</option> 
+                 <option value="February">February</option> 
+                 <option value="March">March</option> 
+                 <option value="April">April</option> 
+                 <option value="May">May</option> 
+                 <option value="June">June</option> 
+                 <option value="July">July</option> 
+                 <option value="August">August</option> 
+                 <option value="September">September</option> 
+                 <option value="October">October</option> 
+                 <option value="November">November</option> 
+                 <option value="December">December</option> 
+            </select>
+            <div class="year-picker d-flex flex-row justify-content-between align-items-center w-25" id="year-picker">
+                <span class="year-change fs-3" role="button" id="pre-year">
+                    <
+                </span>
+                <span class="fs-3" id="year">2020 </span>
+                <span class="year-change fs-3" role="button" id="next-year">
+                    >
+                </span>
+            </div>
+        </div>
+
+        <div class="calendar-body">
+            <div class="calendar-week-days">
+              <div>Sun</div>
+              <div>Mon</div>
+              <div>Tue</div>
+              <div>Wed</div>
+              <div>Thu</div>
+              <div>Fri</div>
+              <div>Sat</div>
+            </div>
+            <div class="calendar-days">
                 
-            </tbody>
-        </table>
+            </div>
+        </div>
+
     </div>
 {% endblock %}

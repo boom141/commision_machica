@@ -9,9 +9,7 @@ window.onload = () =>{
       document.getElementById('guest-mode').style.display = 'none';
       document.getElementById('online-mode').style.display = 'block';
       document.getElementById('profile-btn').innerText = user.fullname.split(' ')[0];
-  }else{
-    window.location = window.origin + '/login';
-  }
+}
 }
 
 

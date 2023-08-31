@@ -16,7 +16,7 @@ document.getElementById('logout-btn').onclick = () =>{
     window.location = window.origin
 };
 document.getElementById('profile-options').onclick = () =>{
-    window.location = window.origin + '/profile/personal_details';
+    window.location = window.origin + '/profile/appointment_list';
 };
 
 

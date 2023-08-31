@@ -1,0 +1,85 @@
+.calendar {
+    height: max-content;
+    width: max-content;
+    overflow: hidden;
+}
+
+.main-calendar{
+    width: max-content;
+}
+
+.current-day span{
+    font-size: 8rem;
+}
+
+.current-day span:nth-child(2){
+    margin-top: -1rem;
+    font-size: 2rem;
+}
+
+.calendar-week-days {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    font-weight: 600;
+    color:rgb(104, 104, 104);
+}
+.calendar-week-days div {
+    display: grid;
+    place-items: center;
+    color: var(--bg-second);
+    height: 50px;
+}
+
+.calendar-days {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: .5rem;
+    color: var(--color-txt);
+}
+
+  
+
+.day{
+    transition: var(--th-transition);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    font-size: 3rem;
+    padding: 1rem 1rem;
+}
+
+.day:hover{
+    background-color: var(--th-pal-1);
+    color: white;
+    border-radius: 4px;
+}
+
+.day-date span, .day-info span {
+    margin-top: .5rem;
+    font-size: 2.5rem;
+}
+.day-date span:nth-child(2), .day-info span:nth-child(2){
+    margin-top: -1rem;
+}
+
+.current-day{
+    background-color: var(--th-pal-3)!important;
+    color: white!important;
+    border-radius: 5px;
+}
+
+.selected-day{
+    background-color: var(--th-pal-2)!important;
+    color: white!important;
+}
+
+.full-slot{
+    background-color: var(--th-pal-1)!important;
+    color: white!important;
+}
+
+.month-picker{
+    width: max-content;
+}
+

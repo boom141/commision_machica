@@ -1,5 +1,5 @@
 .update-banner{
-    background: var(--th-pal-2);
+    background: var(--th-pal-1);
     height: 400px!important;
 
   }
@@ -41,9 +41,9 @@
     display: none!important;
     pointer-events: none!important;
 }
-
+/* 
 .user-appointment{
     overflow-y: auto!important;
     max-height: 500px;
-}
+} */
 

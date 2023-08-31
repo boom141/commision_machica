@@ -66,7 +66,9 @@ class mongoDb:
             'description': data['description'],
             'amount': data['amount'],
             'message': data['message'],
-            'reference_code': data['reference_code']
+            'reference_code': data['reference_code'],
+            'reservation_fee' : 'paid',
+            'isDone': False
         }
 
         try:

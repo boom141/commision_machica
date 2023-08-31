@@ -1,15 +1,13 @@
 const profile_menu = document.querySelectorAll('.profile-btn');
-console.log(profile_menu);
 
 switch(window.location.href){
   case window.origin + '/profile/personal_details':
-    profile_menu[0].classList.add('profile-active');
-    break;
-  case window.origin + '/profile/appointment_list':
     profile_menu[1].classList.add('profile-active');
     break;
+  case window.origin + '/profile/appointment_list':
+    profile_menu[0].classList.add('profile-active');
+    break;
 }
-
 
 
 let appointment_container = document.getElementById('user-appointment')
@@ -32,33 +30,33 @@ const initAppointmentList = (data_list) =>{
   }
   
 
-try{
-    let payload = 
-    {
-      method: "POST",
-      headers:
-      {
-          "Content-Type": "application/json"
-      },
-      body: JSON.stringify({email: user.email})
-    };
+// try{
+//     let payload = 
+//     {
+//       method: "POST",
+//       headers:
+//       {
+//           "Content-Type": "application/json"
+//       },
+//       body: JSON.stringify({email: user.email})
+//     };
     
     
-    fetch(`${window.origin}/appointmentList`,payload)
-    .then(data => data.json())
-    .then(data => {
-      if(data.status !== 401){
-          initAppointmentList(data.value);
-      }else{
-          alert('Fetching user data failed')
-      }
+//     fetch(`${window.origin}/appointmentList`,payload)
+//     .then(data => data.json())
+//     .then(data => {
+//       if(data.status !== 401){
+//           initAppointmentList(data.value);
+//       }else{
+//           alert('Fetching user data failed')
+//       }
         
-    })
-    .catch(e => console.log(e))
+//     })
+//     .catch(e => console.log(e))
 
-}catch(e){
-  console.log(e);
-}
+// }catch(e){
+//   console.log(e);
+// }
 
 const registration_form = document.querySelectorAll(".user-information");
 

@@ -60,28 +60,7 @@
     color: var(--bg-second);
     height: 50px;
   }
-  /* .calendar-days {
-    display: grid;
-    grid-template-columns: repeat(7, 1fr);
-    gap: 2px;
-    color: var(--color-txt);
-  }
-
-  .calendar-days div {
-    width: 4rem;
-    height: 4rem;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 2rem;
-    cursor: pointer;
-    transition: var(--th-transition);
-  } */
- 
-  /* .calendar-days div:hover {
-    background-color: rgba(213, 213, 213, 0.537);
-  } */
- 
+  
   .day{
     transition: var(--th-transition);
   }
