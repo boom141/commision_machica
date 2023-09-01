@@ -2,27 +2,28 @@ const profile_menu = document.querySelectorAll('.profile-btn');
 
 switch(window.location.href){
   case window.origin + '/profile/personal_details':
-    profile_menu[1].classList.add('profile-active');
+    profile_menu[2].classList.add('profile-active');
     break;
   case window.origin + '/profile/appointment_list':
     profile_menu[0].classList.add('profile-active');
     break;
+  case window.origin + '/profile/records':
+    profile_menu[1].classList.add('profile-active');
+    break;
 }
 
 
-let appointment_container = document.getElementById('user-appointment')
+let appointment_container = document.getElementById('appointment-list')
 const initAppointmentList = (data_list) =>{
     appointment_container.innerHTML = ""
   
     for(let data of data_list){
       appointment_container.innerHTML += 
         `<tr>
-          <td>${data.fullname}</td>
-          <td>${data.email}</td>
-          <td>${data.date}</td>
-          <td>${data.time}</td>
-          <td>${data.item_name}-${data.description}</td>
-          <td>${data.reservation_fee}</td>
+          <td>${data.date} | ${data.time}</td>
+          <td>${data.description}</td>
+          <td>${(data.isDone) ? 'Done' : 'On Going'}</td>
+          <td>${data.message}</td>
         </tr>
         `
       }
@@ -30,33 +31,33 @@ const initAppointmentList = (data_list) =>{
   }
   
 
-// try{
-//     let payload = 
-//     {
-//       method: "POST",
-//       headers:
-//       {
-//           "Content-Type": "application/json"
-//       },
-//       body: JSON.stringify({email: user.email})
-//     };
+try{
+    let payload = 
+    {
+      method: "POST",
+      headers:
+      {
+          "Content-Type": "application/json"
+      },
+      body: JSON.stringify({email: user.email})
+    };
     
     
-//     fetch(`${window.origin}/appointmentList`,payload)
-//     .then(data => data.json())
-//     .then(data => {
-//       if(data.status !== 401){
-//           initAppointmentList(data.value);
-//       }else{
-//           alert('Fetching user data failed')
-//       }
+    fetch(`${window.origin}/appointmentList`,payload)
+    .then(data => data.json())
+    .then(data => {
+      if(data.status !== 401){
+          initAppointmentList(data.value);
+      }else{
+          alert('Fetching user data failed')
+      }
         
-//     })
-//     .catch(e => console.log(e))
+    })
+    .catch(e => console.log(e))
 
-// }catch(e){
-//   console.log(e);
-// }
+}catch(e){
+  console.log(e);
+}
 
 const registration_form = document.querySelectorAll(".user-information");
 

@@ -55,6 +55,10 @@ def personal():
 def personalAppointment():
     return render_template('user_appointment.html')
 
+@views.route('/profile/records', methods=['POST','GET'])
+def personalRecords():
+    return render_template('records.html')
+
 @views.route('/confirm')
 def confirm():
     if 'value' in session:

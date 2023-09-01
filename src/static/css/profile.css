@@ -1,7 +1,8 @@
 .update-banner{
-    background: var(--th-pal-1);
+    background-image: linear-gradient(-45deg,#042d84ce, rgba(4, 45, 132, 0.75)), url(https://images.pexels.com/photos/4269492/pexels-photo-4269492.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1);
+    background-size: cover;
+    background-position: center;
     height: 400px!important;
-
   }
 
 .profile-content{
@@ -41,9 +42,12 @@
     display: none!important;
     pointer-events: none!important;
 }
-/* 
-.user-appointment{
-    overflow-y: auto!important;
-    max-height: 500px;
-} */
 
+.records{
+    overflow-y: auto;
+    max-height: 500px;
+}
+
+.profile-table-head{
+    background-color: var(--th-pal-1)!important;
+}

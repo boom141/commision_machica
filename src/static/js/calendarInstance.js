@@ -1,3 +1,22 @@
+const requestAppointmentData = async (email) =>{
+  let payload = 
+  {
+    method: "POST",
+    headers:
+    {
+        "Content-Type": "application/json"
+    },
+    body: JSON.stringify({email: email})
+  };
+  
+
+    return fetch(`${window.origin}/appointmentList`, payload)
+    .then(data => data.json())
+    .then(data => {
+      return data;
+    }).catch(err => console.log(err));
+
+}
 
 const isLeapYear = (year) => {
     return (
@@ -30,7 +49,6 @@ const isLeapYear = (year) => {
   const calendar_year = document.querySelector('#year');
   const calendar_days = document.querySelector('.calendar-days');
   
-  console.log(calendar_days)
 
   const generateCalendar = (month, year) => {
     calendar_days.innerHTML = '';
@@ -61,14 +79,48 @@ const isLeapYear = (year) => {
       day.classList.add("day");
 
       if (i >= first_day.getDay()) {
-            day.innerHTML = i - first_day.getDay() + 1;
+            let numerical_day = i - first_day.getDay() + 1;
+            day.innerHTML = numerical_day
+            let request_date = `${year}-${month+1}-${numerical_day}`
+            requestAppointmentData(user.email)
+            .then(data =>{
+              if(data.status !== 401){
+                for(let value of data.value){
+                  if(!value.isDone && value.date === request_date){
+                      day.classList.add('appointment-day');
+                    }
+                }
 
-        }
-    
-    calendar_days.appendChild(day);
+              } 
+            })
+
+          }
+          
+          calendar_days.appendChild(day);
 
     }
-  
+    
+    let days = document.querySelectorAll('.day')
+    days.forEach(day =>{
+      day.onclick = e =>{
+        let appointment_infos = document.querySelectorAll('.appointment-info')
+        let request_date = `${year}-${month+1}-${e.target.innerText}`
+        requestAppointmentData(user.email)
+        .then(data =>{
+          if(data.status !== 401){
+            for(let value of data.value){
+              if(value.date === request_date){
+                appointment_infos[0].innerText = `${value.item_name}-${value.description}`
+                appointment_infos[1].innerText = value.message
+                appointment_infos[2].innerText = `${value.date} | ${value.time}`              
+                $('#exampleModal').modal('show');
+              }
+            
+            }
+          } 
+        })
+      }
+      })
   };
 
 const currentDate = new Date();
@@ -76,3 +128,17 @@ const currentMonth = { value: currentDate.getMonth() };
 const currentYear = { value: currentDate.getFullYear() };
 
 generateCalendar(currentMonth.value, currentYear.value);
+
+
+month_picker.onchange = (e) =>{
+  generateCalendar(month_names.indexOf(e.target.value), currentYear.value);
+}
+
+document.querySelector('#pre-year').onclick = () => {
+  --currentYear.value;
+  generateCalendar(currentMonth.value, currentYear.value);
+};
+document.querySelector('#next-year').onclick = () => {
+  ++currentYear.value;
+  generateCalendar(currentMonth.value, currentYear.value);
+};

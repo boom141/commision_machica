@@ -3,7 +3,7 @@
 {% block profile_content %}
     <div class="container service-calendar user-appointment border rounded-3 bg-white py-3 w-75">
         <div class="calendar-header d-flex flex-row justify-content-between">
-            <select class="month-picker w-25 fs-3 form-select" id="month-picker">
+            <select class="month-picker w-50 fs-3 form-select" id="month-picker">
                  <option value="January">January</option> 
                  <option value="February">February</option> 
                  <option value="March">March</option> 
@@ -29,6 +29,11 @@
         </div>
 
         <div class="calendar-body">
+            
+            <div class="d-flex flex-row w-100 column-gap-2 mt-2">
+                <p class="rounded-3 p-2 fw-light text-white th-bg-1">APPOINTMENT</p>
+            </div>
+
             <div class="calendar-week-days">
               <div>Sun</div>
               <div>Mon</div>
@@ -38,10 +43,31 @@
               <div>Fri</div>
               <div>Sat</div>
             </div>
+
             <div class="calendar-days">
                 
             </div>
         </div>
 
     </div>
+
+  <!-- Modal -->
+  <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="card text-center">
+            <div class="card-header card-appointment text-white">
+              Appointment
+            </div>
+            <div class="card-body">
+              <h5 class="card-title appointment-info">Special title treatment</h5>
+              <p class="card-text appointment-info">With supporting text below as a natural lead-in to additional content.</p>
+            </div>
+            <div class="card-footer text-body-secondary appointment-info">
+              2 days ago
+            </div>
+          </div>
+      </div>
+    </div>
+  </div>
 {% endblock %}

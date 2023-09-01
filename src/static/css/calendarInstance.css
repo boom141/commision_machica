@@ -40,19 +40,27 @@
   
 
 .day{
-    transition: var(--th-transition);
+    transition: .3s cubic-bezier(0.23, 1, 0.320, 1);
     display: flex;
     align-items: center;
     justify-content: center;
     cursor: pointer;
     font-size: 3rem;
     padding: 1rem 1rem;
+    pointer-events: none;
 }
 
 .day:hover{
-    background-color: var(--th-pal-1);
+    background-color: lightgray;
     color: white;
     border-radius: 4px;
+}
+
+.appointment-day{
+    background-color: var(--th-pal-1)!important;
+    color: white;
+    border-radius: 4px;
+    pointer-events: all!important;
 }
 
 .day-date span, .day-info span {
@@ -83,3 +91,6 @@
     width: max-content;
 }
 
+.card-appointment{
+    background-color: var(--th-pal-1)!important;
+}

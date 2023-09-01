@@ -12,7 +12,7 @@ def dayInformation():
     if appointments:
         return {'status': 200 , 'value': appointments}
     else:
-        return {'status': 200, 'value': None}
+        return {'status': 401, 'value': None}
     
 
 @core.route('/processBooking',methods=['GET', 'POST'])
@@ -117,7 +117,7 @@ def usreList():
     if new_user_list:
         return {'status': 200, 'value': new_user_list}
     else:
-        return {'status': 401}
+        return {'status': 401, 'value': None }
     
 
 @core.route('/appointmentList',methods=['GET', 'POST'])
