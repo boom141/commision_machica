@@ -15,16 +15,62 @@
                 </div>
                 <img height="300" src="{{url_for('static', filename='images/banner-logo.png')}}" alt="">
             </div>
-            
-        </div>
-        <div class="row mt-5">
-            <h4 class="fw-medium th-color-admin2">Todays' Appointments</h4>
             <hr>
-            <div id="sched-today" class="sched-today d-flex flex-column row-gap-2 p-3">
+            <div class="d-flex flex-row justify-content-around mt-5 row-gap-5">
+                <div class="chart chart1 border rounded-3">
+                    <canvas id="Monthly-Bar" class="w-100"></canvas>
+                </div>
+                <div class="chart chart3 border rounded-3">
+                    <canvas id="monthly_revenue"></canvas>
+                </div>
             </div>
+            <div class="mt-5">
+                <h3>Today's Appointment</h3>
+                <hr>
+                <div class=" rounded-3">
+                    <table class="table table-bordered table-hover ">
+                        <thead>
+                            <tr class="text-center">
+                                <th class="text-white">Fullname</th>
+                                <th class="text-white">Date | Time</th>
+                                <th class="text-white">Service</th>
+                                <th class="text-white">Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody id="sched-today">
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
 
+    </div>
+    
+    <!-- Modal -->
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+            <h1 class="modal-title fs-5 d-flex flex-column" id="exampleModalLabel">
+                Follow Up Appoinment
+            </h1>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form class="d-flex flex-column row-gap-3" >
+                    <input type="email" name="email" readonly class="update-info form-control">
+                    <input type="text" name="service" readonly class="update-info form-control">
+                    <input type="date" name="date" class="update-info form-control">
+                    <textarea name="message" class="update-info form-control" cols="30" rows="10"></textarea>
+                </form>
+            </div>
+            <div class="modal-footer">
+            <div role="button" id="appointment-update-btn" class="btn btn-admin text-white">Save changes</div>
+            </div>
+        </div>
         </div>
     </div>
+    
 
 {% endblock %}
 

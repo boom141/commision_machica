@@ -55,6 +55,7 @@ class mongoDb:
         
     @classmethod
     def AddBooking(cls,data):
+  
         new_booking = {
 
             'fullname': data['fullname'],
@@ -77,3 +78,14 @@ class mongoDb:
         except Exception as e: 
             return False
 
+    @classmethod
+    def UpdateBooking(cls, filter_data):
+        print(filter_data['date'])
+        filter_key = {'email':filter_data['email'], 'date': filter_data['date']}
+        new_data = {'$set': {'isDone':True}}
+        
+        try:
+            cls.machica_bookings.update_one(filter_key,new_data)
+            return True
+        except Exception as e: 
+            return e

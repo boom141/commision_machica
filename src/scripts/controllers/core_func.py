@@ -14,6 +14,35 @@ def dayInformation():
     else:
         return {'status': 401, 'value': None}
     
+@core.route('/updateAppointment', methods=['GET', 'POST'])
+def updateAppointment():
+    data = request.get_json()
+    appointment = list(mongoDb.machica_bookings.find({'email': data['email'], 'date': data['current_date']},{'_id': 0}))
+
+    new_appointment = appointment[0]
+
+    new_appointment['date'] = data['date']
+    new_appointment['message'] = data['message']
+
+
+    if mongoDb.AddBooking(new_appointment):
+        if mongoDb.UpdateBooking({'email': data['email'], 'date': data['current_date']}):
+            return {'value': True}
+        else:
+            return {'value': False}
+    else:
+        return {'value': False}
+
+@core.route('/doneAppointment', methods=['GET', 'POST'])
+def doneAppointment():
+    data = request.get_json()
+
+    if mongoDb.UpdateBooking({'email': data['email'], 'date': data['current_date']}):
+        return {'value': True}
+    else:
+        return {'value': False}
+    
+    
 
 @core.route('/processBooking',methods=['GET', 'POST'])
 def processBooking():
@@ -26,6 +55,8 @@ def processBooking():
         return {'status': 200 , 'value': result}
     else:
         return {'status': 401}
+
+
 
 
 @core.route('/processAnalytics',methods=['GET', 'POST'])
