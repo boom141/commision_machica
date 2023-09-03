@@ -6,7 +6,7 @@ const requestAppointmentData = async (email) =>{
     {
         "Content-Type": "application/json"
     },
-    body: JSON.stringify({email: email})
+    body: JSON.stringify({value: {email: email}})
   };
   
 
@@ -84,7 +84,7 @@ const isLeapYear = (year) => {
             let request_date = `${year}-${month+1}-${numerical_day}`
             requestAppointmentData(user.email)
             .then(data =>{
-              if(data.status !== 401){
+              if(data.value !== null){
                 for(let value of data.value){
                   if(!value.isDone && value.date === request_date){
                       day.classList.add('appointment-day');

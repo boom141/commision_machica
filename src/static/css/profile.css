@@ -51,3 +51,8 @@
 .profile-table-head{
     background-color: var(--th-pal-1)!important;
 }
+
+thead tr th{
+    background-color: var(--th-pal-1)!important;
+    color: white!important;
+}

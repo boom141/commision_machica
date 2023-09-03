@@ -39,14 +39,14 @@ try{
       {
           "Content-Type": "application/json"
       },
-      body: JSON.stringify({email: user.email})
+      body: JSON.stringify({value:{email: user.email}})
     };
     
     
     fetch(`${window.origin}/appointmentList`,payload)
     .then(data => data.json())
     .then(data => {
-      if(data.status !== 401){
+      if(data.value !== null){
           initAppointmentList(data.value);
       }else{
           alert('Fetching user data failed')

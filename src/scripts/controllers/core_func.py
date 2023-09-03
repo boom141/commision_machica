@@ -155,7 +155,6 @@ def usreList():
 @core.route('/appointmentList',methods=['GET', 'POST'])
 def appointmentList():
     data = request.get_json()
-    print(data['value'])
     booking_data = list(mongoDb.machica_bookings.find(data['value'] if data['value'] else {},{'_id': 0}))
 
     if booking_data:
