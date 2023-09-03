@@ -153,7 +153,7 @@ const requestAppointmentData = (date) =>{
             setTodayAppointments(data.value)
         }else{
           alert('No Appointments Today')
-        }
+        } 
           
       })
       .catch(e => console.log(e))

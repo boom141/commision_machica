@@ -11,19 +11,24 @@
             <h4 class="fw-medium th-color-admin2">Appointment List</h4>
             <hr>
             <div class="user-list-header d-flex flex-row column-gap-2">
-                <input id="search-dashboard-input" type="text" name="search-user" placeholder="Search User <Email> " class="search-user form-control">
+                <input id="email" type="text" name="search-user" placeholder="Filter By User < Email > " class="dashboard-filters search-user form-control">
+                <input type="text" id="date" placeholder="Filter By < Date >" onfocus="(this.type='date')" class="form-control dashboard-filters">  
+                 <select id="isDone" class="form-select dashboard-filters">
+                    <option value="" class="text-mute"> Filter By < Status > </option>
+                    <option value="On Going"> On Going </option>
+                    <option value="Done"> Done </option>
+                 </select>     
                 <button id="user-search-dashboard" class="btn btn-admin text-white">Search</button>
             </div>
             <div class="appointment-list d-flex flex-column row-gap-2 p-3">
-                <table class="table table-hover ">
+                <table class="table table-bordered table-hover ">
                     <thead>
-                        <tr class="table-success text-white">
+                        <tr class="text-white text-center">
                             <th>Fullname</th>
                             <th>Email</th>
-                            <th>Date</th>
-                            <th>Time</th>
+                            <th>Date | Time</th>
                             <th>Service</th>
-                            <th>Reservation Fee</th>
+                            <th>Status</th>
                         </tr>
                     </thead>
                     <tbody id="appointment-list" class="appointment-table">
