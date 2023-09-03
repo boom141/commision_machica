@@ -27,11 +27,10 @@ body{
 .auth-link a:nth-child(even){
     background-color: var(--th-pal-1);
     border-radius: 6px;
-
 }
 
 .nav-item a:hover{
-    border-bottom: 2px solid white !important;
+    border-bottom: 2px solid var(--th-pal-1) !important;
 }
 
 .link-active {
@@ -50,7 +49,7 @@ body{
 }
 
 .chatbot-panel{
-    height: 70vh;
+    height: 80vh;
     margin-right: 3rem;
     box-shadow: 3px 3px 10px rgba(0,0,0,035);
     pointer-events: all;

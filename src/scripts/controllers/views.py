@@ -21,9 +21,9 @@ def services():
     return render_template('services.html')
 
 
-@views.route('/products', methods=['POST','GET'])
-def products():
-    return render_template('products.html')
+@views.route('/contact', methods=['POST','GET'])
+def contact():
+    return render_template('contactus.html')
 
 @views.route('/profile/personal_details', methods=['POST','GET'])
 def personal():

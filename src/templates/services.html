@@ -96,6 +96,34 @@
         
     </div>      
 
+
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header d-flex flex-column align-items-center row-gap-3">
+                <img width="110" height="50" src="{{url_for('static', filename='images/nav_logo.png')}}" alt="">
+              <h1 class="modal-title fs-5" id="exampleModalLabel">Machica Reservation terms and condition</h1>
+            </div>
+            <div class="modal-body">
+                <h3 class="fw-bold th-color-1 w-100 text-center fs-5">WE ARE DENTAL PROFESSIONALS WITH HIGH QUALITY DENTAL SERVICES.</h3>
+                <p class="fw-normal ">
+                    Lorem ipsum dolor, sit amet consectetur adipisicing elit. Doloremque necessitatibus culpa maiores cupiditate deserunt consequuntur modi unde excepturi quo libero magni doloribus, alias expedita. Architecto earum quibusdam debitis recusandae deserunt.
+                </p>
+                <ul>
+                    <li>The reservation fee is non-refundable</li>
+                    <li>The reservation can be canceled for any reason, but the reservation fee will be forfeited.</li>
+                    <li>The reservation is subject to availability.</li>
+                    <li>There are no refunds for changes to the reservation, including changes to the dates.</li>
+                </ul>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+
     <div id="booking-warning" class="container hide-container w-75 px-5 mt-5">
         <div class="mx-1 w-50 alert alert-warning" role="alert">
             <i class="bi bi-info-square-fill"></i> <strong>Note:</strong> Reservation is only available every sunday.

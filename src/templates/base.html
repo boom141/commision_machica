@@ -35,9 +35,9 @@
               <li class="nav-item">
                 <a class="fw-normal text-white nav-link" href="{{url_for('views.services')}}">Services</a>
               </li>
-              <!-- <li class="nav-item">
-                <a class="fw-normal text-white nav-link" href="{{url_for('views.products')}}">Products</a>
-              </li> -->
+              <li class="nav-item">
+                <a class="fw-normal text-white nav-link" href="{{url_for('views.contact')}}">Contact Us</a>
+              </li>
             </ul>
           </div>
           <div class="auth-link flex-row bg-white rounded-3 me-5">
@@ -94,9 +94,12 @@
               
             </div>
            
-            <div class="card-footer d-flex flex-row column-gap-1">
-                <input type="text" id="input-query" class="form-control" name="question" placeholder="Ask a Question..">
-                <img id="send-btn" class="send-btn" width="40" height="40" src="https://img.icons8.com/material-rounded/48/001A28/sent.png" alt="sent"/>
+            <div class="card-footer d-flex flex-column row-gap-2">
+            
+                  <input type="email" id="input-email" class="form-control" name="question" placeholder="Enter Email">
+                  <input type="text" id="input-query" class="form-control" name="question" placeholder="Ask a Question..">
+             
+                <img id="send-btn" class="send-btn align-self-end" width="40" height="40" src="https://img.icons8.com/material-rounded/48/001A28/sent.png" alt="sent"/>
             </div>
 
         </div>

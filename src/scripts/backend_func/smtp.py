@@ -69,3 +69,21 @@ class emailService:
             return True
         else:
             return result
+        
+    @classmethod
+    def send_inquiry(cls, user_data):
+        sender_address = 'otpmachica@gmail.com'
+        sender_pass = Config.OTP_PASSKEY
+
+        mail_content = f"""
+                        From {user_data['email']}
+
+                        {user_data['message']}
+                        """
+        result =  cls.send_mail(sender_pass,sender_address,'josephnaval47@gmail.com','Machica | inquiry',mail_content,'plain')
+
+                
+        if result:
+            return True
+        else:
+            return result

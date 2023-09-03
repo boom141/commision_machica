@@ -35,8 +35,8 @@ switch(window.location.href){
   case window.origin + '/services':
     navlinks[2].children[0].classList.add('link-active');
     break;
-  case window.origin + '/products':
-    navlinks[2].children[0].classList.add('link-active');
+  case window.origin + '/contact':
+    navlinks[3].children[0].classList.add('link-active');
     break;
 }
 
@@ -100,6 +100,7 @@ $("#chatbot-btn").click(()=>{
 const send_btn = document.getElementById('send-btn');
 const message_body = document.getElementById('message-body');
 const input_query = document.getElementById('input-query');
+const input_email = document.getElementById('input-email');
 
 const week = ['Sun','Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
 
@@ -119,7 +120,7 @@ const createMessageItem = (data) =>{
 
 send_btn.onclick = () =>{
 
-    if(input_query.value){
+    if(input_query.value && input_email.value){
       let date = new Date()
       let time = date.toLocaleString('en-US',{
         hour: 'numeric',
@@ -136,6 +137,28 @@ send_btn.onclick = () =>{
 
       message_body.innerHTML += createMessageItem(inquiry_data)
 
+      let payload = 
+      {
+        method: "POST",
+        headers:
+        {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify({value: {email: input_email.value, message: input_query.value}})
+      };
+      
+      fetch(`${window.origin}/sendInquiry`,payload)
+      .then(data => data.json())
+      .then(data =>{
+        if(data.value){
+          alert('Message Sent!');
+        }else{
+          alert('Message Sent Failed.');
+        }
+      })
+
+    }else{
+      alert("Inputs Fields Mus Be Filled")
     }
 
 }

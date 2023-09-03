@@ -8,6 +8,7 @@
 .service-calendar{
     width: 68%;
     overflow: hidden;
+    background-color: white !important;
 }
 
 .calendar-days{

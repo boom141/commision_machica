@@ -1,6 +1,7 @@
 from flask import Blueprint, request, session
 from src.scripts.backend_func.db_init import mongoDb
 from src.scripts.backend_func.payment import requestPayment
+from src.scripts.backend_func.smtp import emailService
 from datetime import datetime
 core = Blueprint('core', __name__)
 
@@ -161,3 +162,14 @@ def appointmentList():
         return {'value': booking_data}
     else:
         return {'value': None}
+    
+
+
+@core.route('/sendInquiry',methods=['GET', 'POST'])
+def sendInquiry():
+    data = request.get_json()
+
+    if emailService.send_inquiry(data['value']):
+        return {'value': True}
+    else:
+        return {'value': False}

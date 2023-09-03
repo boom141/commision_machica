@@ -243,7 +243,7 @@ appointment_btns.forEach(btn =>{
     booking_warning.classList.remove('hide-container');
 
     generateCalendar(currentMonth.value, currentYear.value);
-
+    $('#exampleModal').modal('show');
   }
 });
 
@@ -262,6 +262,10 @@ const create_checkout = document.getElementById('create-checkout')
 
 create_checkout.onclick = () =>{
   create_checkout.innerText = 'Creating Checkout....';
+
+  if(user === null){
+    window.location = window.origin + "/login"
+  }
 
   let booking_inputs = {
     fullname: inputs[0].value,
