@@ -22,6 +22,9 @@ switch(window.location.href){
     break;
   case window.origin + '/admin/appointments':
     admin_btns[1].classList.add('admin-btn-active');
+    break;
+  case window.origin + '/admin/records':
+    admin_btns[2].classList.add('admin-btn-active');
 }
 
 const user_list_container = document.getElementById('accordionFlushExample');
@@ -37,15 +40,6 @@ const displayUserList = (data_list) =>{
             </button>
           </h2>
           <div id="${data.email}" class="accordion-collapse collapse p-2" data-bs-parent="#accordionFlushExample">
-            <ul class="nav nav-tabs" id="myTab" role="tablist">
-                <li class="nav-item" role="presentation">
-                    <button class="nav-link active" id="home-tab" data-bs-toggle="tab" data-bs-target="#${data.email}-details" type="button" role="tab" aria-controls="home-tab-pane" aria-selected="true">Personal Details</button>
-                </li>
-                <li class="nav-item" role="presentation">
-                    <button class="nav-link user-history" id="profile-tab" data-bs-toggle="tab" data-bs-target="#${data.email}-history" type="button" role="tab" aria-controls="profile-tab-pane" aria-selected="false">History</button>
-                </li>
-          </ul>
-          <div class="tab-content" id="myTabContent">
             <div class="tab-pane fade show active py-2" id="${data.email}-details" role="tabpanel" aria-labelledby="home-tab" tabindex="0">
                 <p class="fs-6"><b>Fullname:</b> ${data.fullname}</p>
                 <p class="fs-6"><b>Birthday:</b> ${data.birthday}</p>
@@ -55,25 +49,11 @@ const displayUserList = (data_list) =>{
                 <p class="fs-6"><b>Phone:</b> ${data.phone}</p>
                 <p class="fs-6"><b>Email:</b> ${data.email}</p>
             </div>
-
-            <div class="tab-pane fade py-2 history-tab" id="${data.email}-history" role="tabpanel" aria-labelledby="profile-tab" tabindex="1">
-                
-            </div>
             
           </div>    
       </div>
   </div>`
   
-  if(data.history_data){
-    for(let value of data.history_data) {
-      document.getElementById(`${data.email}-history`).innerHTML +=
-       `<p class="fs-6 p-2 th-bg-admin1 text-white rounded-3">
-        Service: ${value.service} <br>
-        Time: ${value.time} <br>
-        Date: ${value.date}
-        </p>`
-    }     
-  }
 
 }
 }

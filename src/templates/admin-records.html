@@ -1,0 +1,50 @@
+{%extends "admin.html"%}
+{%block title%}Dashboard | Machica Dental Clinic{%endblock%}
+{%block page_style%}<link rel="stylesheet" href="{{url_for('static', filename='css/dashboard.css')}}">{%endblock%}
+
+{% block content%}
+    <div class="container">
+        <h1 class="fw-bold th-color-admin2">Records</h1>
+        <hr>
+        <div class="row">
+            <div class="mt-5">
+                <h3>User's Records</h3>
+                <hr>
+                <div class="user-list-header d-flex flex-row column-gap-2">
+                    <input id="email" type="text" name="search-user" placeholder="Filter By User < Email > " class="dashboard-filters search-user form-control">
+                     <select id="description" class="form-select dashboard-filters">
+                        <option value="" class="text-mute"> Filter By < Service > </option>
+                        <option class="services" value=" Check Up">Check Up</option>
+                        <option class="services" value=" Tooth removal">Tooth removal</option>
+                        <option class="services" value=" Fillings">Fillings</option>
+                        <option class="services" value=" Root Canal">Root Canal</option>
+                        <option class="services" value=" Braces">Braces</option>
+                        <option class="services" value=" Dental implants">Dental implants</option>
+                     </select>     
+                    <button id="user-search-records" class="btn btn-admin text-white">Search</button>
+                </div>
+                <div class=" rounded-3 mt-5">
+                    <table class="table table-bordered table-hover ">
+                        <thead>
+                            <tr class="text-center">
+                                <th class="text-white">Fullname</th>
+                                <th class="text-white">Email</th>
+                                <th class="text-white">Service</th>
+                                <th class="text-white">Date | Time</th>
+                                <th class="text-white">Status</th>
+                            </tr>
+                        </thead>
+                        <tbody id="user-records">
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    
+    
+
+{% endblock %}
+
+{% block page_javascript %} <script src="{{url_for('static',filename='js/dashboard.js')}}"></script> {% endblock %}

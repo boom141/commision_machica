@@ -1,6 +1,8 @@
-setInterval(() => {
-  document.getElementById('today-date').innerText = new Date().toLocaleString();
-}, 100);
+if(window.location.href === window.origin + "/admin/dashboard"){
+  setInterval(() => {
+    document.getElementById('today-date').innerText = new Date().toLocaleString();
+  }, 100);
+}
 
 
 const sortArrayOfObjects = (arr, propertyName, order = 'ascending') => {
@@ -63,10 +65,13 @@ const setTodayAppointments = (data_list) =>{
       appointment_update_btn.onclick = () => {
           let date = new Date()
 
+          let date_split = update_info[2].value.split("-")
+          let new_date = `${date_split[0]}-${date_split[1].split("0")[1]}-${date_split[2]}`
+
           data = 
           {
             email: update_info[0].value,
-            date: update_info[2].value,
+            date: new_date,
             message: update_info[3].value,
             current_date: `${date.getFullYear()}-${date.getMonth()+1}-${date.getDate()}`
           }
@@ -152,6 +157,7 @@ const requestAppointmentData = (date) =>{
         if(data.value !== null){
             setTodayAppointments(data.value)
         }else{
+          if(window.location.href === window.origin + "/admin/dashboard")
           alert('No Appointments Today')
         } 
           
@@ -254,3 +260,103 @@ const initAppointmentsData = (data) =>{
   });
   
   }
+
+
+
+  
+
+try{
+
+  let payload = 
+  {
+    method: "POST",
+    headers:
+    {
+        "Content-Type": "application/json"
+    },
+    body: JSON.stringify({value: null})
+  };
+
+
+
+  EndpointRequest(`${window.origin}/appointmentList`,payload)
+  .then(data => {
+    if(data.value){
+        initAppointmentList(data.value);
+    }else{
+        alert('Fetching user data failed')
+    }
+      
+  })
+  .catch(e => console.log(e))
+
+}catch(e){
+console.log(e);
+}
+
+
+
+
+
+let appointment_container = document.getElementById('user-records')
+const initAppointmentList = (data_list) =>{
+appointment_container.innerHTML = ""
+
+for(let data of data_list){
+  if(data.isDone){
+    appointment_container.innerHTML += 
+      `<tr class="text-center">
+        <td>${data.fullname}</td>
+        <td>${data.email}</td>
+        <td>${data.date} | ${data.time}</td>
+        <td>${data.description}</td>
+        <td>${(data.isDone) ? 'Done' : 'On Going'}</td>
+      </tr>
+      `
+  }
+  }
+
+}
+
+const user_search = document.getElementById('user-search-records');
+user_search.onclick = () =>{
+let dashboard_filters = document.querySelectorAll('.dashboard-filters');
+
+let payload_data = {}
+dashboard_filters.forEach(filter =>{
+  if(filter.value !== ""){
+      
+      if(filter.id === "email"){
+          payload_data[filter.id] = filter.value
+      }
+    
+      if(filter.id === "description"){
+          payload_data[filter.id] = "" +filter.value
+      }
+
+  }
+});
+
+
+let payload = 
+{
+  method: "POST",
+  headers:
+  {
+      "Content-Type": "application/json"
+  },
+  body: JSON.stringify({value: payload_data})
+};
+
+
+EndpointRequest(`${window.origin}/appointmentList`,payload)
+.then(data => {
+  if(data.value){
+      initAppointmentList(data.value);
+  }else{
+      alert('Records not found')
+  }
+    
+})
+.catch(e => console.log(e))
+}

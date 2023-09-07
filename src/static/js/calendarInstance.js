@@ -86,7 +86,7 @@ const isLeapYear = (year) => {
             .then(data =>{
               if(data.value !== null){
                 for(let value of data.value){
-                  if(!value.isDone && value.date === request_date){
+                  if(value.isDone == false && value.date === request_date){
                       day.classList.add('appointment-day');
                     }
                 }

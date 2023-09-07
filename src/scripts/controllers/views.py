@@ -79,6 +79,6 @@ def dashboard():
 def appointments():
     return render_template('appointment.html')
 
-@views.route('/admin/products')
-def adminProducts():
-    return render_template('a-products.html')
+@views.route('/admin/records')
+def adminRecords():
+    return render_template('admin-records.html')
