@@ -53,3 +53,7 @@
     margin-top: 7rem;
     margin-left: 0;
 }
+
+.hide{
+  display: none!important;
+}

@@ -19,6 +19,14 @@ const service_box = document.querySelector('.service-box');
 const cancel_form = document.getElementById('cancel-form');
 const services = document.querySelectorAll('.services');
 const booking_warning = document.getElementById('booking-warning');
+const terms_btn = document.getElementById('terms-btn');
+const condition_btn = document.getElementById('condition-btn');
+
+condition_btn.disabled = true;
+
+terms_btn.onclick = e =>{
+  condition_btn.disabled = false;
+}
 
 
 

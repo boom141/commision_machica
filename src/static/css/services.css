@@ -99,3 +99,7 @@
     width: max-content;
   }
 
+
+  .modal{
+    pointer-events: none!important;
+  }

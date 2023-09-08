@@ -61,24 +61,66 @@
                 <div class="accordion-item">
                   <h2 class="accordion-header">
                     <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-                      Accordion Item #2
+                      How to reserve an appoinment? 
                     </button>
                   </h2>
                   <div id="collapseTwo" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
                     <div class="accordion-body">
-                      <strong>This is the second item's accordion body.</strong> It is hidden by default, until the collapse plugin adds the appropriate classes that we use to style each element. These classes control the overall appearance, as well as the showing and hiding via CSS transitions. You can modify any of this with custom CSS or overriding our default variables. It's also worth noting that just about any HTML can go within the <code>.accordion-body</code>, though the transition does limit overflow.
+                      <strong>Answer : </strong> 
+                      To set an appoinment the patient must be a registered user of the website. 
+                      In the service page, clicking a certain service will display the available date for an appoiment.
+                      Be minded that reservations cannot be cancelled and cost one thousand pesos per reservation.
+                      <a href="{{url_for('views.services')}}" class="text-decoration-none"><button class="mt-3 transition-delay-3s btn text-white th-bg-1 rounded-3 p-3 d-flex column-gap-2">
+                        Book Appointment <i class="bi bi-arrow-right"></i>
+                    </button></a>
                     </div>
                   </div>
                 </div>
                 <div class="accordion-item">
                   <h2 class="accordion-header">
                     <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-                      Accordion Item #3
+                      Does reservation only available every sunday?
                     </button>
                   </h2>
                   <div id="collapseThree" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
                     <div class="accordion-body">
-                      <strong>This is the third item's accordion body.</strong> It is hidden by default, until the collapse plugin adds the appropriate classes that we use to style each element. These classes control the overall appearance, as well as the showing and hiding via CSS transitions. You can modify any of this with custom CSS or overriding our default variables. It's also worth noting that just about any HTML can go within the <code>.accordion-body</code>, though the transition does limit overflow.
+                      <strong>Answer : </strong> 
+                      Machica dental clinic only accepts reservation every sunday.
+                    </div>
+                  </div>
+                </div>
+                <div class="accordion-item">
+                  <h2 class="accordion-header">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFour" aria-expanded="false" aria-controls="collapseThree">
+                      What are the services available in Machica dental clinic?
+                    </button>
+                  </h2>
+                  <div id="collapseFour" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+                    <div class="accordion-body">
+                      <strong>Answer : </strong> 
+                      <br>
+                      Machica dental services are the following:
+                      <ul>
+                        <li>Check Up</li>
+                        <li>Tooth removal</li>
+                        <li>Fillings</li>
+                        <li>Root Canal</li>
+                        <li>Braces</li>
+                        <li>Dental implants</li>
+                      </ul>
+                    </div>
+                  </div>
+                  <div class="accordion-item">
+                    <h2 class="accordion-header">
+                      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                        Does Machica dental clinic accepts walk in client?
+                      </button>
+                    </h2>
+                    <div id="collapseThree" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+                      <div class="accordion-body">
+                        <strong>Answer : </strong> 
+                        Machica dental clinic do accept walk in client but only on weekdays and saturday.
+                      </div>
                     </div>
                   </div>
                 </div>

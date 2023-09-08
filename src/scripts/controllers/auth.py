@@ -36,6 +36,8 @@ def form_validation():
 
         password_pattern = re.compile(r"[a-zA-Z0-9_@]{8,}")
 
+        print(data)
+
         #register validations
         if 'otp' not in data:
             if not password_pattern.search(data['password']):

@@ -102,12 +102,13 @@
           <div class="modal-content">
             <div class="modal-header d-flex flex-column align-items-center row-gap-3">
                 <img width="110" height="50" src="{{url_for('static', filename='images/nav_logo.png')}}" alt="">
-              <h1 class="modal-title fs-5" id="exampleModalLabel">Machica Reservation terms and condition</h1>
+                <h3 class="fw-bold th-color-1 w-100 text-center fs-5">Machica Reservation terms and condition</h3>
             </div>
             <div class="modal-body">
-                <h3 class="fw-bold th-color-1 w-100 text-center fs-5">WE ARE DENTAL PROFESSIONALS WITH HIGH QUALITY DENTAL SERVICES.</h3>
                 <p class="fw-normal ">
-                    Lorem ipsum dolor, sit amet consectetur adipisicing elit. Doloremque necessitatibus culpa maiores cupiditate deserunt consequuntur modi unde excepturi quo libero magni doloribus, alias expedita. Architecto earum quibusdam debitis recusandae deserunt.
+                    Machica dental clinic is private business that offers high quality services. 
+                    Should the patient inquire for the services the services are to be reserve for appoinmnet
+                    and must follow the following terms and condition for the reservation.
                 </p>
                 <ul>
                     <li>The reservation fee is non-refundable</li>
@@ -115,9 +116,16 @@
                     <li>The reservation is subject to availability.</li>
                     <li>There are no refunds for changes to the reservation, including changes to the dates.</li>
                 </ul>
+                <label for="">
+                    <input type="checkbox" id="terms-btn">
+                    <span class="text-muted">
+                        I acknowledge what I have read, and do
+                        hereby accept the Machica reservation terms and conditions
+                    </span>
+                </label>
             </div>
             <div class="modal-footer">
-              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+              <button type="button" class="btn btn-secondary" id="condition-btn" data-bs-dismiss="modal">Close</button>
             </div>
           </div>
         </div>
