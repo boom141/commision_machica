@@ -108,7 +108,7 @@ class Email_confirmation:
 					</tr>
 					<tr>
 					<td align="center" style="font-family: Open Sans, Helvetica, Arial, sans-serif; font-size: 14px; font-weight: 400; line-height: 24px;">
-                    <a href=""><img width="30" height="30" src="https://img.icons8.com/ios/50/042C84/facebook-new.png" alt="facebook-new"/></a>
+                    <a href="https://www.facebook.com/profile.php?id=100065627434891"><img width="30" height="30" src="https://img.icons8.com/ios/50/042C84/facebook-new.png" alt="facebook-new"/></a>
                     <a href=""><img width="30" height="30" src="https://img.icons8.com/ios/50/042C84/instagram-new--v1.png" alt="instagram-new--v1"/></a>
                     <a href=""><img width="30" height="30" src="https://img.icons8.com/ios/50/042C84/twitterx.png" alt="twitter--v1"/></a>
 					</td>

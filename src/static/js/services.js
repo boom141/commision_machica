@@ -25,8 +25,13 @@ const condition_btn = document.getElementById('condition-btn');
 condition_btn.disabled = true;
 
 terms_btn.onclick = e =>{
-  condition_btn.disabled = false;
+  if(e.target.checked){
+    condition_btn.disabled = false;
+  }else{
+    condition_btn.disabled = true;
+  }
 }
+
 
 
 
