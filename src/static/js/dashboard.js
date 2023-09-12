@@ -23,6 +23,59 @@ const sortArrayOfObjects = (arr, propertyName, order = 'ascending') => {
     return sortedArr;
   };
 
+  const followAppointmentData = async (date) =>{
+    let payload = 
+    {
+      method: "POST",
+      headers:
+      {
+          "Content-Type": "application/json"
+      },
+      body: JSON.stringify({value: date})
+    };
+    
+
+      return fetch(`${window.origin}/dayInformation`, payload)
+      .then(data => data.json())
+      .then(data => {
+        return data.value;
+      }).catch(err => console.log(err));
+
+}
+
+
+  const setAvailableTimeSlots = (date) =>{
+    followAppointmentData(date)
+    .then(data_list =>{
+      let reserved_time_slot = []
+  
+      if(data_list !== null){
+        for(data of data_list){
+          reserved_time_slot.push(data.time)
+        }
+      }
+      
+      let timesets = document.querySelectorAll('.time-booking');
+
+      timesets.forEach((element,index) =>{
+        element.disabled = false;
+        let time = index + 1
+        element.innerText = `${time}:00pm-${time+1}:00pm`
+        element.classList.remove('text-muted');
+        if (reserved_time_slot.length !== 0){
+            if(reserved_time_slot.indexOf(element.value) !== -1){
+              element.innerText = element.innerText + '- Unavailable';
+              element.classList.add('text-muted');
+              element.disabled = true;
+          }
+        }
+      })
+    })
+  
+  
+  };
+
+
 const setTodayAppointments = (data_list) =>{
     let sched_container = document.getElementById('sched-today');
     let update_info = document.querySelectorAll('.update-info');
@@ -55,11 +108,21 @@ const setTodayAppointments = (data_list) =>{
         let update_data = document.getElementById(`${index}-update-data`)
         update_info[0].value = e.target.id
         update_info[1].value = update_data.innerText
+
         $('#exampleModal').modal('show');
 
       };
     
     })
+
+    update_info[2].onchange = e =>{
+      let date_split = e.target.value.split("-")
+      let new_date = `${date_split[0]}-${date_split[1].split("0")[1]}-${date_split[2]}`
+
+      setAvailableTimeSlots(new_date)
+
+    }
+
 
       let appointment_update_btn = document.getElementById('appointment-update-btn')
       appointment_update_btn.onclick = () => {
@@ -68,11 +131,14 @@ const setTodayAppointments = (data_list) =>{
           let date_split = update_info[2].value.split("-")
           let new_date = `${date_split[0]}-${date_split[1].split("0")[1]}-${date_split[2]}`
 
+        console.log(update_info)
+
           data = 
           {
             email: update_info[0].value,
             date: new_date,
-            message: update_info[3].value,
+            time: update_info[3].value,
+            message: update_info[4].value,
             current_date: `${date.getFullYear()}-${date.getMonth()+1}-${date.getDate()}`
           }
 

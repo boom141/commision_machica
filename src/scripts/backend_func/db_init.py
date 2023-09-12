@@ -13,6 +13,7 @@ class mongoDb:
     machica_users = db['machica_users']
     machica_bookings = db['machica_bookings']
     machica_admins = db['machica_admin']
+    machica_feedbacks = db['machica_feedbacks']
 
     @classmethod
     def register(cls,data):
@@ -77,10 +78,9 @@ class mongoDb:
             return True
         except Exception as e: 
             return False
-
+        
     @classmethod
     def UpdateBooking(cls, filter_data):
-        print(filter_data['date'])
         filter_key = {'email':filter_data['email'], 'date': filter_data['date']}
         new_data = {'$set': {'isDone':True}}
         
@@ -88,4 +88,21 @@ class mongoDb:
             cls.machica_bookings.update_one(filter_key,new_data)
             return True
         except Exception as e: 
+            return e
+        
+    
+    @classmethod
+    def SendFeedback(cls,data):
+
+        new_feedback = {
+            'email': data['email'],
+            'type': data['type'],
+            'message': data['message'],
+            'rating': data['rating'],
+        }
+
+        try:
+            cls.machica_feedbacks.insert_one(new_feedback)
+            return True
+        except Exception as e:
             return e

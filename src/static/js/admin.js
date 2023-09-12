@@ -25,6 +25,9 @@ switch(window.location.href){
     break;
   case window.origin + '/admin/records':
     admin_btns[2].classList.add('admin-btn-active');
+    break;
+  case window.origin + '/admin/feedback':
+    admin_btns[3].classList.add('admin-btn-active');
 }
 
 const user_list_container = document.getElementById('accordionFlushExample');

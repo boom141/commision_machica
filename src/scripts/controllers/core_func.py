@@ -20,9 +20,11 @@ def updateAppointment():
     data = request.get_json()
     appointment = list(mongoDb.machica_bookings.find({'email': data['email'], 'date': data['current_date']},{'_id': 0}))
 
+    print(appointment)
     new_appointment = appointment[0]
 
     new_appointment['date'] = data['date']
+    new_appointment['time'] = data['time']  
     new_appointment['message'] = data['message']
 
 
@@ -173,3 +175,25 @@ def sendInquiry():
         return {'value': True}
     else:
         return {'value': False}
+    
+
+@core.route('feedback', methods=['GET', 'POST'])
+def feedback():
+    data = request.get_json()
+
+    if mongoDb.SendFeedback(data['value']):
+        return {'value': True}
+    else:
+        return {'value': False}
+    
+
+@core.route('/feedbackList',methods=['GET', 'POST'])
+def feedbackList():
+    data = request.get_json()
+ 
+    booking_data = list(mongoDb.machica_feedbacks.find(data['value'] if data['value'] else {},{'_id': 0}))
+
+    if booking_data:
+        return {'value': booking_data}
+    else:
+        return {'value': None}

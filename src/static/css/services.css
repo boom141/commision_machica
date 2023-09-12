@@ -103,3 +103,13 @@
   .modal{
     pointer-events: none!important;
   }
+
+  .feed-star{
+    fill: lightgray;
+    cursor: pointer;
+  }
+
+  .star-point{
+    fill: rgb(255, 204, 0)!important;
+    cursor: pointer;
+  }

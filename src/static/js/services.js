@@ -3,13 +3,71 @@ const timesets = document.querySelectorAll('.time-booking');
 
 window.onload = () =>{
   if (user != null){
-      inputs[0].value = user.fullname;
-      inputs[1].value = user.phone;
-      inputs[2].value  = user.email;
-      document.getElementById('guest-mode').style.display = 'none';
-      document.getElementById('online-mode').style.display = 'block';
-      document.getElementById('profile-btn').innerText = user.fullname.split(' ')[0];
+    inputs[0].value = user.fullname;
+    inputs[1].value = user.phone;
+    inputs[2].value  = user.email;
+    document.getElementById('guest-mode').style.display = 'none';
+    document.getElementById('online-mode').style.display = 'block';
+    document.getElementById('profile-btn').innerText = user.fullname.split(' ')[0];
+
+    let occurence = Math.random();
+    let occurence_rate = 0.5
+
+    if(occurence < occurence_rate){
+      $('#feedModal').modal('show');
+    }
+  }
 }
+
+
+document.onkeydown = e =>{
+  if(e.keyCode === 119){
+    $('#feedModal').modal('show');
+  }
+};
+
+let feed_point = 0
+const feed_stars = document.querySelectorAll('.feed-star');
+feed_stars.forEach((star,index) =>{
+  star.onclick = () =>{
+    feed_stars.forEach(star => star.classList.remove('star-point'));
+    for(let i = 0; i < index + 1; i++){
+      feed_point = index + 1
+      feed_stars[i].classList.add('star-point')
+    }
+  }
+});
+
+document.getElementById('send-feed').onclick = e => {
+  let feedback_type = document.getElementById('feedback-type')
+  let feedback_message = document.getElementById('feedback-message')
+
+
+  e.target.innerText = 'Sending...';
+
+  let payload = 
+  {
+    method: "POST",
+    headers:
+    {
+        "Content-Type": "application/json"
+    },
+    body: JSON.stringify({value:{email: user.email, type: feedback_type.value, message: feedback_message.value, rating: feed_point}})
+  };
+  
+
+    fetch(`${window.origin}/feedback`, payload)
+    .then(data => data.json())
+    .then(data => {
+      if(data.value){
+        alert('Feedback sent successfully!')
+        window.location.reload()
+      }else{
+        alert('Something went wrong')
+      }
+    }).catch(err => console.log(err));
+
+
 }
 
 
@@ -73,7 +131,8 @@ const setAvailableTimeSlots = (date) =>{
 
     timesets.forEach((element,index) =>{
       element.disabled = false;
-      element.innerText = `Time ${index+1}`
+      let time = index + 1
+      element.innerText = `${time}:00pm-${time+1}:00pm`
       element.classList.remove('text-muted');
       if (reserved_time_slot.length !== 0){
           if(reserved_time_slot.indexOf(element.value) !== -1){
@@ -330,4 +389,3 @@ create_checkout.onclick = () =>{
 
 
 }
-

@@ -82,3 +82,7 @@ def appointments():
 @views.route('/admin/records')
 def adminRecords():
     return render_template('admin-records.html')
+
+@views.route('/admin/feedback')
+def adminFeedback():
+    return render_template('feedback.html')

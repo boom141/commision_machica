@@ -1,0 +1,53 @@
+{%extends "admin.html"%}
+{%block title%}Dashboard | Machica Dental Clinic{%endblock%}
+{%block page_style%}<link rel="stylesheet" href="{{url_for('static', filename='css/dashboard.css')}}">{%endblock%}
+
+{% block content%}
+    <div class="container">
+        <h1 class="fw-bold th-color-admin2">Feedbacks</h1>
+        <hr>
+        <div class="row">
+            <div class="mt-5">
+                <h3>User's Feedbacks</h3>
+                <hr>
+                <div class="user-list-header d-flex flex-row column-gap-2">
+                     <select id="type" class="form-select dashboard-filters">
+                        <option value="" class="text-mute"> Filter By < type > </option>
+                        <option value="suggestion">Suggestion</option>
+                        <option value="bug">Bug</option>
+                        <option value="others">Others</option>
+                     </select>     
+                     <select id="rating" class="form-select dashboard-filters">
+                        <option value="" class="text-mute"> Filter By < rating > </option>
+                        <option value="1">1 star</option>
+                        <option value="2">2 star</option>
+                        <option value="3">3 star</option>
+                        <option value="4">4 star</option>
+                        <option value="5">5 star</option>
+                     </select>     
+                    <button id="user-search-feedback" class="btn btn-admin text-white">Search</button>
+                </div>
+                <div class=" rounded-3 mt-5">
+                    <table class="table table-bordered table-hover ">
+                        <thead>
+                            <tr class="text-center">
+                                <th class="text-white">Email</th>
+                                <th class="text-white">Type</th>
+                                <th class="text-white">Message</th>
+                                <th class="text-white">Rating</th>
+                            </tr>
+                        </thead>
+                        <tbody id="user-feedbacks">
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    
+    
+
+{% endblock %}
+
+{% block page_javascript %} <script src="{{url_for('static',filename='js/feedback.js')}}"></script> {% endblock %}
