@@ -1,6 +1,6 @@
 
 .hero-section{
-    background-image: linear-gradient(rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0.75)), url(https://images.unsplash.com/photo-1598256989800-fe5f95da9787?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=870&q=80);
+    background-image: linear-gradient(rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0.75)), url(https://drive.google.com/uc?export=view&id=1tqz2FLe5tmU70rDifYXxrbkdfQVTYJwm);
     background-size: cover;
     background-position: center;
     margin-top: -7.5rem;
@@ -67,7 +67,7 @@
 }
 
 .about-img{
-    background-image: linear-gradient(to bottom ,rgba(255, 255, 255, 0), #042d8499), url(https://images.pexels.com/photos/5355918/pexels-photo-5355918.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2);
+    background-image: linear-gradient(to bottom ,rgba(255, 255, 255, 0), #042d8499), url(https://drive.google.com/uc?export=view&id=1E85dsCXdgGpiJgly7YQxGEBOofJ_sLGO);
     background-size: cover;
     background-position: center;
     padding: 1rem 1rem;
@@ -91,7 +91,7 @@
 }
 
 .agenda-section{
-    background-image: linear-gradient(-45deg,#042d84ce, rgba(4, 45, 132, 0.75)), url(https://images.pexels.com/photos/7787977/pexels-photo-7787977.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2);
+    background-image: linear-gradient(-45deg,#042d84ce, rgba(4, 45, 132, 0.75)), url(https://drive.google.com/uc?export=view&id=1Uw3aX26yp9fPZDi578YtDqc1P3fj_I7G);
     background-size: cover;
     background-position: center;
     height: 500px;
@@ -183,7 +183,7 @@
     background-image: linear-gradient(to bottom ,rgba(255, 255, 255, 0), #042d84), url(https://images.pexels.com/photos/3845843/pexels-photo-3845843.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2);
 }
 .service:nth-child(4){
-    background-image: linear-gradient(to bottom ,rgba(255, 255, 255, 0), #042d84), url(https://images.pexels.com/photos/6311668/pexels-photo-6311668.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2);
+    background-image: linear-gradient(to bottom ,rgba(255, 255, 255, 0), #042d84), url(https://drive.google.com/uc?export=view&id=1EZr8tjUglU5v8omVG3rmUQkrxjs0kOAj);
 }
 .service-list{
     margin-top: 3rem;
