@@ -7,7 +7,6 @@ const login_btn = document.getElementById("login-btn");
 const login_form = document.getElementsByClassName("user-input");
 const registration_form = document.getElementsByClassName("user-information");
 
-
 const EndpointRequest = async (url,payload) =>{
     let response = await fetch(url, payload)
 
@@ -76,6 +75,8 @@ document.getElementById('birthday').onchange = (e) =>{
 
 
 generate_otp.onclick = () =>{
+    let validate = true
+
     user_information.fullname = registration_form[0].value;
     user_information.birthday = registration_form[1].value;
     user_information.age = registration_form[2].value.split(' ')[0];
@@ -86,7 +87,14 @@ generate_otp.onclick = () =>{
     user_information.password = registration_form[8].value;
     user_information.r_password = registration_form[9].value;
     
+    for(let key in user_information){
+      if(user_information[key] === ""){
+        validate = false
+        break
+      }
+    }
 
+   
     generate_otp.innerText = 'Generating OTP...';
         
     let payload = 
@@ -99,17 +107,22 @@ generate_otp.onclick = () =>{
       body: JSON.stringify(user_information)
     };
 
-    EndpointRequest(`${window.origin}/form_validation`,payload)
-      .then(data => {
-          if (data.status != 401){
-            document.getElementById('target-email').innerText = user_information.email;
-            generate_otp.innerText = 'Register';
-            $('#otpModal').modal('show');
-          }else{
-            window.location.reload()
-          };
-        }
-    )
+    if(validate){
+      EndpointRequest(`${window.origin}/form_validation`,payload)
+        .then(data => {
+            if (data.status != 401){
+              document.getElementById('target-email').innerText = user_information.email;
+              generate_otp.innerText = 'Register';
+              $('#otpModal').modal('show');
+            }else{
+              window.location.reload()
+            };
+          }
+      )
+    }else{
+      alert("Input Fields Must Be Filled")
+      generate_otp.innerText = 'Register';
+    }
 };
 
 

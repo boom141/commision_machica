@@ -272,6 +272,7 @@ for (let i = 0; i <= days_of_month[month] + first_day.getDay() - 1; i++) {
                       element_day = e.target.children[0].children[0].innerText
                       selectedDay(index);
                         inputs[3].value = `${year}-${month+1}-${element_day}`;
+                        inputs[4].value = ''
                         setAvailableTimeSlots(inputs[3].value)
                     };
                   });

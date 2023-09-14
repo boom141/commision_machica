@@ -58,8 +58,8 @@ class emailService:
 
     @classmethod
     def send_confirmation(cls, user_data):
-        sender_address = 'otpmachica@gmail.com'
-        sender_pass = Config.OTP_PASSKEY
+        sender_address = 'machicaInquiry@gmail.com'
+        sender_pass = Config.INQUIRY_PASSKEY
 
         mail_content = Email_confirmation.generate_html(user_data)
 
@@ -72,17 +72,16 @@ class emailService:
         
     @classmethod
     def send_inquiry(cls, user_data):
-        sender_address = 'otpmachica@gmail.com'
-        sender_pass = Config.OTP_PASSKEY
+        sender_address = 'machicaInquiry@gmail.com'
+        sender_pass = Config.INQUIRY_PASSKEY
 
         mail_content = f"""
                         From {user_data['email']}
 
                         {user_data['message']}
                         """
-        result =  cls.send_mail(sender_pass,sender_address,'josephnaval47@gmail.com','Machica | inquiry',mail_content,'plain')
+        result =  cls.send_mail(sender_pass,sender_address,Config.MACHICA_ADMIN,'Machica | inquiry',mail_content,'plain')
 
-                
         if result:
             return True
         else:

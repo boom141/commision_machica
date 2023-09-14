@@ -90,23 +90,23 @@ const setTodayAppointments = (data_list) =>{
               <td>${data.date} | ${data.time}</td>
               <td id="${index}-update-data">${data.description}</td>
               <td class="d-flex flex-row justify-content-around">
-                  <span id="${data.email}" role="button" class="followUp-btn p-2 text-white rounded-3"> 
-                      <i class="bi bi-pencil-square"></i> Follow Up
+                  <span id="${data.email}~${data.time}" role="button" class="followUp-btn p-2 text-white rounded-3"> 
+                      <i class="bi bi-pencil-square pe-none"></i> Follow Up
                   </span>
-                  <span id="${data.email}" role="button" class="done-btn p-2 text-white rounded-3">
-                      <i class="bi bi-check-square"></i> Done
+                  <span id="${data.email}~${data.time}" role="button" class="done-btn p-2 text-white rounded-3">
+                      <i class="bi bi-check-square pe-none"></i> Done
                   </span>
               </td>
           </tr>`
         }
       })
     
-
+    let update_time_id = null
     let followUp_btns = document.querySelectorAll('.followUp-btn');
     followUp_btns.forEach((btn,index) =>{      
       btn.onclick = (e) =>{
-        update_info[0].value = e.target.id
-
+        update_info[0].value = e.target.id.split("~")[0]
+        update_time_id = e.target.id.split("~")[1]
         $('#exampleModal').modal('show');
 
       };
@@ -116,6 +116,7 @@ const setTodayAppointments = (data_list) =>{
     update_info[2].onchange = e =>{
       let date_split = e.target.value.split("-")
       let new_date = `${date_split[0]}-${date_split[1].split("0")[1]}-${date_split[2]}`
+      update_info[3].value = ''
 
       setAvailableTimeSlots(new_date)
 
@@ -123,13 +124,12 @@ const setTodayAppointments = (data_list) =>{
 
 
       let appointment_update_btn = document.getElementById('appointment-update-btn')
-      appointment_update_btn.onclick = () => {
+      appointment_update_btn.onclick = (e) => {
+          console.log(e.target.id)
           let date = new Date()
 
           let date_split = update_info[2].value.split("-")
           let new_date = `${date_split[0]}-${date_split[1].split("0")[1]}-${date_split[2]}`
-
-        console.log(update_info)
 
           data = 
           {
@@ -138,7 +138,8 @@ const setTodayAppointments = (data_list) =>{
             date: new_date,
             time: update_info[3].value,
             message: update_info[4].value,
-            current_date: `${date.getFullYear()}-${date.getMonth()+1}-${date.getDate()}`
+            current_date: `${date.getFullYear()}-${date.getMonth()+1}-${date.getDate()}`,
+            current_time:  update_time_id
           }
 
 
@@ -173,11 +174,12 @@ const setTodayAppointments = (data_list) =>{
 
             data = 
             {
-              email: e.target.id,
-              current_date: `${date.getFullYear()}-${date.getMonth()+1}-${date.getDate()}`
+              email: e.target.id.split("~")[0],
+              current_date: `${date.getFullYear()}-${date.getMonth()+1}-${date.getDate()}`,
+              current_time: e.target.id.split("~")[1]
             }
   
-  
+            
             let payload = 
             {
               method: "POST",

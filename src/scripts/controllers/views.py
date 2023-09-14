@@ -28,19 +28,23 @@ def contact():
 @views.route('/profile/personal_details', methods=['POST','GET'])
 def personal():
     if request.method == 'POST':
-        print(request.form)
+
+        gender = None
+        if request.form['custom-gender'] != '':
+            gender = request.form['custom-gender']
+        else:
+            gender = request.form['gender']
+
         new_data = {
             'fullname': request.form['fullname'],
             'birthday': request.form['birthday'],
             'age': request.form['age'],
             'address': request.form['address'],
-            'gender': request.form['gender'],    
+            'gender': gender,
             'phone': request.form['phone'],
             'email': request.form['email'],
             'password': request.form['password'],
         }
-
-        
 
         if request.form['password'] != request.form['r-password']:
             flash('Password not matched', 'warning')

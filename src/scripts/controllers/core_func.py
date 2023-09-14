@@ -18,7 +18,7 @@ def dayInformation():
 @core.route('/updateAppointment', methods=['GET', 'POST'])
 def updateAppointment():
     data = request.get_json()
-    appointment = list(mongoDb.machica_bookings.find({'email': data['email'], 'date': data['current_date']},{'_id': 0}))
+    appointment = list(mongoDb.machica_bookings.find({'email': data['email'], 'date': data['current_date'], 'time':data['current_time']},{'_id': 0}))
 
     print(appointment)
     new_appointment = appointment[0]
@@ -30,7 +30,7 @@ def updateAppointment():
 
 
     if mongoDb.AddBooking(new_appointment):
-        if mongoDb.UpdateBooking({'email': data['email'], 'date': data['current_date']}):
+        if mongoDb.UpdateBooking({'email': data['email'], 'date': data['current_date'], 'time':data['current_time']}):
             return {'value': True}
         else:
             return {'value': False}
@@ -41,7 +41,7 @@ def updateAppointment():
 def doneAppointment():
     data = request.get_json()
 
-    if mongoDb.UpdateBooking({'email': data['email'], 'date': data['current_date']}):
+    if mongoDb.UpdateBooking({'email': data['email'], 'date': data['current_date'], 'time':data['current_time']}):
         return {'value': True}
     else:
         return {'value': False}
@@ -159,7 +159,7 @@ def usreList():
 def appointmentList():
     data = request.get_json()
  
-    booking_data = list(mongoDb.machica_bookings.find(data['value'] if data['value'] else {},{'_id': 0}))
+    booking_data = list(mongoDb.machica_bookings.find(data['value'] if data['value'] else {},{'_id': 0}).sort('date', 1))
 
     if booking_data:
         return {'value': booking_data}

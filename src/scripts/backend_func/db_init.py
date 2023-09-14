@@ -45,7 +45,7 @@ class mongoDb:
             'gender': data['gender'],    
             'phone': data['phone'],
             'email': data['email'],
-            'password': generate_password_hash(data['password'], method="sha256")
+            'password': data['password']
         }}
 
         try:
@@ -81,7 +81,7 @@ class mongoDb:
         
     @classmethod
     def UpdateBooking(cls, filter_data):
-        filter_key = {'email':filter_data['email'], 'date': filter_data['date']}
+        filter_key = {'email':filter_data['email'], 'date': filter_data['date'], 'time':filter_data['time']}
         new_data = {'$set': {'isDone':True}}
         
         try:

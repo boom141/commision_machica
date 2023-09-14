@@ -22,7 +22,8 @@
 
 .admin-content{
     overflow-y: auto;
-    max-height: 710px;
+    height: 100vh;
+    /* max-height: 710px; */
 }
 
 .admin-account{
@@ -109,6 +110,10 @@ svg{
     fill: var(--th-pal-admin1)!important;
 }
 
+.user-container{
+    height: 100vh;
+}
+
 .user-list{
     height: 100vh;
     width: 30%;
@@ -143,8 +148,6 @@ svg{
 
 .user-list-container{
     overflow-y: auto;
-    height: 530px;
-    max-height: 530px!important;
 }
 
 .history-container{

@@ -11,5 +11,7 @@ class Config:
     SECRET_KEY = os.getenv('SECRET_KEY')
     SERVER = os.getenv('SERVER')
     OTP_PASSKEY = os.getenv('OTP_PASSKEY')
+    INQUIRY_PASSKEY = os.getenv('INQUIRY_PASSKEY')
+    MACHICA_ADMIN = os.getenv('MACHICA_ADMIN')
     MONGODB_URI = os.getenv('MONGODB_URI')
 

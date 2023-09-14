@@ -49,7 +49,6 @@ const isLeapYear = (year) => {
   const calendar_year = document.querySelector('#year');
   const calendar_days = document.querySelector('.calendar-days');
   
-
   const generateCalendar = (month, year) => {
     calendar_days.innerHTML = '';
     let days_of_month = [

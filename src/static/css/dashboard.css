@@ -29,3 +29,8 @@ thead tr th{
 .done-btn{
     background-color: rgb(28, 243, 139);
 }
+
+.record-list,.feedback-list{
+    overflow-y: auto!important;
+    max-height: 500px;
+}

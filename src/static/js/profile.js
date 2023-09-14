@@ -48,18 +48,22 @@ try{
     .then(data => {
       if(data.value !== null){
           initAppointmentList(data.value);
-      }else{
-          alert('Fetching user data failed')
       }
         
     })
     .catch(e => console.log(e))
 
 }catch(e){
-  console.log(e);
 }
 
+
 const registration_form = document.querySelectorAll(".user-information");
+
+const sample_gender = document.getElementById('sample-gender')
+sample_gender.onfocus = e => {
+  e.target.classList.add('hide')
+  registration_form[5].classList.remove('hide')
+}
 
 const populateUserInformation = (data_list) =>{
     for(data of data_list){
@@ -68,10 +72,10 @@ const populateUserInformation = (data_list) =>{
         registration_form[2].value = data.age;
         registration_form[3].value = data.address;
         registration_form[4].value = data.gender;
-        registration_form[5].value = data.phone;
-        registration_form[6].value = data.email;
-        registration_form[7].value = data.password;
-        registration_form[8].value = data.password;
+        registration_form[7].value = data.phone;
+        registration_form[8].value = data.email;
+        registration_form[9].value = data.password;
+        registration_form[10].value = data.password;
     }
 
 }
@@ -98,14 +102,11 @@ try{
     .then(data => {
       if(data.status !== 401){
           populateUserInformation(data.value)
-      }else{
-          alert('Fetching user data failed')
       }
         
     }).catch(e => console.log(e))
 
   }catch(e){
-    console.log(e);
   }
 
   try{
@@ -116,7 +117,6 @@ try{
       registration_form[2].value = `${date.getFullYear() - Number(birth_year)} yrs old`
     }
   }catch(e){
-    console.log(e);
   }
   
 
@@ -129,15 +129,21 @@ try{
           update_profile.classList.remove('hide-btn');
           registration_form.forEach(elem =>{
               elem.disabled = false;
-              
-              
           })
     }
 
   }catch(e){
-    console.log(e);
   }
   
 
 
+  document.getElementById('gender-selection').onchange = e =>{
+    if(e.target.value == 'custom'){
+      e.target.classList.add('hide');
+      e.target.value = "";
+      document.getElementById('custom-gender').classList.remove('hide');
+    }
+  
+  }
+  
 

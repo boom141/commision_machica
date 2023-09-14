@@ -62,7 +62,9 @@ user_search.onclick = () =>{
     if(filter.value !== ""){
         if(filter.id === "date"){
             let date_split = filter.value.split("-")
-            let new_date = `${date_split[0]}-${date_split[1].split("0")[1]}-${date_split[2].split("0")[1]}`
+            let day_split= (date_split[2].split("").includes("0")) ? date_split[2].split("0")[1] : date_split[2]
+
+            let new_date = `${date_split[0]}-${date_split[1].split("0")[1]}-${day_split}`
             payload_data[filter.id] = new_date;
         }
 

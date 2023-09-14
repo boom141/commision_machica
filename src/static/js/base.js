@@ -192,6 +192,7 @@ send_email.onclick = () =>{
     .then(data =>{
       if(data.value){
         alert('Email Sent!');
+        window.location.reload();
       }else{
         alert('Email Sent Failed.');
       }

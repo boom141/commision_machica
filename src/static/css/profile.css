@@ -56,3 +56,7 @@ thead tr th{
     background-color: var(--th-pal-1)!important;
     color: white!important;
 }
+
+.hide{
+    display: none!important;
+  }

@@ -27,13 +27,17 @@
                 <input required type="text" disabled size="10" name="address" placeholder="Enter address" class="user-information form-control" />
             </div>
             <i class="bi bi-gender-ambiguous fs-3 th-color-2"></i>
-            <div class="form-outline flex-fill  mb-0">
-                <select required name="gender" disabled class="user-information form-select">
-                    <option value="">Select Gender</option>
-                    <option value="male">Male</option>
-                    <option value="male">Female</option>
-                </select>
-            </div>
+                <div class="form-outline flex-fill  mb-0">
+                    <input type="text" disabled id="sample-gender" class="user-information form-control">
+                    <select id="gender-selection" name="gender" disabled class="hide user-information form-select">
+                        <option value="">Select Gender</option>
+                        <option value="male">Male</option>
+                        <option value="Female">Female</option>
+                        <option value="Rather not say">Rather not say</option>
+                        <option value="custom">Custom</option>
+                    </select>
+                    <input type="text" name="custom-gender" placeholder="Enter Gender" id="custom-gender" class="hide user-information form-control">
+                </div>
             </div>
     
         
