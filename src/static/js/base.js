@@ -3,13 +3,16 @@ chatbot_data = []
 
 sessionStorage.setItem('chatbot_Data',JSON.stringify(chatbot_data));
 
-window.onload = () =>{
+try{
   if (user != null){
     document.getElementById('guest-mode').style.display = 'none';
     document.getElementById('online-mode').style.display = 'block';
     document.getElementById('profile-btn').innerText = user.fullname.split(' ')[0].toUpperCase();
   }
+}catch(e){
+  console.log(e)
 }
+
 
 document.getElementById('logout-btn').onclick = () =>{
     sessionStorage.clear();
