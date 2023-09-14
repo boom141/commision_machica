@@ -105,9 +105,7 @@ const setTodayAppointments = (data_list) =>{
     let followUp_btns = document.querySelectorAll('.followUp-btn');
     followUp_btns.forEach((btn,index) =>{      
       btn.onclick = (e) =>{
-        let update_data = document.getElementById(`${index}-update-data`)
         update_info[0].value = e.target.id
-        update_info[1].value = update_data.innerText
 
         $('#exampleModal').modal('show');
 
@@ -136,6 +134,7 @@ const setTodayAppointments = (data_list) =>{
           data = 
           {
             email: update_info[0].value,
+            service: update_info[1].value,
             date: new_date,
             time: update_info[3].value,
             message: update_info[4].value,
@@ -357,7 +356,7 @@ try{
   .catch(e => console.log(e))
 
 }catch(e){
-console.log(e);
+
 }
 
 
@@ -385,44 +384,49 @@ for(let data of data_list){
 }
 
 const user_search = document.getElementById('user-search-records');
-user_search.onclick = () =>{
-let dashboard_filters = document.querySelectorAll('.dashboard-filters');
+try{
 
-let payload_data = {}
-dashboard_filters.forEach(filter =>{
-  if(filter.value !== ""){
+  user_search.onclick = () =>{
+  let dashboard_filters = document.querySelectorAll('.dashboard-filters');
+  
+  let payload_data = {}
+  dashboard_filters.forEach(filter =>{
+    if(filter.value !== ""){
+        
+        if(filter.id === "email"){
+            payload_data[filter.id] = filter.value
+        }
       
-      if(filter.id === "email"){
-          payload_data[filter.id] = filter.value
-      }
-    
-      if(filter.id === "description"){
-          payload_data[filter.id] = "" +filter.value
-      }
-
-  }
-});
-
-
-let payload = 
-{
-  method: "POST",
-  headers:
+        if(filter.id === "description"){
+            payload_data[filter.id] = "" +filter.value
+        }
+  
+    }
+  });
+  
+  
+  let payload = 
   {
-      "Content-Type": "application/json"
-  },
-  body: JSON.stringify({value: payload_data})
-};
-
-
-EndpointRequest(`${window.origin}/appointmentList`,payload)
-.then(data => {
-  if(data.value){
-      initAppointmentList(data.value);
-  }else{
-      alert('Records not found')
+    method: "POST",
+    headers:
+    {
+        "Content-Type": "application/json"
+    },
+    body: JSON.stringify({value: payload_data})
+  };
+  
+  
+  EndpointRequest(`${window.origin}/appointmentList`,payload)
+  .then(data => {
+    if(data.value){
+        initAppointmentList(data.value);
+    }else{
+        alert('Records not found')
+    }
+      
+  })
+  .catch(e => console.log(e))
   }
-    
-})
-.catch(e => console.log(e))
+}catch(e){
+  
 }

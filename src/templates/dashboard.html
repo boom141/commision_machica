@@ -59,8 +59,19 @@
             <div class="modal-body">
                 <form class="d-flex flex-column row-gap-3" >
                     <input type="email" name="email" readonly class="update-info form-control">
-                    <input type="text" name="service" readonly class="update-info form-control">
+                    
+                    <select id="services" class="update-info form-select">
+                        <option value=""> Select Service </option>
+                        <option class="services" value=" Check Up">Check Up</option>
+                        <option class="services" value=" Tooth removal">Tooth removal</option>
+                        <option class="services" value=" Fillings">Fillings</option>
+                        <option class="services" value=" Root Canal">Root Canal</option>
+                        <option class="services" value=" Braces">Braces</option>
+                        <option class="services" value=" Dental implants">Dental implants</option>
+                     </select>  
+
                     <input type="date" name="date" class="update-info form-control">
+                   
                     <select class="update-info form-select" name = "time" required>
                         <option value="">Select time</option>
                         <option class="time-booking text-dark" value="1:00pm-2:00pm">1:00pm-2:00pm</option>

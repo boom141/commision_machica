@@ -25,6 +25,7 @@ def updateAppointment():
 
     new_appointment['date'] = data['date']
     new_appointment['time'] = data['time']  
+    new_appointment['description'] = data['service']
     new_appointment['message'] = data['message']
 
 

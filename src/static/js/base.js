@@ -161,7 +161,44 @@ send_btn.onclick = () =>{
       })
 
     }else{
-      alert("Inputs Fields Mus Be Filled")
+      alert("Inputs Fields Must Be Filled")
     }
+
+}
+
+const send_email = document.getElementById('send-email')
+send_email.onclick = () =>{
+  const news_letter = document.getElementById('news-letter')
+  if(news_letter.value){
+    let inquiry_data = 
+    {
+      email: news_letter.value,
+      message: "A new subscriber has been added"
+    }
+
+
+    let payload = 
+    {
+      method: "POST",
+      headers:
+      {
+          "Content-Type": "application/json"
+      },
+      body: JSON.stringify({value: inquiry_data})
+    };
+    
+    fetch(`${window.origin}/sendInquiry`,payload)
+    .then(data => data.json())
+    .then(data =>{
+      if(data.value){
+        alert('Email Sent!');
+      }else{
+        alert('Email Sent Failed.');
+      }
+    })
+
+  }else{
+    alert("Inputs Field Must Be Filled")
+  }
 
 }

@@ -230,7 +230,6 @@ calendar_year.innerHTML = year; //current year
 
 let first_day = new Date(year, month);
 
-// requestAppointmentData(inputs[3].value);
 
 calendar_days.innerHTML = "";
 for (let i = 0; i <= days_of_month[month] + first_day.getDay() - 1; i++) {
@@ -370,6 +369,7 @@ create_checkout.onclick = () =>{
       fetch(`${window.origin}/processBooking`,payload)
       .then(data => data.json())
       .then(data => {
+          console.log(data);
           if (data.status != 401){
               create_checkout.innerText = 'Checkout';
               alert('Redirecting To Checkout');
@@ -377,7 +377,7 @@ create_checkout.onclick = () =>{
           }else{
             create_checkout.innerText = 'Checkout';
             alert('Something went wrong');
-            window.location.reload();
+            // window.location.reload();
           }
         }
       )
