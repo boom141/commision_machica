@@ -8,41 +8,41 @@
         <hr>
         <div class="row">
             <div class="mt-5">
-                <h3>User's Records</h3>
-                <hr>
-                <div class="user-list-header d-flex flex-row column-gap-2">
-                    <input id="email" type="text" name="search-user" placeholder="Filter By User < Email > " class="dashboard-filters search-user form-control">
-                     <select id="description" class="form-select dashboard-filters">
-                        <option value="" class="text-mute"> Filter By < Service > </option>
-                        <option class="services" value=" Check Up">Check Up</option>
-                        <option class="services" value=" Tooth removal">Tooth removal</option>
-                        <option class="services" value=" Fillings">Fillings</option>
-                        <option class="services" value=" Root Canal">Root Canal</option>
-                        <option class="services" value=" Braces">Braces</option>
-                        <option class="services" value=" Dental implants">Dental implants</option>
-                     </select>     
-                    <button id="user-search-records" class="btn btn-admin text-white">Search</button>
-                </div>
-                <div class="record-list rounded-3 mt-5">
-                    <table class="table table-bordered table-hover ">
-                        <thead>
-                            <tr class="text-center">
-                                <th class="text-white">Fullname</th>
-                                <th class="text-white">Email</th>
-                                <th class="text-white">Service</th>
-                                <th class="text-white">Date | Time</th>
-                                <th class="text-white">Status</th>
-                            </tr>
-                        </thead>
-                        <tbody id="user-records">
-                        </tbody>
-                    </table>
+                <h3>User List</h3>
+                <div class="col-3 p-3 w-100 border user-container d-flex flex-column">
+                    <hr>
+                    <div class="user-list-header d-flex flex-row column-gap-2">
+                        <input id="user-search-input" type="text" name="search-user" placeholder="Search User <Email> " class="search-user form-control">
+                        <button id="user-search" class="btn btn-admin text-white">Search</button>
+                    </div>
+                    <div  class="user-list-container border mt-3 rounded-3">
+                        <div class="accordion accordion-flush" id="accordionFlushExample">
+
+                        </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
 
     </div>
     
+    <div class="modal fade" id="invoiceModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content invoice-body">
+            <div id="invoice-header" class="modal-header">
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div id="invoice-content" class="modal-body">
+
+            </div>
+            <div id="invoice-footer" class="modal-footer">
+                <div role="button" id="print-btn" class="btn btn-admin text-white">Print</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
     
 
 {% endblock %}

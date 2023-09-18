@@ -20,6 +20,7 @@
 
 thead tr th{
     background-color: var(--th-pal-admin1)!important;
+    color: white !important;
 }
 
 .followUp-btn{
@@ -33,4 +34,85 @@ thead tr th{
 .record-list,.feedback-list{
     overflow-y: auto!important;
     max-height: 500px;
+}
+
+
+.chart{
+    max-height: 400px;
+    /* width: max-content; */
+}
+
+.chart1,.chart3{
+    width: 500px;
+    height: 250px;
+}
+
+.user-records{
+    overflow: auto;
+    max-height: 500px;
+}
+
+.view-btn{
+    background-color: var(--th-pal-admin1)!important;
+}
+
+.modal-dialog{
+    max-width: 700px!important;
+} 
+
+.invoice-body{
+    width: 700px!important;
+}
+
+.invoice-table{
+    width: 100%;
+}
+
+.invoice-table thead tr,
+.invoice-table tbody tr{
+    text-align: center;
+}
+
+th{
+    border: 2px solid white;
+}
+
+@media print {
+    .modal{
+        background-color: white;
+    }
+
+    #invoice-header,#invoice-footer{
+        display: none;
+    }
+
+    .modal-dialog{
+        max-width: 700px!important;
+    } 
+    
+    .modal-body{
+        padding: 1rem , 0;
+    }
+
+    .invoice-body{
+        width: 700px!important;
+    }
+    
+    .invoice-table{
+        width: 100%;
+    }
+    
+    .invoice-table thead tr,
+    .invoice-table tbody tr{
+        text-align: center;
+    }
+
+    .invoice-table thead tr th{
+        background-color: var(--th-pal-admin1)!important;
+    }
+    
+    th{
+        border: 2px solid white;
+    } 
+
 }

@@ -48,14 +48,22 @@
                   </button>
                   <ul class="dropdown-menu">
                     <li>
-                      <h6 id="profile-options" class="dropdown-item"> 
+                      <a href="{{url_for('views.personal')}}" id="profile-options" class="dropdown-item bg-white"> 
                         <i class="bi bi-person-gear"></i>
                         Profile
-                      </h6>
-                      <h6 id="logout-btn" class="dropdown-item"> 
+                      </a>
+                      <a href="{{url_for('views.personalAppointment')}}" id="profile-options" class="dropdown-item mt-3 bg-white"> 
+                        <i class="bi bi-calendar-event"></i>
+                        Appointments
+                      </a>
+                      <a href="{{url_for('views.personalRecords')}}" id="profile-options" class="dropdown-item mt-3 bg-white"> 
+                        <i class="bi bi-card-list"></i>
+                        Records
+                      </a>
+                      <a href="" id="logout-btn" class="dropdown-item mt-3 bg-white"> 
                         <i class="bi bi-box-arrow-left"></i> 
                         Logout
-                      </h6>
+                      </a>
                     </li>
                   </ul>
               </div>     

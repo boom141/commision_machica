@@ -144,7 +144,7 @@ def usreList():
         history_Data = []
         for booking in booking_data:
             if user['email'] == booking['email']:
-                history_Data.append({'service': booking['item_name'], 'date': booking['date'], 'time': booking['time']})
+                history_Data.append({'service': booking['description'], 'date': booking['date'], 'time': booking['time'], 'status': booking['isDone']})
 
         user['history_data'] = history_Data
         new_user_list.append(user)    
