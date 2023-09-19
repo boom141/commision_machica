@@ -32,6 +32,7 @@ switch(window.location.href){
     admin_btns[3].classList.add('admin-btn-active');
 }
 
+let show_information = false;
 const user_list_container = document.getElementById('accordionFlushExample');
 const displayUserList = (data_list) =>{
   user_list_container.innerHTML = " ";
@@ -55,7 +56,8 @@ const displayUserList = (data_list) =>{
             </ul>
           
             <div class="tab-content" id="myTabContent">
-                    <div class="tab-pane fade show active py-2" id="${data.email}-details" role="tabpanel"  tabindex="0">
+            <div class="tab-pane fade show active py-2 position-relative" id="${data.email}-details" role="tabpanel"  tabindex="0">
+                        <div id="${data.email}-cover" class="information-cover rounded-3"></div> 
                         <p class="fs-6"><b>Fullname:</b> ${data.fullname}</p>
                         <p class="fs-6"><b>Birthday:</b> ${data.birthday}</p>
                         <p class="fs-6"><b>Age:</b> ${data.age} yrs Old</p>
@@ -63,6 +65,9 @@ const displayUserList = (data_list) =>{
                         <p class="fs-6"><b>Gender:</b> ${data.gender}</p>
                         <p class="fs-6"><b>Phone:</b> ${data.phone}</p>
                         <p class="fs-6"><b>Email:</b> ${data.email}</p>
+                        <p id="${data.email}" role="button" class="show-btn p-2 text-white rounded-3 mt-5"> 
+                          <i class="bi bi-eye pe-none"></i> show
+                        </p>
                     </div>
 
                     <div class="tab-pane fade mt-3 rounded-3 user-records" id="${data.email}-records" role="tabpanel"  tabindex="0">
@@ -101,6 +106,24 @@ const displayUserList = (data_list) =>{
           `
       }
       }
+      
+      const show_btns = document.querySelectorAll('.show-btn');
+      show_btns.forEach(btn =>{
+        btn.onclick = e =>{
+          let cover_element = document.getElementById( `${e.target.id}-cover` );
+          if(show_information == false){
+            e.target.innerHTML = ''
+            e.target.innerHTML = '<i class="bi bi-eye-slash pe-none"></i> hide'
+            show_information = true
+            cover_element.classList.add('hide-cover');
+          }else{
+            e.target.innerHTML = ''
+            e.target.innerHTML = '<i class="bi bi-eye pe-none"></i> show'
+            show_information = false
+            cover_element.classList.remove('hide-cover');
+          }
+
+        }});
 
       const view_btns = document.querySelectorAll('.view-btn');
       view_btns.forEach(btn =>{
@@ -145,6 +168,7 @@ const displayUserList = (data_list) =>{
                             <th>Service</th>
                             <th>Date | Time</th>
                             <th>Status</th>
+                            <th>Fee</th>
                         </tr>
                     </thead>
                     <tbody id="invoice-data">
@@ -152,6 +176,7 @@ const displayUserList = (data_list) =>{
                             <td>${data.value[0].description}</td>
                             <td>${data.value[0].date} | ${data.value[0].time}</td>
                             <td>${(data.value[0].isDone) ? 'Done' : 'On Going'}</td>
+                            <td>${data.value[0].reservation_fee}</td>
                         </tr>
                     </tbody>
                 </table>

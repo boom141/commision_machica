@@ -20,7 +20,6 @@ def updateAppointment():
     data = request.get_json()
     appointment = list(mongoDb.machica_bookings.find({'email': data['email'], 'date': data['current_date'], 'time':data['current_time']},{'_id': 0}))
 
-    print(appointment)
     new_appointment = appointment[0]
 
     new_appointment['date'] = data['date']
@@ -113,8 +112,6 @@ def processAnalytics():
         
     unit_revenue = [ (value*1000) for value in service_analytics ]
     monthly_revenue = [ (value*1000) for value in service_monthly_analytics ]
-
-    print(monthly_revenue)
 
     if service_analytics:
         return {'status': 200 , 'month': monthly_revenue, 'units_sold': unit_revenue , 'value': data}

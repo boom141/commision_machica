@@ -5,7 +5,7 @@ const verify_otp = document.getElementById("verify-otp");
 const generate_otp = document.getElementById("generate-otp");
 const login_btn = document.getElementById("login-btn");
 const login_form = document.getElementsByClassName("user-input");
-const registration_form = document.getElementsByClassName("user-information");
+const registration_form = document.querySelectorAll(".user-information");
 
 const EndpointRequest = async (url,payload) =>{
     let response = await fetch(url, payload)
@@ -65,17 +65,105 @@ document.getElementById('gender-selection').onchange = e =>{
 
 }
 
+let validate_length = true;
+let validate_value = false;
 
 document.getElementById('birthday').onchange = (e) =>{
   let date = new Date()
   let birth_year = e.target.value.split('-')[0]
 
+  let set_icon = document.getElementById(`age-icon`);
+  let set_text = document.getElementById(`age-text`);
+
   registration_form[2].value = `${date.getFullYear() - Number(birth_year)} yrs old`
+  if (Number(registration_form[2].value.split(' ')[0]) < 5){
+    registration_form[2].classList.add('input-error')
+    set_icon.classList.remove('hide-error');
+    set_text.classList.remove('hide');
+    validate_value = false;
+  }else{  
+    registration_form[2].classList.remove('input-error')
+    set_icon.classList.add('hide-error');
+    set_text.classList.add('hide');
+    validate_value = true;
+  }
 }
+
+const validate_inputs = input =>{
+    let set_icon = document.getElementById(`${input.id}-icon`);
+    let set_text = document.getElementById(`${input.id}-text`);
+
+    if(input.id === 'fullname'){      
+        if(input.value.length !== 0 && input.value.length < 8){
+          input.classList.add('input-error')
+          set_icon.classList.remove('hide-error');
+          set_text.classList.remove('hide');
+          validate_value = false;
+        }else{  
+          input.classList.remove('input-error')
+          set_icon.classList.add('hide-error');
+          set_text.classList.add('hide');
+          validate_value = true;
+        }
+    }else if(input.id === 'phone'){
+      if(input.value.length > 11){
+        input.classList.add('input-error')
+        set_icon.classList.remove('hide-error');
+        set_text.classList.remove('hide');
+        validate_value = false;
+      }else{  
+        input.classList.remove('input-error')
+        set_icon.classList.add('hide-error');
+        set_text.classList.add('hide');
+        validate_value = true;
+      }
+    }else if(input.id === 'password'){
+      if(input.value.length < 8 && input.value.length !== 0 ){
+        input.classList.add('input-error')
+        set_icon.classList.remove('hide-error');
+        set_text.classList.remove('hide');
+        validate_value = false;
+      }else{  
+        input.classList.remove('input-error')
+        set_icon.classList.add('hide-error');
+        set_text.classList.add('hide');
+        validate_value = true;
+      }
+    }else if(input.id === 'email'){
+      if(!input.value.includes('@') && input.value.length !== 0 ){
+        input.classList.add('input-error')
+        set_icon.classList.remove('hide-error');
+        set_text.classList.remove('hide');
+        validate_value = false;
+      }else{  
+        input.classList.remove('input-error')
+        set_icon.classList.add('hide-error');
+        set_text.classList.add('hide');
+        validate_value = true;
+      }
+    }else if(input.id === 'r-password'){
+      if(registration_form[8].value !== input.value && input.value.length !== 0 ){
+        input.classList.add('input-error')
+        set_icon.classList.remove('hide-error');
+        set_text.classList.remove('hide');
+        validate_value = false;
+      }else{  
+        input.classList.remove('input-error')
+        set_icon.classList.add('hide-error');
+        set_text.classList.add('hide');
+        validate_value = true;
+      }
+    }
+}
+
+registration_form.forEach(input => {
+    input.onkeyup = e =>{
+      validate_inputs(e.target)
+    }
+});
 
 
 generate_otp.onclick = () =>{
-    let validate = true
 
     user_information.fullname = registration_form[0].value;
     user_information.birthday = registration_form[1].value;
@@ -89,12 +177,11 @@ generate_otp.onclick = () =>{
     
     for(let key in user_information){
       if(user_information[key] === ""){
-        validate = false
+        validate_length = false
         break
       }
     }
 
-   
     generate_otp.innerText = 'Generating OTP...';
         
     let payload = 
@@ -107,7 +194,7 @@ generate_otp.onclick = () =>{
       body: JSON.stringify(user_information)
     };
 
-    if(validate){
+    if(validate_value && validate_length){
       EndpointRequest(`${window.origin}/form_validation`,payload)
         .then(data => {
             if (data.status != 401){
@@ -120,7 +207,7 @@ generate_otp.onclick = () =>{
           }
       )
     }else{
-      alert("Input Fields Must Be Filled")
+      alert("Input Fields Error, please checked your input")
       generate_otp.innerText = 'Register';
     }
 };
