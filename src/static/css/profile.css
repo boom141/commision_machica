@@ -60,3 +60,19 @@ thead tr th{
 .hide{
     display: none!important;
   }
+
+  .input-error{
+    transition: var(--th-transition)!important;
+    border: 2px solid rgb(255, 58, 58)!important;
+  }
+  
+  .text-error{
+    color: rgb(255, 58, 58);
+    position: absolute;
+    top: 100%;
+  }
+  
+  
+.hide-error{
+    display: none!important;
+  }

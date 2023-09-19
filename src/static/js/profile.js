@@ -48,22 +48,138 @@ try{
     .then(data => {
       if(data.value !== null){
           initAppointmentList(data.value);
-      }
+        }
         
-    })
-    .catch(e => console.log(e))
-
-}catch(e){
-}
-
-
+      })
+      .catch(e => console.log(e))
+      
+    }catch(e){
+    }
+    
+let validate_value = false;
+let validate_length = true;
 const registration_form = document.querySelectorAll(".user-information");
-
+const edit_profile = document.querySelector('.edit-profile');
+const update_profile = document.querySelector('.update-profile');
+    
 const sample_gender = document.getElementById('sample-gender')
 sample_gender.onfocus = e => {
   e.target.classList.add('hide')
   registration_form[5].classList.remove('hide')
 }
+
+
+
+document.getElementById('birthday').onchange = (e) =>{
+  let date = new Date()
+  let birth_year = e.target.value.split('-')[0]
+
+  let set_icon = document.getElementById(`age-icon`);
+  let set_text = document.getElementById(`age-text`);
+
+  registration_form[2].value = `${date.getFullYear() - Number(birth_year)} yrs old`
+  if (Number(registration_form[2].value.split(' ')[0]) < 5){
+    registration_form[2].classList.add('input-error')
+    set_icon.classList.remove('hide-error');
+    set_text.classList.remove('hide');
+    validate_value = false;
+  }else{  
+    registration_form[2].classList.remove('input-error')
+    set_icon.classList.add('hide-error');
+    set_text.classList.add('hide');
+    validate_value = true;
+  }
+
+  
+  if(validate_value){
+    update_profile.disabled = false;
+  }else{
+    update_profile.disabled = true;
+  }
+}
+
+
+
+const validate_inputs = input =>{
+  let set_icon = document.getElementById(`${input.id}-icon`);
+  let set_text = document.getElementById(`${input.id}-text`);
+
+  if(input.id === 'fullname'){      
+      if(input.value.length !== 0 && input.value.length < 8){
+        input.classList.add('input-error')
+        set_icon.classList.remove('hide-error');
+        set_text.classList.remove('hide');
+        validate_value = false;
+      }else{  
+        input.classList.remove('input-error')
+        set_icon.classList.add('hide-error');
+        set_text.classList.add('hide');
+        validate_value = true;
+      }
+  }else if(input.id === 'phone'){
+    if(input.value.length > 11){
+      input.classList.add('input-error')
+      set_icon.classList.remove('hide-error');
+      set_text.classList.remove('hide');
+      validate_value = false;
+    }else{  
+      input.classList.remove('input-error')
+      set_icon.classList.add('hide-error');
+      set_text.classList.add('hide');
+      validate_value = true;
+    }
+  }else if(input.id === 'password'){
+    if(input.value.length < 8 && input.value.length !== 0 ){
+      input.classList.add('input-error')
+      set_icon.classList.remove('hide-error');
+      set_text.classList.remove('hide');
+      validate_value = false;
+    }else{  
+      input.classList.remove('input-error')
+      set_icon.classList.add('hide-error');
+      set_text.classList.add('hide');
+      validate_value = true;
+    }
+  }else if(input.id === 'email'){
+    if(!input.value.includes('@') && input.value.length !== 0 ){
+      input.classList.add('input-error')
+      set_icon.classList.remove('hide-error');
+      set_text.classList.remove('hide');
+      validate_value = false;
+    }else{  
+      input.classList.remove('input-error')
+      set_icon.classList.add('hide-error');
+      set_text.classList.add('hide');
+      validate_value = true;
+    }
+  }else if(input.id === 'r-password'){
+    if(registration_form[8].value !== input.value && input.value.length !== 0 ){
+      input.classList.add('input-error')
+      set_icon.classList.remove('hide-error');
+      set_text.classList.remove('hide');
+      validate_value = false;
+    }else{  
+      input.classList.remove('input-error')
+      set_icon.classList.add('hide-error');
+      set_text.classList.add('hide');
+      validate_value = true;
+    }
+  }
+}
+
+registration_form.forEach(input => {
+  input.onkeyup = e =>{
+    validate_inputs(e.target)
+
+
+    if(validate_value){
+      update_profile.disabled = false;
+    }else{
+      update_profile.disabled = true;
+    }
+  }
+});
+
 
 const populateUserInformation = (data_list) =>{
     for(data of data_list){
@@ -109,19 +225,9 @@ try{
   }catch(e){
   }
 
-  try{
-    document.getElementById('birthday').onchange = (e) =>{
-      let date = new Date()
-      let birth_year = e.target.value.split('-')[0]
-    
-      registration_form[2].value = `${date.getFullYear() - Number(birth_year)} yrs old`
-    }
-  }catch(e){
-  }
+
   
 
-  const edit_profile = document.querySelector('.edit-profile');
-  const update_profile = document.querySelector('.update-profile');
 
   try{
       edit_profile.onclick = (e) =>{
