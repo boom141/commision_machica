@@ -2,3 +2,9 @@
     background: linear-gradient(130deg,#32DEE0,#10A9E2);
     max-width: 1400px;  
 }
+
+@media (max-width: 500px) and (min-width: 320px){
+    .success-banner h2{
+        font-size: 1.5rem!important;
+    }
+}

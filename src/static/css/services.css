@@ -113,3 +113,32 @@
     fill: rgb(255, 204, 0)!important;
     cursor: pointer;
   }
+
+  @media (max-width: 500px) and (min-width: 320px){
+      .service-banner h1{
+        text-align: center;
+        font-size: 2rem;
+      }
+      .service-banner h4{
+          display: none!important;
+      }
+
+      .service-box .row{
+        flex-direction: column!important;
+        align-items: center;
+        row-gap: 1rem!important;
+      }
+
+      .service-box .row .card{
+        width: 100%!important;
+      }
+
+      .service-calendar{
+        flex-direction: column!important;
+        width: 90%!important;
+      }
+
+      #booking-warning{
+        width: 150%!important;
+      }
+  }

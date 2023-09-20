@@ -7,6 +7,10 @@
     box-sizing: border-box;
 }
 
+.body{
+    width: 100%!important;
+}
+
 :root{
     --th-pal-1: #042C84;
     --th-pal-2: #0086DF;

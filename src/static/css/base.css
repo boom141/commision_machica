@@ -36,7 +36,6 @@ body{
 .link-active {
     border: 2px solid var(--th-pal-1)!important;
     border-radius: 10px;
-    
 }
 
 
@@ -122,4 +121,37 @@ body{
 
 .dropdown-item:hover{
     background-color: rgba(183, 183, 183, 0.333)!important;
+}
+
+@media (max-width: 500px) and (min-width: 320px){
+    .chatbot{
+        display: none!important;
+    }
+
+    .expand-icon{
+        display: none!important;
+    }
+
+    .nav-item a{
+        text-align: center!important;
+    }
+
+    .link-active{
+        padding: .5rem .5rem!important;
+    }
+
+    .guest-mode{
+        margin-top: 1rem!important;
+        margin-right: -3rem!important;
+        justify-content: center!important;
+    }
+
+    .online-mode{
+        margin-left: 4rem!important;
+    }
+
+    .quick-links,
+    .quick-contact{
+        display: none!important;
+    }
 }

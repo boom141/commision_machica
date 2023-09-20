@@ -32,17 +32,17 @@
                     </div>    
                     <h3 class="text-white fw-normal w-25 ms-2">Mordern Technology</h3>
                 </div>
-                <div class="animated right col-6 p-2 d-flex flex-column justify-content-end">
+                <div class="animated about-expand right col-6 p-2 d-flex flex-column justify-content-end">
                     <h1 class="th-color-2 ms-3 w-75 ">Here’s What We </h1>
                     <div class="d-flex column-gap-3">
-                        <h1 class="th-color-2 ms-3 ">bring.</h1>
+                        <h1 class="th-color-2 ms-3 ">bring</h1>
                         <a class="text-decoration-none" href="{{url_for('views.about')}}"><button class="btn text-white th-bg-1 rounded-3 d-flex column-gap-2">
                             Learn More <i class="bi bi-arrow-right"></i>
                         </button></a>
                     </div>
                 </div>
             </div>
-            <div class="row h-50 w-100">
+            <div class="row h-50 w-100 ">
                 <div class="expertise animated left  col-3 th-bg-2 rounded-3 d-flex flex-column justify-content-start row-gap-4">
                     <div class="p-1 border border-2 border-white">
                         <img class="bg-white p-2" width="70" height="70" src="https://img.icons8.com/ios-filled/50/0086DF/task.png" alt="medical-doctor"/>
@@ -56,6 +56,23 @@
                     </p>
                 </div>
             </div>
+        </div>
+    </div>
+
+    <div class="container-fluid about-section-2">
+        <div class="container d-flex flex-column align-items-center">
+            <h2 class="d-flex flex-row th-color-2 fw-bold">
+                 Here's What We Bring 
+            </h2>
+            <div class="animated bottom about-img rounded-3 d-flex flex-column justify-content-center align-items-center mt-5">
+                <h4 class="text-white w-100 fw-bold text-center">Quality Services is What We Provide.</h4>
+                <p class="text-white w-100 fw-light fs-5 d-flex flex-row text-center">
+                    Machica dental clinic provides not only quality services, but also an amazing experience.
+                </p>
+            </div>
+            <a class="text-decoration-none mt-5" href="{{url_for('views.about')}}"><button class="btn text-white th-bg-1 rounded-3 d-flex column-gap-2">
+                Learn More <i class="bi bi-arrow-right"></i>
+            </button></a>
         </div>
     </div>
 
@@ -75,7 +92,7 @@
                 </div>
             </div>
     
-            <div class="animated right  vision d-flex flex-row column-gap-3 ">
+            <div class="animated right vision d-flex flex-row column-gap-3 ">
                 <img width="50" height="50" src="https://img.icons8.com/ios-filled/50/FFFFFF/best-seller.png" alt="best-seller"/>
                 <span class="bg-white"></span>
                 <div class="a-content">
@@ -87,13 +104,33 @@
                     </p>
                 </div>
             </div>
+
+            <div class="d-flex flex-column agenda-section-2 animated bottom">
+                <img width="50" height="50" src="https://img.icons8.com/ios-filled/50/FFFFFF/customer-insight.png" alt="best-seller"/>
+                <span class="bg-white"></span>
+                <div class="a-content w-100">
+                    <h3 class="text-white fw-bold">Organization's Experience.</h3>
+                    <p class="text-white fw-lighter fs-5">
+                        From routine check-ups to advanced treatments, our dental clinic 
+                        provides a wide range of services.
+                    </p>
+                </div>
+                <img width="50" height="50" src="https://img.icons8.com/ios-filled/50/FFFFFF/best-seller.png" alt="best-seller"/>
+                <span class="bg-white"></span>
+                <div class="a-content w-100">
+                    <h3 class="text-white fw-bold">Organization's Quality.</h3>
+                    <p class="text-white fw-lighter fs-5">
+                        We believe in enhancing your dental experience by utilizing cutting-edge technology.
+                    </p>
+                </div>
+            </div>
         </div>
     </div>
 
     <div class="service-section container">
         <div class="row animated left">
             <div class="service-caption col-12 p-2 d-flex flex-column justify-content-end w-75">
-                <h1 class="th-color-2 ms-3 w-75 ">The Services We</h1>
+                <h1 class="th-color-2 ms-3 w-75 ">Services We</h1>
                 <div class="d-flex column-gap-3 ">
                     <h1 class="th-color-2 ms-3 ">Offer</h1>
                     <a href="{{url_for('views.services')}}" class="text-decoration-none"><button class="btn text-white th-bg-1 rounded-3 d-flex flex-row justify-content-center  column-gap-2">
@@ -124,6 +161,31 @@
                 <img width="500" height="700" src="https://drive.google.com/uc?export=view&id=1apD_63AJr9eGigaViTTeBgnU5-gCBAdP" alt="">
             </div>
         </div>
+
+        <div class="service-section-2 d-flex flex-column align-items-center">
+            <h3 class="w-100 fw-bold text-center th-color-2">Services We Offer</h3>
+            <div class="service-list-2 animated bottom mt-5">
+                <div class="service  rounded-4 b-shadow d-flex flex-row align-items-end">
+                    <h1 class="text-white w-100 px-3 fw-bold">Check Up</h1>
+
+                </div>
+                <div class="service rounded-4 b-shadow d-flex flex-row align-items-end">
+                    <h1 class="text-white w-75 px-3 fw-bold">Braces</h1>
+
+                </div>
+                <div class="service rounded-4 b-shadow d-flex flex-row align-items-end">
+                    <h1 class="text-white w-75 px-3 fw-bold">Tooth Removal</h1>
+        
+                </div>
+                <div class="service rounded-4 b-shadow d-flex flex-row align-items-end">
+                    <h1 class="text-white w-75 px-3 fw-bold">Fillings</h1>
+                </div>
+            </div>
+            <a href="{{url_for('views.services')}}" class="text-decoration-none mt-5"><button class="btn text-white th-bg-1 rounded-3 d-flex flex-row justify-content-center  column-gap-2">
+                Book Appointment <i class="bi bi-arrow-right"></i>
+            </button></a>
+        </div>
+
     </div>
 
 {% endblock %}

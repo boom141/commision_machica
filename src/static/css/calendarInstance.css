@@ -94,3 +94,10 @@
 .card-appointment{
     background-color: var(--th-pal-1)!important;
 }
+
+@media (max-width: 500px) and (min-width: 320px){
+    .day{
+       font-size: 1rem !important;
+       padding: .1rem .1rem!important;
+    }
+}

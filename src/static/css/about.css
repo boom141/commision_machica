@@ -5,3 +5,9 @@
 .people{
     width: 30rem;
 }
+
+@media (max-width: 500px) and (min-width: 320px){
+    .people{
+        width: 25rem!important;
+    }
+}
