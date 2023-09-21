@@ -8,8 +8,7 @@ user = JSON.parse(sessionStorage.getItem('user'));
   }
 
 
-const availScreenWidth  = window.screen.availWidth;
-const availScreenHeight = window.screen.availHeight;
+
 
 const EndpointRequest = async (url,payload) =>{
     let response = await fetch(url, payload)
@@ -31,24 +30,6 @@ switch(window.location.href){
     break;
   case window.origin + '/admin/feedback':
     admin_btns[3].classList.add('admin-btn-active');
-}
-
-if(availScreenWidth < 500 && availScreenWidth > 320){
-  console.log('hello')
-  switch(window.location.href){
-    case window.origin + '/admin/dashboard':
-      admin_btns[0].classList.add('admin-btn-active');
-      break;
-    case window.origin + '/admin/appointments':
-      admin_btns[1].classList.add('admin-btn-active');
-      break;
-    case window.origin + '/admin/records':
-      admin_btns[2].classList.add('admin-btn-active');
-      break;
-    case window.origin + '/admin/feedback':
-      admin_btns[3].classList.add('admin-btn-active');
-  }
-  
 }
 
 let show_information = false;
