@@ -8,7 +8,8 @@ user = JSON.parse(sessionStorage.getItem('user'));
   }
 
 
-
+const availScreenWidth  = window.screen.availWidth;
+const availScreenHeight = window.screen.availHeight;
 
 const EndpointRequest = async (url,payload) =>{
     let response = await fetch(url, payload)
@@ -30,6 +31,24 @@ switch(window.location.href){
     break;
   case window.origin + '/admin/feedback':
     admin_btns[3].classList.add('admin-btn-active');
+}
+
+if(availScreenWidth < 500 && availScreenWidth > 320){
+  console.log('hello')
+  switch(window.location.href){
+    case window.origin + '/admin/dashboard':
+      admin_btns[0].classList.add('admin-btn-active');
+      break;
+    case window.origin + '/admin/appointments':
+      admin_btns[1].classList.add('admin-btn-active');
+      break;
+    case window.origin + '/admin/records':
+      admin_btns[2].classList.add('admin-btn-active');
+      break;
+    case window.origin + '/admin/feedback':
+      admin_btns[3].classList.add('admin-btn-active');
+  }
+  
 }
 
 let show_information = false;
@@ -183,11 +202,11 @@ const displayUserList = (data_list) =>{
                 <hr class="mt-5">
                 <div class="d-flex flex-row justify-content-between align-items-center">
                     <img width="110" height="50" src="https://drive.google.com/uc?export=view&id=19p7oorbHwdopExU0lH2w-Jq4hBbYjEyn" alt="">
-                    <div>
+                    <div class="dentist-info">
                         <h6>Dr.Natividad Abuda Machica</h6>
                         <h6 class="text-muted"><i>General Dentistry Orthodontics</i></h6>
                     </div>
-                    <div>
+                    <div class="dentist-contact">
                         <h6>0919-538-8143</h6>
                         <h6>natzddm@yahoo.com</h6>
                     </div>

@@ -11,6 +11,7 @@
 
 .admin-banner img{
     margin-top: 0rem;
+    height: 300px;
 }
 
 .sched-today{
@@ -96,6 +97,34 @@ th{
     border: 2px solid white;
 }
 
+@media (max-width: 500px) and (min-width: 320px){
+        .charts{
+            flex-direction: column!important;
+        }
+
+        .admin-banner img{
+            height: 150px!important;
+            margin-top: 3rem!important;
+        }
+
+        .admin-banner h4{
+            font-size: 1.5rem!important;
+        }
+
+        .chart1,.chart3{
+            width: 400px;
+            height: 250px;
+        }
+
+        .invoice-body{
+            width: 100%!important;
+        }
+        
+        .dentist-info h6, .dentist-contact h6{
+            font-size: .5rem;
+        }
+}
+
 @media print {
     .modal{
         background-color: white;
@@ -133,5 +162,7 @@ th{
     th{
         border: 2px solid white;
     } 
+
+
 
 }

@@ -154,4 +154,8 @@ body{
     .quick-contact{
         display: none!important;
     }
+
+    .email-based{
+        width: 10rem!important;
+    }
 }

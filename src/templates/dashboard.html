@@ -13,10 +13,10 @@
                     <h5 class="text-white fw-light">Have a nice Week!</h5>
                     <h5 class="today-date p-2 mt-3 rounded-3 text-white fw-light"><i class="bi bi-calendar-week-fill"></i> <span id="today-date">Sample Date</span></h5>
                 </div>
-                <img height="300" src="{{url_for('static', filename='images/banner-logo.png')}}" alt="">
+                <img src="{{url_for('static', filename='images/banner-logo.png')}}" alt="">
             </div>
             <hr>
-            <div class="d-flex flex-row justify-content-around mt-5 row-gap-5">
+            <div class="d-flex flex-row justify-content-around mt-5 row-gap-5 charts">
                 <div class="chart chart1 border rounded-3">
                     <canvas id="Monthly-Bar" class="w-100"></canvas>
                 </div>
