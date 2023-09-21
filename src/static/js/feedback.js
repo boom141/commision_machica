@@ -32,7 +32,6 @@ try{
 
 
 
-
 let feedback_container = document.getElementById('user-feedbacks')
 const initAppointmentList = (data_list) =>{
   feedback_container.innerHTML = ""
