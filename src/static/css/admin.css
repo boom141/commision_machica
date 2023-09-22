@@ -23,6 +23,7 @@
 .admin-content{
     overflow-y: auto;
     height: 100vh;
+    z-index: 1000;
     /* max-height: 710px; */
 }
 
